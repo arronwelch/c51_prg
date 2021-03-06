@@ -5,6 +5,15 @@ typedef unsigned int u16;
 
 sbit led = P0 ^ 0;
 
+void delay()
+{
+	while (i--)
+	{
+		/* code */
+	}
+	
+}
+
 void Delay500ms() //@11.973MHz
 {
     unsigned char i, j, k;
