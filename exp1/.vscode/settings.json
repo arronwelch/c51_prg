@@ -1,0 +1,29 @@
+{
+    // 控制是否根据文档中的文字计算自动完成列表。
+    "editor.wordBasedSuggestions": false,
+    // tab键补全
+    "editor.tabCompletion": "on",
+    // 词语优先级
+    "editor.suggest.localityBonus": true,
+    // 这里更改为根据之前的补全进行排序
+    "editor.suggestSelection": "recentlyUsed",
+    "files.associations": {
+        "*.txt": "c",
+        "*.prj": "c",
+        "*.prg": "c",
+        "*.sd": "c",
+        "*.sr": "c",
+        "*.hed": "c",
+        "*.tim": "c",
+        "*.dec": "c",
+        "*.pln": "c",
+        "*.pat": "c",
+        "*.bak": "c",
+        "*.log": "c",
+        "*.sum": "c",
+        "reg52.h": "c",
+        "REG52.H": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.clang_format_fallbackStyle": "Visual Studio"
+}
