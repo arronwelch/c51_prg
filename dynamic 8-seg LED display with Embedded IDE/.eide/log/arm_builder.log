@@ -1,0 +1,12 @@
+[2021-03-07 17:41:26]	[done]
+	build successfully !
+
+[2021-03-07 17:57:18]	compilation failed at : "d:\study\C51\c51_prg\dynamic 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 17:57:54]	[done]
+	build successfully !
+
+[2021-03-07 18:01:46]	[done]
+	build successfully !
+
