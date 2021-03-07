@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  16:03:40  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  16:47:10  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\LED chaser with Embedded IDE (MAIN)
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  16:03:40  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  16:47:10  PAGE 2
 
 
       01000003H   CODE     ---       ?C_START

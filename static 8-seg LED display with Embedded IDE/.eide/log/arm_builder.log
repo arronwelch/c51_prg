@@ -1,3 +1,72 @@
 [2021-03-07 15:30:42]	[done]
 	build successfully !
 
+[2021-03-07 16:28:20]	[done]
+	build successfully !
+
+[2021-03-07 16:29:00]	[done]
+	build successfully !
+
+[2021-03-07 16:30:00]	[done]
+	build successfully !
+
+[2021-03-07 16:33:56]	[done]
+	build successfully !
+
+[2021-03-07 16:35:29]	[done]
+	build successfully !
+
+[2021-03-07 16:40:33]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:41:15]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:41:50]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:42:52]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:43:32]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:44:24]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:45:46]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:47:56]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:48:08]	[done]
+	build successfully !
+
+[2021-03-07 16:48:53]	[done]
+	build successfully !
+
+[2021-03-07 16:50:15]	[done]
+	build successfully !
+
+[2021-03-07 16:51:07]	[done]
+	build successfully !
+
+[2021-03-07 16:52:21]	[done]
+	build successfully !
+
+[2021-03-07 16:53:14]	[done]
+	build successfully !
+
+[2021-03-07 16:53:41]	[done]
+	build successfully !
+
+[2021-03-07 16:56:18]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:56:34]	compilation failed at : "d:\study\C51\c51_prg\static 8-seg LED display with Embedded IDE\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-07 16:57:14]	[done]
+	build successfully !
+

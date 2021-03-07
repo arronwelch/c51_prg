@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  15:30:42  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  16:57:14  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -21,7 +21,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\static 8-seg LED display with Em
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000019H   CODE
+C:000000H   C:000000H   C:00FFFFH   00004FH   CODE
 C:000000H   C:000000H   C:00FFFFH   000010H   CONST
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 I:000000H   I:000000H   I:00007FH   000008H   DATA
@@ -39,9 +39,10 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   00000EH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-00000FH   000018H   00000AH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000019H   000028H   000010H   BYTE   UNIT     CONST          ?CO?MAIN
+000003H   000025H   000023H   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+000026H   000042H   00001DH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000043H   00004EH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00004FH   00005EH   000010H   BYTE   UNIT     CONST          ?CO?MAIN
 
 
 
@@ -55,6 +56,9 @@ FUNCTION/MODULE              BIT_GROUP   DATA_GROUP
   +--> MAIN/MAIN
 
 MAIN/MAIN                   ----- -----  ----- -----
+  +--> _DELAY/MAIN
+
+_DELAY/MAIN                 ----- -----  ----- -----
 
 
 
@@ -63,15 +67,16 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\static 8-seg LED display with Embedded 
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  16:57:14  PAGE 2
+
+
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-      0100000FH   CODE     ---       ?C_START
+      01000026H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  15:30:42  PAGE 2
-
-
-      0100000FH   CODE     ---       main
-      01000019H   CONST    ---       NsegCode
+      0100000FH   CODE     ---       _delay
+      01000026H   CODE     ---       main
+      0100004FH   CONST    ---       NsegCode
 
 
 
@@ -80,14 +85,24 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\static 8-seg LED display with Embedded ID
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       MAIN
-      01000019H   PUBLIC    CONST    ---       NsegCode
-      0100000FH   PUBLIC    CODE     ---       main
+      0100004FH   PUBLIC    CONST    ---       NsegCode
+      01000026H   PUBLIC    CODE     ---       main
+      0100000FH   PUBLIC    CODE     ---       _delay
+
+      01000003H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
 
       0100000FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000026H   BLOCK     CODE     ---       LVL=0
+      01000026H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000003H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
-Program Size: data=9.0 xdata=0 const=16 code=25
+Program Size: data=9.0 xdata=0 const=16 code=79
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

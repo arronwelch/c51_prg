@@ -1,4 +1,4 @@
 {
     "device": "auto",
-    "baudrate": "9600"
+    "baudrate": "115200"
 }

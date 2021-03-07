@@ -4,6 +4,13 @@
 typedef unsigned char u8;
 typedef unsigned int u16;
 
+void delay(u16 t, u16 c)
+{
+    while (c--)
+        while (t--)
+            ;
+}
+
 //Common GND
 // ---a---
 // |     |
@@ -21,8 +28,15 @@ u8 code NsegCode[16] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x
 
 void main()
 {
-    P0 = ~NsegCode[2]; //Common positive
+    u8 i;
+    P0 = ~NsegCode[0]; //Common positive
+    delay(50000, 8);
     while (1)
     {
+        for (i = 0; i < 16; i++)
+        {
+            P0 = ~NsegCode[i];
+            delay(50000, 8);
+        }
     }
 }
