@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  15:54:05  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  18:35:11  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -21,7 +21,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\blink an LED with Embedded IDE (
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   00002CH   CODE
+C:000000H   C:000000H   C:00FFFFH   00002EH   CODE
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 I:000000H   I:000000H   I:00007FH   000008H   DATA
 
@@ -38,9 +38,9 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   000014H   000012H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000015H   000020H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-000021H   00002BH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+000003H   000016H   000014H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000017H   000022H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+000023H   00002DH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
 
 
 
@@ -67,12 +67,12 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\blink an LED with Embedded IDE (MAIN)
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  15:54:05  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  18:35:11  PAGE 2
 
 
       01000003H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      01000021H   CODE     ---       _delay
+      01000023H   CODE     ---       _delay
       01000003H   CODE     ---       main
 
 
@@ -83,9 +83,9 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\blink an LED with Embedded IDE (MAIN)
       ====================================================
       ---         MODULE    ---      ---       MAIN
       01000003H   PUBLIC    CODE     ---       main
-      01000021H   PUBLIC    CODE     ---       _delay
+      01000023H   PUBLIC    CODE     ---       _delay
 
-      01000021H   BLOCK     CODE     ---       LVL=0
+      01000023H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000003H   BLOCK     CODE     ---       LVL=0
@@ -94,5 +94,5 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\blink an LED with Embedded IDE (MAIN)
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
-Program Size: data=9.0 xdata=0 const=0 code=44
+Program Size: data=9.0 xdata=0 const=0 code=46
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

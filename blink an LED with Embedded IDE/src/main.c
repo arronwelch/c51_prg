@@ -13,8 +13,11 @@ void delay(u16 i)
 
 void main()
 {
-    led = 1;
-    delay(50000);
-    led = 0;
-    delay(50000);
+    while (1)
+    {
+        led = 1;
+        delay(50000);
+        led = 0;
+        delay(50000);
+    }
 }

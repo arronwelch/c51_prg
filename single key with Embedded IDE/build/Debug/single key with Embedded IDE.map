@@ -1,9 +1,9 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  18:35:40  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  18:42:30  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
-C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\DEBUG\MAIN.O TO .\build\Debug\LED chaser with Embedded IDE PRINT (.\build\Debug\LED 
->> chaser with Embedded IDE.map) REMOVEUNUSED
+C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\DEBUG\MAIN.O TO .\build\Debug\single key with Embedded IDE PRINT (.\build\Debug\sing
+>> le key with Embedded IDE.map) REMOVEUNUSED
 
 
 CPU MODE:     8051 MODE
@@ -17,16 +17,16 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 1: A51 / ASM51 Assembler
 
 
-ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\LED chaser with Embedded IDE (MAIN)
+ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\single key with Embedded IDE (MAIN)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000060H   CODE
+C:000000H   C:000000H   C:00FFFFH   000034H   CODE
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 I:000000H   I:000000H   I:00007FH   000008H   DATA
 
 
-MEMORY MAP OF MODULE:  .\build\Debug\LED chaser with Embedded IDE (MAIN)
+MEMORY MAP OF MODULE:  .\build\Debug\single key with Embedded IDE (MAIN)
 
 
 START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
@@ -38,13 +38,14 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   000042H   000040H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000043H   000053H   000011H   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-000054H   00005FH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+000003H   000015H   000013H   BYTE   UNIT     CODE           ?PR?KEYCTRL?MAIN
+000016H   000021H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+000022H   00002CH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+00002DH   000033H   000007H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
 
 
 
-OVERLAY MAP OF MODULE:   .\build\Debug\LED chaser with Embedded IDE (MAIN)
+OVERLAY MAP OF MODULE:   .\build\Debug\single key with Embedded IDE (MAIN)
 
 
 FUNCTION/MODULE              BIT_GROUP   DATA_GROUP 
@@ -54,51 +55,53 @@ FUNCTION/MODULE              BIT_GROUP   DATA_GROUP
   +--> MAIN/MAIN
 
 MAIN/MAIN                   ----- -----  ----- -----
+  +--> KEYCTRL/MAIN
+
+KEYCTRL/MAIN                ----- -----  ----- -----
   +--> _DELAY/MAIN
 
 _DELAY/MAIN                 ----- -----  ----- -----
 
 
 
-PUBLIC SYMBOLS OF MODULE:  .\build\Debug\LED chaser with Embedded IDE (MAIN)
+PUBLIC SYMBOLS OF MODULE:  .\build\Debug\single key with Embedded IDE (MAIN)
+
+
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  18:42:30  PAGE 2
 
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  18:35:40  PAGE 2
-
-
-      01000003H   CODE     ---       ?C_START
+      0100002DH   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      01000049H   CODE     ---       _delay
-      01000003H   CODE     ---       main
+      01000022H   CODE     ---       _delay
+      01000003H   CODE     ---       keyCtrl
+      0100002DH   CODE     ---       main
 
 
 
-SYMBOL TABLE OF MODULE:  .\build\Debug\LED chaser with Embedded IDE (MAIN)
+SYMBOL TABLE OF MODULE:  .\build\Debug\single key with Embedded IDE (MAIN)
 
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       MAIN
-      01000003H   PUBLIC    CODE     ---       main
-      01000049H   PUBLIC    CODE     ---       _delay
+      0100002DH   PUBLIC    CODE     ---       main
+      01000003H   PUBLIC    CODE     ---       keyCtrl
+      01000022H   PUBLIC    CODE     ---       _delay
 
-      01000043H   BLOCK     CODE     ---       LVL=0
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      01000049H   BLOCK     CODE     ---       LVL=0
+      01000022H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000003H   BLOCK     CODE     ---       LVL=0
-      01000003H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000005H   SYMBOL    DATA     VOID      i
-      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100002DH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
-Program Size: data=9.0 xdata=0 const=0 code=96
+Program Size: data=9.0 xdata=0 const=0 code=52
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
