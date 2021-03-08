@@ -1,0 +1,122 @@
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/08/2021  18:23:00  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\DEBUG\MAIN.O TO .\build\Debug\Matrix Keyboard PRINT (.\build\Debug\Matrix Keyboard.m
+>> ap) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\DEBUG\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\Matrix Keyboard (MAIN)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   0000BAH   CODE
+I:000000H   I:000000H   I:00007FH   00000CH   DATA
+C:000000H   C:000000H   C:00FFFFH   000011H   CONST
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\build\Debug\Matrix Keyboard (MAIN)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   00000AH   000003H   BYTE   UNIT     DATA           ?DT?MAIN
+00000BH   00000BH   000001H   BYTE   UNIT     DATA           _DATA_GROUP_
+00000CH   00000CH   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   000094H   000092H   BYTE   UNIT     CODE           ?PR?MATRIXKEY?MAIN
+000095H   0000A2H   00000EH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+0000A3H   0000AEH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+0000AFH   0000B9H   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+0000BAH   0000CAH   000011H   BYTE   UNIT     CONST          ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\build\Debug\Matrix Keyboard (MAIN)
+
+
+FUNCTION/MODULE              BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE  START  STOP  START  STOP
+====================================================
+?C_C51STARTUP               ----- -----  ----- -----
+  +--> MAIN/MAIN
+
+MAIN/MAIN                   ----- -----  ----- -----
+  +--> MATRIXKEY/MAIN
+
+MATRIXKEY/MAIN              ----- -----  000BH 000BH
+  +--> _DELAY/MAIN
+
+_DELAY/MAIN                 ----- -----  ----- -----
+
+
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/08/2021  18:23:00  PAGE 2
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\build\Debug\Matrix Keyboard (MAIN)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+      00000000H   NUMBER   ---       ?C?CODESEG
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      01000095H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+      010000AFH   CODE     ---       _delay
+      00000008H   DATA     BYTE      column
+      00000009H   DATA     BYTE      coordinates
+      01000095H   CODE     ---       main
+      01000003H   CODE     ---       MatrixKey
+      010000BAH   CONST    ---       NsegCode
+      0000000AH   DATA     BYTE      row
+
+
+
+SYMBOL TABLE OF MODULE:  .\build\Debug\Matrix Keyboard (MAIN)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       MAIN
+      0000000AH   PUBLIC    DATA     BYTE      row
+      00000009H   PUBLIC    DATA     BYTE      coordinates
+      00000008H   PUBLIC    DATA     BYTE      column
+      010000BAH   PUBLIC    CONST    ---       NsegCode
+      01000095H   PUBLIC    CODE     ---       main
+      01000003H   PUBLIC    CODE     ---       MatrixKey
+      010000AFH   PUBLIC    CODE     ---       _delay
+
+      010000AFH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000003H   BLOCK     CODE     ---       LVL=0
+      01000003H   BLOCK     CODE     NEAR LAB  LVL=1
+      0000000BH   SYMBOL    DATA     VOID      loop_delay
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000095H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+Program Size: data=13.0 xdata=0 const=17 code=186
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
