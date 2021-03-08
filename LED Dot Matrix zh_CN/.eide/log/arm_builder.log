@@ -1,0 +1,21 @@
+[2021-03-09 01:22:21]	compilation failed at : "d:\study\C51\c51_prg\LED Dot Matrix zh_CN\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-09 01:22:26]	compilation failed at : "d:\study\C51\c51_prg\LED Dot Matrix zh_CN\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-09 01:23:08]	[done]
+	build successfully !
+
+[2021-03-09 01:49:36]	[done]
+	build successfully !
+
+[2021-03-09 01:52:58]	[done]
+	build successfully !
+
+[2021-03-09 01:55:23]	[done]
+	build successfully !
+
+[2021-03-09 01:57:45]	[done]
+	build successfully !
+
