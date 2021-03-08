@@ -101,10 +101,24 @@ void DigDisplay()
     }
 }
 
+void DigDisplay1()
+{
+    u8 i;
+    for (i = 0; i < 8; i++)
+    {   
+        LSA = i&0x01;
+        LSB = (i&0x02)>>1;
+        LSC = (i&0x04)>>2;
+        P0 = NsegCode[1+i];
+        delay(100); //delay 1ms
+        P0 = 0X00;  //clear
+    }
+}
+
 void main()
 {
     while (1)
     {
-        DigDisplay();
+        DigDisplay1();
     }
 }

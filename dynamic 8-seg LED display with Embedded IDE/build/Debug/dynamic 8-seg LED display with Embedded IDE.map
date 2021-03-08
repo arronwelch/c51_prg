@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  18:01:46  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/08/2021  18:49:34  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -21,7 +21,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\dynamic 8-seg LED display with E
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000093H   CODE
+C:000000H   C:000000H   C:00FFFFH   000058H   CODE
 C:000000H   C:000000H   C:00FFFFH   000010H   CONST
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 I:000000H   I:000000H   I:00007FH   000008H   DATA
@@ -39,11 +39,14 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   000076H   000074H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
-000077H   000082H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-000083H   00008DH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-00008EH   000092H   000005H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000093H   0000A2H   000010H   BYTE   UNIT     CONST          ?CO?MAIN
+000003H   000030H   00002EH   BYTE   UNIT     CODE           ?PR?DIGDISPLAY1?MAIN
+000031H   000046H   000016H   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+000047H   000052H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+000053H   000057H   000005H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000058H   000067H   000010H   BYTE   UNIT     CONST          ?CO?MAIN
+
+* * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
+   *DEL*:           000069H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
 
 
 
@@ -57,31 +60,32 @@ FUNCTION/MODULE              BIT_GROUP   DATA_GROUP
   +--> MAIN/MAIN
 
 MAIN/MAIN                   ----- -----  ----- -----
-  +--> DIGDISPLAY/MAIN
+  +--> DIGDISPLAY1/MAIN
 
-DIGDISPLAY/MAIN             ----- -----  ----- -----
+DIGDISPLAY1/MAIN            ----- -----  ----- -----
   +--> _DELAY/MAIN
 
 _DELAY/MAIN                 ----- -----  ----- -----
 
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/08/2021  18:49:34  PAGE 2
+
+
 
 
 PUBLIC SYMBOLS OF MODULE:  .\build\Debug\dynamic 8-seg LED display with Embedded IDE (MAIN)
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  18:01:46  PAGE 2
-
-
 
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-      0100008EH   CODE     ---       ?C_START
+      01000053H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      01000083H   CODE     ---       _delay
-      01000003H   CODE     ---       DigDisplay
-      0100008EH   CODE     ---       main
-      01000093H   CONST    ---       NsegCode
+      0100003CH   CODE     ---       _delay
+*DEL*:00000000H   CODE     ---       DigDisplay
+      01000003H   CODE     ---       DigDisplay1
+      01000053H   CODE     ---       main
+      01000058H   CONST    ---       NsegCode
 
 
 
@@ -90,13 +94,17 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\dynamic 8-seg LED display with Embedded I
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       MAIN
-      01000093H   PUBLIC    CONST    ---       NsegCode
-      0100008EH   PUBLIC    CODE     ---       main
-      01000003H   PUBLIC    CODE     ---       DigDisplay
-      01000083H   PUBLIC    CODE     ---       _delay
+      01000058H   PUBLIC    CONST    ---       NsegCode
+      01000053H   PUBLIC    CODE     ---       main
+      01000003H   PUBLIC    CODE     ---       DigDisplay1
+      0100003CH   PUBLIC    CODE     ---       _delay
 
-      01000083H   BLOCK     CODE     ---       LVL=0
+      01000031H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
+
+      0100003CH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+      00000005H   SYMBOL    DATA     VOID      i
 
       01000003H   BLOCK     CODE     ---       LVL=0
       01000003H   BLOCK     CODE     NEAR LAB  LVL=1
@@ -104,11 +112,11 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\dynamic 8-seg LED display with Embedded I
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100008EH   BLOCK     CODE     ---       LVL=0
+      01000053H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
-Program Size: data=9.0 xdata=0 const=16 code=147
+Program Size: data=9.0 xdata=0 const=16 code=88
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
