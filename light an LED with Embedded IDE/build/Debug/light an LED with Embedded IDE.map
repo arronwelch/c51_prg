@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/07/2021  15:45:51  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/08/2021  15:37:03  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\light an LED with Embedded IDE (MAIN)
       01000000H   CODE     ---       ?C_STARTUP
       0100000FH   CODE     ---       main
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/07/2021  15:45:51  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/08/2021  15:37:03  PAGE 2
 
 
 
