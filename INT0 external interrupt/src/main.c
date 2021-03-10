@@ -42,7 +42,6 @@ void Int0() interrupt 0
     if (K3 == 0)
     {
         D11 = ~D11;
-        K3 = 1;
     }
 }
 
@@ -52,6 +51,5 @@ void Int1() interrupt 2
     if (K4 == 0)
     {
         D12 = ~D12;
-        K3 = 1;
     }
 }

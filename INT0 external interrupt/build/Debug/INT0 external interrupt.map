@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/10/2021  23:26:41  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/10/2021  23:28:39  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -21,7 +21,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\INT0 external interrupt (MAIN)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000082H   CODE
+C:000000H   C:000000H   C:00FFFFH   00007EH   CODE
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 I:000000H   I:000000H   I:00007FH   000008H   DATA
 
@@ -42,12 +42,12 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 000006H   000011H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
 000012H   000012H   000001H   ---    ---      **GAP**
 000013H   000015H   000003H   BYTE   OFFS..   CODE           ?MAIN?00013
-000016H   00003BH   000026H   BYTE   UNIT     CODE           ?PR?INT0?MAIN
-00003CH   000061H   000026H   BYTE   UNIT     CODE           ?PR?INT1?MAIN
-000062H   00006CH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-00006DH   000074H   000008H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000075H   00007BH   000007H   BYTE   UNIT     CODE           ?PR?INT0_INIT?MAIN
-00007CH   000082H   000007H   BYTE   UNIT     CODE           ?PR?INT1_INIT?MAIN
+000016H   000039H   000024H   BYTE   UNIT     CODE           ?PR?INT0?MAIN
+00003AH   00005DH   000024H   BYTE   UNIT     CODE           ?PR?INT1?MAIN
+00005EH   000068H   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+000069H   000070H   000008H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000071H   000077H   000007H   BYTE   UNIT     CODE           ?PR?INT0_INIT?MAIN
+000078H   00007EH   000007H   BYTE   UNIT     CODE           ?PR?INT1_INIT?MAIN
 
 
 
@@ -67,7 +67,7 @@ _DELAY/MAIN                 ----- -----  ----- -----
 INT1/MAIN                   ----- -----  ----- -----
   +--> _DELAY/MAIN
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/10/2021  23:26:41  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/10/2021  23:28:39  PAGE 2
 
 
 *** NEW ROOT **************
@@ -92,14 +92,14 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\INT0 external interrupt (MAIN)
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-      0100006DH   CODE     ---       ?C_START
+      01000069H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      01000062H   CODE     ---       _delay
+      0100005EH   CODE     ---       _delay
       01000016H   CODE     ---       Int0
-      01000075H   CODE     ---       Int0_Init
-      0100003CH   CODE     ---       Int1
-      0100007CH   CODE     ---       Int1_Init
-      0100006DH   CODE     ---       main
+      01000071H   CODE     ---       Int0_Init
+      0100003AH   CODE     ---       Int1
+      01000078H   CODE     ---       Int1_Init
+      01000069H   CODE     ---       main
 
 
 
@@ -108,36 +108,36 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\INT0 external interrupt (MAIN)
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       MAIN
-      0100003CH   PUBLIC    CODE     ---       Int1
+      0100003AH   PUBLIC    CODE     ---       Int1
       01000016H   PUBLIC    CODE     ---       Int0
-      0100006DH   PUBLIC    CODE     ---       main
-      0100007CH   PUBLIC    CODE     ---       Int1_Init
-      01000075H   PUBLIC    CODE     ---       Int0_Init
-      01000062H   PUBLIC    CODE     ---       _delay
+      01000069H   PUBLIC    CODE     ---       main
+      01000078H   PUBLIC    CODE     ---       Int1_Init
+      01000071H   PUBLIC    CODE     ---       Int0_Init
+      0100005EH   PUBLIC    CODE     ---       _delay
 
-      01000062H   BLOCK     CODE     ---       LVL=0
+      0100005EH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000075H   BLOCK     CODE     ---       LVL=0
+      01000071H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100007CH   BLOCK     CODE     ---       LVL=0
+      01000078H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100006DH   BLOCK     CODE     ---       LVL=0
+      01000069H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000016H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100003CH   BLOCK     CODE     ---       LVL=0
+      0100003AH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/10/2021  23:26:41  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/10/2021  23:28:39  PAGE 3
 
 
 
-Program Size: data=9.0 xdata=0 const=0 code=130
+Program Size: data=9.0 xdata=0 const=0 code=126
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
