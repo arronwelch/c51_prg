@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/10/2021  22:50:42  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/10/2021  22:55:03  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\L6219 Drive Bipolar Stepper Motor 4-wir
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/10/2021  22:50:42  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/10/2021  22:55:03  PAGE 2
 
 
       01000003H   CODE     ---       ?C_START

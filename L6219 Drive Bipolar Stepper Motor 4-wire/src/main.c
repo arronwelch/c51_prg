@@ -25,7 +25,7 @@ sbit I12 = P1 ^ 5; //contol winding 2
 
 #define SPEED 20000
 
-void delay(u16 t)//10uS
+void delay(u16 t)
 {
   u8 i=10;
   while (i--)
