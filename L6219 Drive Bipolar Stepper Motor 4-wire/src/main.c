@@ -12,7 +12,7 @@ sbit PH2 = P1 ^ 1; //1,OUT2A(source) to OUT2B(sink)
                    //0,OUT2B(source) to OUT2A(sink)
 
 // I0X  I1X    Current level
-//  1    1    No current
+//  1    1    No current(BUG!!!leakage!!!)
 //  0    1    Low current 1/3 IO max
 //  1    0    Medium current 2/3 IO max
 //  0    0    Maximum current IO max
@@ -40,6 +40,7 @@ void main()
     P1=0XFF;//clear
     while (1)
     {
+      //4 phase
       PH1 = 1;I01 = 0;I11 = 0;PH2 = 1;I02 = 0;I12 = 0;delay(SPEED);//A+B+
       PH1 = 0;I01 = 0;I11 = 0;PH2 = 1;I02 = 0;I12 = 0;delay(SPEED);//A-B+
       PH1 = 0;I01 = 0;I11 = 0;PH2 = 0;I02 = 0;I12 = 0;delay(SPEED);//A-B-
