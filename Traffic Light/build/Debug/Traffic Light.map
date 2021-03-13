@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/14/2021  03:21:53  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/14/2021  03:25:15  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ OVERLAY MAP OF MODULE:   .\build\Debug\Traffic Light (MAIN)
 
 
 FUNCTION/MODULE              BIT_GROUP   DATA_GROUP 
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/14/2021  03:21:53  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/14/2021  03:25:15  PAGE 2
 
 
 --> CALLED FUNCTION/MODULE  START  STOP  START  STOP
@@ -135,7 +135,7 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\Traffic Light (MAIN)
       010002D7H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/14/2021  03:21:53  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/14/2021  03:25:15  PAGE 3
 
 
       010002B9H   BLOCK     CODE     ---       LVL=0
