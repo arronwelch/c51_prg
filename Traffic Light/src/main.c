@@ -3,43 +3,40 @@
 typedef unsigned char u8;
 typedef unsigned int u16;
 
+//dynamic 8-seg LED display BIT select
 sbit LSA = P2 ^ 2;
 sbit LSB = P2 ^ 3;
 sbit LSC = P2 ^ 4;
 
-#define GPIO_DIG P0
-#define GPIO_TRAFFIC P1
+#define GPIO_SEGCODE P0 //dynamic 8-seg LED display DECODE select GPIO
+#define GPIO_TRAFFIC P1 //traffic light GPIO
 
-sbit RED10 = P1^0;
-sbit GRN10 = P1^1;
+//sidewalk N-S
+sbit RED_SW_NS = P1^0;//red in north-sourth sidewalk
+sbit GRN_SW_NS = P1^1;//green in north-sourth sidewalk
 
-sbit RED11 = P1^2;
-sbit YLW11 = P1^3;
-sbit GRN11 = P1^4;
+//Roadway N-S
+sbit RED_RW_NS = P1^2;//red in north-sourth Roadway
+sbit YLW_RW_NS = P1^3;//yellow in north-sourth Roadway
+sbit GRN_RW_NS = P1^4;//green in north-sourth Roadway
 
-sbit RED00 = P3^0;
-sbit GRN00 = P3^1;
+//Roadway E-W
+sbit RED_RW_EW = P1^5;//red
+sbit YLW_RW_EW = P1^6;//yellow
+sbit GRN_RW_EW = P1^7;//green
 
-sbit RED01 = P1^5;
-sbit YLW01 = P1^6;
-sbit GRN01 = P1^7;
-
-//Common GND
-// ---a---
-// |     |
-// f     b
-// |--g--|
-// e     c
-// |     |
-// ---d---  *dp
-// dp g f e d c b a
-// 0  0 1 1 1 1 1 1
+//sidewalk E-W
+sbit RED_SW_EW = P3^0;//red
+sbit GRN_SW_EW = P3^1;//green
 
 u8 code NsegCode[16] = 
 // '0'  '1'   '2'   '3'   '4'   '5'   '6'   '7'   '8'   '9'
  {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f,
 // 'A'  'b'   'C'   'd'   'E'   'F'
   0x77, 0x7c, 0x39, 0x5e, 0x79, 0x71};
+
+u8 Second=0;
+u8 SegDisplayData[8]={0};
 
 void delay(u16 i)
 {
@@ -87,17 +84,111 @@ void DigDisplay()
         case (7):{LSA = 1;LSB = 1;LSC = 1;}break;
         default:break;
         }
-        P0 = NsegCode[1+i];
+        GPIO_SEGCODE = SegDisplayData[i];
         delay(100); //delay 1ms
-        P0 = 0X00;  //clear
+        GPIO_SEGCODE = 0X00;  //clear
     }
 }
 
 void main()
 {
+    Second = 0;
     Timer0Init();
-    Timer1Init();
-    while (1);
+    while (1)
+    {
+        if(Second == 70)
+        {
+            Second = 0;
+        }
+        else if (Second < 30)
+        {
+            SegDisplayData[0]=0X00;
+            SegDisplayData[1]=0X00;
+            SegDisplayData[2]=NsegCode[(30-Second)/10];
+            SegDisplayData[3]=NsegCode[(30-Second)%10];
+
+            SegDisplayData[4]=0X00;
+            SegDisplayData[5]=0X00;
+            SegDisplayData[6]=SegDisplayData[2];
+            SegDisplayData[7]=SegDisplayData[3];
+            DigDisplay();
+
+            GPIO_TRAFFIC=0XFF;
+            GRN_SW_EW=1;
+            RED_SW_EW=1;
+
+            GRN_SW_NS=0;
+            GRN_RW_NS=0;
+            RED_SW_EW=0;
+            RED_RW_EW=0;            
+        }
+        else if (Second<35)
+        {
+            SegDisplayData[0]=0X00;
+            SegDisplayData[1]=0X00;
+            SegDisplayData[2]=NsegCode[(35-Second)/10];
+            SegDisplayData[3]=NsegCode[(35-Second)%10];
+
+            SegDisplayData[4]=0X00;
+            SegDisplayData[5]=0X00;
+            SegDisplayData[6]=SegDisplayData[2];
+            SegDisplayData[7]=SegDisplayData[3];
+            DigDisplay();
+
+            GPIO_TRAFFIC=0XFF;
+            GRN_SW_EW=1;
+            RED_SW_EW=1;
+
+            GRN_SW_NS=0;
+            YLW_RW_NS=0;
+            RED_SW_EW=0;
+            RED_RW_EW=0;     
+        }
+        else if (Second<65)
+        {
+            SegDisplayData[0]=0X00;
+            SegDisplayData[1]=0X00;
+            SegDisplayData[2]=NsegCode[(65-Second)/10];
+            SegDisplayData[3]=NsegCode[(65-Second)%10];
+
+            SegDisplayData[4]=0X00;
+            SegDisplayData[5]=0X00;
+            SegDisplayData[6]=SegDisplayData[2];
+            SegDisplayData[7]=SegDisplayData[3];
+            DigDisplay();
+
+            GPIO_TRAFFIC=0XFF;
+            GRN_SW_EW=1;
+            RED_SW_EW=1;
+
+            RED_SW_NS=0;
+            RED_RW_NS=0;
+            GRN_SW_EW=0;
+            GRN_RW_EW=0;     
+        }
+        else if (Second<70)
+        {
+            SegDisplayData[0]=0X00;
+            SegDisplayData[1]=0X00;
+            SegDisplayData[2]=NsegCode[(70-Second)/10];
+            SegDisplayData[3]=NsegCode[(70-Second)%10];
+
+            SegDisplayData[4]=0X00;
+            SegDisplayData[5]=0X00;
+            SegDisplayData[6]=SegDisplayData[2];
+            SegDisplayData[7]=SegDisplayData[3];
+            DigDisplay();
+
+            GPIO_TRAFFIC=0XFF;
+            GRN_SW_EW=1;
+            RED_SW_EW=1;
+
+            RED_SW_NS=0;
+            RED_RW_NS=0;
+            GRN_SW_EW=0;
+            YLW_RW_EW=0;     
+        }
+    }
 }
 
 void Timer0() interrupt 1
@@ -109,24 +200,6 @@ void Timer0() interrupt 1
     if (i==1000)//1s
     {
         i=0;
-        D11=~D11;
-    }
-}
-
-void Timer1() interrupt 3
-{
-    static u16 j;
-    static u8 n;
-    TH1=0XFC;//2^16-1000
-    TL1=0X18;
-    j++;
-    if (j==1000)//1s
-    {
-        j=0;
-        P0 = ~NsegCode[n++];
-        if (n==16)
-        {
-            n=0;
-        }
+        Second++;
     }
 }
