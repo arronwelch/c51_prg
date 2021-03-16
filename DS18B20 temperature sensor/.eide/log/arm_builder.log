@@ -1,0 +1,21 @@
+[2021-03-17 00:19:45]	compilation failed at : "d:\study\C51\c51_prg\DS18B20 temperature sensor\src\ds18b20.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-17 00:19:59]	compilation failed at : "d:\study\C51\c51_prg\DS18B20 temperature sensor\src\ds18b20.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-17 00:20:39]	[done]
+	build successfully !
+
+[2021-03-17 00:40:59]	[done]
+	build successfully !
+
+[2021-03-17 00:41:47]	[done]
+	build successfully !
+
+[2021-03-17 00:42:27]	[done]
+	build successfully !
+
+[2021-03-17 00:48:55]	[done]
+	build successfully !
+
