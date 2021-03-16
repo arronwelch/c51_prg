@@ -9,8 +9,8 @@ void USART_Init()
 
     //Timer1(TH1) in Mode2
     //Baudrate = Fosc / (N * (256 – TH1))
-    //TH1 = 256 – (Fosc / (384 * Baudrate)) //If( SMOD1==0 in PCON register)
-    //TH1 = 256 – (Fosc / (192 * Baudrate)) //If( SMOD1==1 in PCON register)
+    //TH1 = 256 – (Fosc / (384 * Baudrate)) //If( SMOD==0 in PCON register)
+    //TH1 = 256 – (Fosc / (192 * Baudrate)) //If( SMOD==1 in PCON register)
     
     TH1 = 0xF3;//baud rate = 4800 bps
     TL1 = 0xF3;//baud rate = 4800 bps

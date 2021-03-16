@@ -1,0 +1,36 @@
+[2021-03-16 19:15:54]	[done]
+	build successfully !
+
+[2021-03-16 19:16:57]	[done]
+	build successfully !
+
+[2021-03-16 20:13:58]	[done]
+	build successfully !
+
+[2021-03-16 20:25:27]	compilation failed at : "d:\study\C51\c51_prg\AT24C02 with IIC\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-16 20:30:53]	compilation failed at : "d:\study\C51\c51_prg\AT24C02 with IIC\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-03-16 20:31:13]	[done]
+	build successfully !
+
+[2021-03-16 20:38:53]	[done]
+	build successfully !
+
+[2021-03-16 20:39:56]	[done]
+	build successfully !
+
+[2021-03-16 20:41:08]	[done]
+	build successfully !
+
+[2021-03-16 20:43:14]	[done]
+	build successfully !
+
+[2021-03-16 20:44:37]	[done]
+	build successfully !
+
+[2021-03-16 20:47:14]	[done]
+	build successfully !
+

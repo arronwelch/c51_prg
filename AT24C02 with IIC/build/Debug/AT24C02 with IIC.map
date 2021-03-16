@@ -1,0 +1,253 @@
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/16/2021  20:47:14  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\DEBUG\I2C.O, .\BUILD\DEBUG\MAIN.O TO .\build\Debug\AT24C02 with IIC PRINT (.\build\D
+>> ebug\AT24C02 with IIC.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\DEBUG\I2C.O (I2C)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  .\BUILD\DEBUG\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\AT24C02 with IIC (I2C)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000300H   CODE
+C:000000H   C:000000H   C:00FFFFH   000010H   CONST
+I:000000H   I:000000H   I:00007FH   00000DH   DATA
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\build\Debug\AT24C02 with IIC (I2C)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   00000CH   000005H   BYTE   UNIT     DATA           ?DT?MAIN
+00000DH   00000DH   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   00008EH   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00008FH   000113H   000085H   BYTE   UNIT     CODE           ?PR?DATAPROS?MAIN
+000114H   000168H   000055H   BYTE   UNIT     CODE           ?C?LIB_CODE
+000169H   0001BAH   000052H   BYTE   UNIT     CODE           ?PR?KEYPROS?MAIN
+0001BBH   000204H   00004AH   BYTE   UNIT     CODE           ?PR?_I2CSENDBYTE?I2C
+000205H   000249H   000045H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
+00024AH   000278H   00002FH   BYTE   UNIT     CODE           ?PR?I2CREADBYTE?I2C
+000279H   00029CH   000024H   BYTE   UNIT     CODE           ?PR?_AT24C02READ?I2C
+00029DH   0002B5H   000019H   BYTE   UNIT     CODE           ?PR?_AT24C02WRITE?I2C
+0002B6H   0002C4H   00000FH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+0002C5H   0002D2H   00000EH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+0002D3H   0002DFH   00000DH   BYTE   UNIT     CODE           ?PR?I2CSTART?I2C
+0002E0H   0002EBH   00000CH   BYTE   UNIT     CODE           ?PR?DELAY10US?I2C
+0002ECH   0002F5H   00000AH   BYTE   UNIT     CODE           ?PR?I2CSTOP?I2C
+0002F6H   0002FFH   00000AH   BYTE   UNIT     CODE           ?C_INITSEG
+000300H   00030FH   000010H   BYTE   UNIT     CONST          ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\build\Debug\AT24C02 with IIC (I2C)
+
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/16/2021  20:47:14  PAGE 2
+
+
+
+FUNCTION/MODULE              BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE  START  STOP  START  STOP
+====================================================
+?C_C51STARTUP               ----- -----  ----- -----
+  +--> MAIN/MAIN
+  +--> ?C_INITSEG
+
+MAIN/MAIN                   ----- -----  ----- -----
+  +--> KEYPROS/MAIN
+  +--> DATAPROS/MAIN
+  +--> DIGDISPLAY/MAIN
+
+KEYPROS/MAIN                ----- -----  ----- -----
+  +--> _DELAY/MAIN
+  +--> _AT24C02WRITE/I2C
+  +--> _AT24C02READ/I2C
+
+_DELAY/MAIN                 ----- -----  ----- -----
+
+_AT24C02WRITE/I2C           ----- -----  ----- -----
+  +--> I2CSTART/I2C
+  +--> _I2CSENDBYTE/I2C
+  +--> I2CSTOP/I2C
+
+I2CSTART/I2C                ----- -----  ----- -----
+  +--> DELAY10US/I2C
+
+DELAY10US/I2C               ----- -----  ----- -----
+
+_I2CSENDBYTE/I2C            ----- -----  ----- -----
+  +--> DELAY10US/I2C
+
+I2CSTOP/I2C                 ----- -----  ----- -----
+  +--> DELAY10US/I2C
+
+_AT24C02READ/I2C            ----- -----  ----- -----
+  +--> I2CSTART/I2C
+  +--> _I2CSENDBYTE/I2C
+  +--> I2CREADBYTE/I2C
+  +--> I2CSTOP/I2C
+
+I2CREADBYTE/I2C             ----- -----  ----- -----
+  +--> DELAY10US/I2C
+
+DATAPROS/MAIN               ----- -----  ----- -----
+
+DIGDISPLAY/MAIN             ----- -----  ----- -----
+  +--> _DELAY/MAIN
+
+?C_INITSEG                  ----- -----  ----- -----
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\build\Debug\AT24C02 with IIC (I2C)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+      00000000H   NUMBER   ---       ?C?CODESEG
+      01000114H   CODE     ---       ?C?UIDIV
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      0100004AH   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+      01000279H   CODE     ---       _At24c02Read
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/16/2021  20:47:14  PAGE 3
+
+
+      0100029DH   CODE     ---       _At24c02Write
+      010002BAH   CODE     ---       _delay
+      010001BBH   CODE     ---       _I2cSendByte
+      0100008FH   CODE     ---       datapros
+      010002E7H   CODE     ---       Delay10us
+      01000205H   CODE     ---       DigDisplay
+      0100024AH   CODE     ---       I2cReadByte
+      010002D3H   CODE     ---       I2cStart
+      010002ECH   CODE     ---       I2cStop
+      01000169H   CODE     ---       Keypros
+      010002C5H   CODE     ---       main
+      01000300H   CONST    ---       NsegCode
+      00000008H   DATA     BYTE      num
+      00000009H   DATA     ---       SegDisplayData
+
+
+
+SYMBOL TABLE OF MODULE:  .\build\Debug\AT24C02 with IIC (I2C)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       I2C
+      01000279H   PUBLIC    CODE     ---       _At24c02Read
+      0100029DH   PUBLIC    CODE     ---       _At24c02Write
+      0100024AH   PUBLIC    CODE     ---       I2cReadByte
+      010001BBH   PUBLIC    CODE     ---       _I2cSendByte
+      010002ECH   PUBLIC    CODE     ---       I2cStop
+      010002D3H   PUBLIC    CODE     ---       I2cStart
+      010002E7H   PUBLIC    CODE     ---       Delay10us
+
+      010002E0H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002E7H   BLOCK     CODE     ---       LVL=0
+      010002E7H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000007H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002D3H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002ECH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001BBH   BLOCK     CODE     ---       LVL=0
+      010001BDH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000005H   SYMBOL    DATA     VOID      a
+      00000003H   SYMBOL    DATA     VOID      b
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100024AH   BLOCK     CODE     ---       LVL=0
+      0100024AH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000006H   SYMBOL    DATA     VOID      a
+      00000005H   SYMBOL    DATA     VOID      dat
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100029DH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000279H   BLOCK     CODE     ---       LVL=0
+      0100027BH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000006H   SYMBOL    DATA     VOID      dat
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/16/2021  20:47:14  PAGE 4
+
+
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       MAIN
+      00000009H   PUBLIC    DATA     ---       SegDisplayData
+      00000008H   PUBLIC    DATA     BYTE      num
+      01000300H   PUBLIC    CONST    ---       NsegCode
+      010002C5H   PUBLIC    CODE     ---       main
+      01000205H   PUBLIC    CODE     ---       DigDisplay
+      0100008FH   PUBLIC    CODE     ---       datapros
+      01000169H   PUBLIC    CODE     ---       Keypros
+      010002BAH   PUBLIC    CODE     ---       _delay
+
+      010002B6H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002BAH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000169H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100008FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000205H   BLOCK     CODE     ---       LVL=0
+      01000205H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000005H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010002C5H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+      ---         MODULE    ---      ---       ?C?UIDIV
+      01000114H   PUBLIC    CODE     ---       ?C?UIDIV
+
+      ---         MODULE    ---      ---       ?C_INIT
+      0100004AH   PUBLIC    CODE     ---       ?C_START
+
+Program Size: data=14.0 xdata=0 const=16 code=768
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
