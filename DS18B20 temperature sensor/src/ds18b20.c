@@ -1,32 +1,29 @@
 #include "ds18b20.h"
 
-void Delay1ms(uint y)
+void Delay1ms(uint y)      //delay
 {
-    uint x;
-    for(;y>0;y--)
-    {
-        for(x=110;x>0;x--);
-    }
+  uint x;
+  for(;y>0;y--)
+  {
+      for(x=110;x>0;x--);
+  }
 }
 
 uchar Ds18b20Init()
 {
     uchar i=0;
-    DQ = 0;//1.pull down
+    DQ = 0;
     i=70;
-    while(i--);//2.delay 642us
-    DQ = 1;//3.pull up
+    while(i--);//642us
+    DQ = 1;
     i=0;
     while(DQ)
     {
-        Delay1ms(1);//delay 5ms,exit loop
+        Delay1ms(1);//5ms
         i++;
-        if (i>5)
-        {
-            return 0;//init fail
-        }
+        if(i>5) {return 0;} 
     }
-    return 1;//init pass
+    return 1;
 }
 
 void Ds18b20WriteByte(uchar dat)
@@ -36,7 +33,7 @@ void Ds18b20WriteByte(uchar dat)
     {
         DQ = 0;
         i++;
-        DQ = dat & 0x01;
+        DQ=dat&0x01;
         i=6;
         while(i--);//delay 68us
         DQ = 1;
@@ -58,7 +55,7 @@ uchar Ds18b20ReadByte()
         bi = DQ;
         byte = (byte>>1) | (bi<<7);
         i=4;
-        i--;
+        while(i--);
     }
     return byte;
 }
@@ -81,7 +78,7 @@ void Ds18b20ReadTempCom()
 
 int Ds18b20ReadTemp()
 {
-    int temp=0;
+    int temp;
     uchar tmh,tml;
     Ds18b20ChangeTemp();
     Ds18b20ReadTempCom();
