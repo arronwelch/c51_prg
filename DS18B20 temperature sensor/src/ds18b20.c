@@ -1,29 +1,29 @@
 #include "ds18b20.h"
+#include "intrins.h"
 
-void Delay1ms(uint y)      //delay
+void delay_us(uchar t)
 {
-  uint x;
-  for(;y>0;y--)
-  {
-      for(x=110;x>0;x--);
-  }
+    while (t--)
+    {
+        _nop_();
+    }
 }
 
 uchar Ds18b20Init()
 {
-    uchar i=0;
     DQ = 0;
-    i=70;
-    while(i--);//642us
+    delay_us(480);
     DQ = 1;
-    i=0;
-    while(DQ)
+    delay_us(60);
+    if(!DQ)
     {
-        Delay1ms(1);//5ms
-        i++;
-        if(i>5) {return 0;} 
+        delay_us(240);
+        return 1;
     }
-    return 1;
+    else
+    {
+        return 0;
+    }
 }
 
 void Ds18b20WriteByte(uchar dat)
@@ -49,6 +49,7 @@ uchar Ds18b20ReadByte()
     {
         DQ = 0;
         i++;
+        i++;
         DQ = 1;
         i++;
         i++;
@@ -63,7 +64,6 @@ uchar Ds18b20ReadByte()
 void Ds18b20ChangeTemp()
 {
     Ds18b20Init();
-    Delay1ms(1);
     Ds18b20WriteByte(0xcc);
     Ds18b20WriteByte(0x44);
 }
@@ -71,21 +71,16 @@ void Ds18b20ChangeTemp()
 void Ds18b20ReadTempCom()
 {
     Ds18b20Init();
-    Delay1ms(1);
     Ds18b20WriteByte(0xcc);
     Ds18b20WriteByte(0xbe);
 }
 
-int Ds18b20ReadTemp()
+float Ds18b20ReadTemp()
 {
-    int temp;
     uchar tmh,tml;
     Ds18b20ChangeTemp();
     Ds18b20ReadTempCom();
     tml = Ds18b20ReadByte();
     tmh = Ds18b20ReadByte();
-    temp = tmh;
-    temp<<=8;
-    temp|=tml;
-    return temp;
+    return ((tmh << 8) + tml) * 0.0625;
 }

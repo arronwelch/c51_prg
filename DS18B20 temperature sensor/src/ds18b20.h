@@ -12,6 +12,5 @@
 #endif
 
 sbit DQ = P3^7;
-int Ds18b20ReadTemp();
-
+float Ds18b20ReadTemp();
 #endif

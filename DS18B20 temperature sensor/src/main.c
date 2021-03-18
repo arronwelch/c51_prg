@@ -15,35 +15,30 @@ u8 code NsegCode[10] =
 // '0'  '1'   '2'   '3'   '4'   '5'   '6'   '7'   '8'   '9'
  {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};
 
-u8 SegDisplayData[8];
+u8 SegDisplayData[6];
 
 void delay(u16 t)
 {
     while (t--);
 }
 
-void datapros(int temp)
+void datapros(float temp)
 {
-    float tp;
-    if(temp<0)
+    int tp;
+    tp = temp;
+    if(tp<0)
     {
         SegDisplayData[0]=0x40;//'-'
-        temp = temp - 1;
-        temp = ~temp;
-        tp = temp;
-        temp = tp*0.0625*100+0.5;
     }
     else
     {
         SegDisplayData[0]=0x00;
-        tp = temp;
-        temp = tp*0.0625*100+0.5;
     }  
-    SegDisplayData[1]=NsegCode[temp/10000];//125
-    SegDisplayData[2]=NsegCode[temp%10000/1000];//25
-    SegDisplayData[3]=NsegCode[temp%10000%1000/100]|0x80;//5.
-    SegDisplayData[4]=NsegCode[temp%100/10];//.0
-    SegDisplayData[5]=NsegCode[temp%100%10];//.00
+    SegDisplayData[1]=NsegCode[(tp/10000)];//125
+    SegDisplayData[2]=NsegCode[(tp%10000/1000)];//25
+    SegDisplayData[3]=NsegCode[(tp%1000/100)]|0x80;//5.
+    SegDisplayData[4]=NsegCode[(tp%100/10)];//.0
+    SegDisplayData[5]=NsegCode[(tp%100%10)];//.00
 }
 
 void DigDisplay()
@@ -58,7 +53,9 @@ void DigDisplay()
         case (2):{LSA = 0;LSB = 1;LSC = 0;}break;
         case (3):{LSA = 1;LSB = 1;LSC = 0;}break;
         case (4):{LSA = 0;LSB = 0;LSC = 1;}break;
-        case (5):{LSA = 1;LSB = 0;LSC = 1;}break;      
+        case (5):{LSA = 1;LSB = 0;LSC = 1;}break;
+      //case (6):{LSA = 0;LSB = 1;LSC = 1;}break;
+      //case (7):{LSA = 1;LSB = 1;LSC = 1;}break;
         default:break;
         }
         GPIO_SEGCODE = SegDisplayData[i];

@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/17/2021  19:36:22  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/18/2021  21:46:03  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -15,8 +15,6 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 0: C51 V9.60.0.0
   .\BUILD\DEBUG\MAIN.O (MAIN)
          COMMENT TYPE 0: C51 V9.60.0.0
-  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPADD)
-         COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
@@ -39,8 +37,8 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\DS18B20 temperature sensor (DS18
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   0005BFH   CODE
-I:000000H   I:000000H   I:00007FH   000014H   DATA
+C:000000H   C:000000H   C:00FFFFH   000474H   CODE
+I:000000H   I:000000H   I:00007FH   00000FH   DATA
 C:000000H   C:000000H   C:00FFFFH   00000AH   CONST
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
@@ -53,29 +51,29 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
-000008H   00000FH   000008H   BYTE   UNIT     DATA           ?DT?MAIN
-000010H   000013H   000004H   BYTE   UNIT     DATA           _DATA_GROUP_
-000014H   000014H   000001H   BYTE   UNIT     IDATA          ?STACK
+000008H   00000DH   000006H   BYTE   UNIT     DATA           ?DT?MAIN
+00000EH   00000EH   000001H   BYTE   UNIT     DATA           _DATA_GROUP_
+00000FH   00000FH   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   000358H   000356H   BYTE   UNIT     CODE           ?C?LIB_CODE
-000359H   00046AH   000112H   BYTE   UNIT     CODE           ?PR?_DATAPROS?MAIN
-00046BH   0004C1H   000057H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
-0004C2H   0004FFH   00003EH   BYTE   UNIT     CODE           ?PR?DS18B20READBYTE?DS18B20
-000500H   00052FH   000030H   BYTE   UNIT     CODE           ?PR?_DS18B20WRITEBYTE?DS18B20
-000530H   000557H   000028H   BYTE   UNIT     CODE           ?PR?DS18B20INIT?DS18B20
-000558H   000575H   00001EH   BYTE   UNIT     CODE           ?PR?_DELAY1MS?DS18B20
-000576H   000589H   000014H   BYTE   UNIT     CODE           ?PR?DS18B20READTEMP?DS18B20
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/17/2021  19:36:22  PAGE 2
+000003H   000260H   00025EH   BYTE   UNIT     CODE           ?C?LIB_CODE
+000261H   00032BH   0000CBH   BYTE   UNIT     CODE           ?PR?_DATAPROS?MAIN
+00032CH   000382H   000057H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
+000383H   0003C4H   000042H   BYTE   UNIT     CODE           ?PR?DS18B20READBYTE?DS18B20
+0003C5H   0003EAH   000026H   BYTE   UNIT     CODE           ?PR?DS18B20READTEMP?DS18B20
+0003EBH   00040EH   000024H   BYTE   UNIT     CODE           ?PR?_DS18B20WRITEBYTE?DS18B20
+00040FH   00042AH   00001CH   BYTE   UNIT     CODE           ?PR?DS18B20INIT?DS18B20
+00042BH   000438H   00000EH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000439H   000445H   00000DH   BYTE   UNIT     CODE           ?PR?DS18B20CHANGETEMP?DS18B20
+000446H   000452H   00000DH   BYTE   UNIT     CODE           ?PR?DS18B20READTEMPCOM?DS18B20
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/18/2021  21:46:03  PAGE 2
 
 
-00058AH   000597H   00000EH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000598H   0005A3H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-0005A4H   0005AEH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-0005AFH   0005B6H   000008H   BYTE   UNIT     CODE           ?PR?DS18B20CHANGETEMP?DS18B20
-0005B7H   0005BEH   000008H   BYTE   UNIT     CODE           ?PR?DS18B20READTEMPCOM?DS18B20
-0005BFH   0005C8H   00000AH   BYTE   UNIT     CONST          ?CO?MAIN
+000453H   00045EH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00045FH   000469H   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+00046AH   000473H   00000AH   BYTE   UNIT     CODE           ?PR?_DELAY_US?DS18B20
+000474H   00047DH   00000AH   BYTE   UNIT     CONST          ?CO?MAIN
 
 
 
@@ -93,29 +91,29 @@ MAIN/MAIN                       ----- -----  ----- -----
   +--> _DATAPROS/MAIN
   +--> DIGDISPLAY/MAIN
 
-DS18B20READTEMP/DS18B20         ----- -----  0010H 0010H
+DS18B20READTEMP/DS18B20         ----- -----  000EH 000EH
   +--> DS18B20CHANGETEMP/DS18B20
   +--> DS18B20READTEMPCOM/DS18B20
   +--> DS18B20READBYTE/DS18B20
 
 DS18B20CHANGETEMP/DS18B20       ----- -----  ----- -----
+  +--> DS18B20INIT/DS18B20
   +--> _DS18B20WRITEBYTE/DS18B20
 
-_DS18B20WRITEBYTE/DS18B20       ----- -----  ----- -----
-  +--> DS18B20INIT/DS18B20
-  +--> _DELAY1MS/DS18B20
-
 DS18B20INIT/DS18B20             ----- -----  ----- -----
-  +--> _DELAY1MS/DS18B20
+  +--> _DELAY_US/DS18B20
 
-_DELAY1MS/DS18B20               ----- -----  ----- -----
+_DELAY_US/DS18B20               ----- -----  ----- -----
+
+_DS18B20WRITEBYTE/DS18B20       ----- -----  ----- -----
 
 DS18B20READTEMPCOM/DS18B20      ----- -----  ----- -----
+  +--> DS18B20INIT/DS18B20
   +--> _DS18B20WRITEBYTE/DS18B20
 
 DS18B20READBYTE/DS18B20         ----- -----  ----- -----
 
-_DATAPROS/MAIN                  ----- -----  0010H 0013H
+_DATAPROS/MAIN                  ----- -----  ----- -----
 
 DIGDISPLAY/MAIN                 ----- -----  ----- -----
   +--> _DELAY/MAIN
@@ -129,41 +127,39 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\DS18B20 temperature sensor (DS18B20)
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
-      0100023FH   CODE     ---       ?C?CASTF
+      01000147H   CODE     ---       ?C?CASTF
       00000000H   NUMBER   ---       ?C?CODESEG
-      0100020BH   CODE     ---       ?C?FCASTC
-      01000206H   CODE     ---       ?C?FCASTI
-      01000201H   CODE     ---       ?C?FCASTL
-      0100000AH   CODE     ---       ?C?FPADD
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/17/2021  19:36:22  PAGE 3
+      01000113H   CODE     ---       ?C?FCASTC
+      0100010EH   CODE     ---       ?C?FCASTI
+      01000109H   CODE     ---       ?C?FCASTL
+      0100017EH   CODE     ---       ?C?FPGETOPN2
+      01000003H   CODE     ---       ?C?FPMUL
+      010001B3H   CODE     ---       ?C?FPNANRESULT
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/18/2021  21:46:03  PAGE 3
 
 
-      01000276H   CODE     ---       ?C?FPGETOPN2
-      010000FBH   CODE     ---       ?C?FPMUL
-      010002ABH   CODE     ---       ?C?FPNANRESULT
-      010002B5H   CODE     ---       ?C?FPOVERFLOW
-      0100028DH   CODE     ---       ?C?FPRESULT
-      010002A1H   CODE     ---       ?C?FPRESULT2
-      01000006H   CODE     ---       ?C?FPSUB
-      010002B2H   CODE     ---       ?C?FPUNDERFLOW
-      010002F6H   CODE     ---       ?C?LNEG
-      010002C0H   CODE     ---       ?C?SIDIV
-      01000304H   CODE     ---       ?C?UIDIV
+      010001BDH   CODE     ---       ?C?FPOVERFLOW
+      01000195H   CODE     ---       ?C?FPRESULT
+      010001A9H   CODE     ---       ?C?FPRESULT2
+      010001BAH   CODE     ---       ?C?FPUNDERFLOW
+      010001FEH   CODE     ---       ?C?LNEG
+      010001C8H   CODE     ---       ?C?SIDIV
+      0100020CH   CODE     ---       ?C?UIDIV
       00000000H   NUMBER   ---       ?C?XDATASEG
-      0100058AH   CODE     ---       ?C_START
+      0100042BH   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      01000359H   CODE     ---       _datapros
-      010005A4H   CODE     ---       _delay
-      01000558H   CODE     ---       _Delay1ms
-      0100050CH   CODE     ---       _Ds18b20WriteByte
-      0100046BH   CODE     ---       DigDisplay
-      010005AFH   CODE     ---       Ds18b20ChangeTemp
-      01000530H   CODE     ---       Ds18b20Init
-      010004C2H   CODE     ---       Ds18b20ReadByte
-      01000576H   CODE     ---       Ds18b20ReadTemp
-      010005B7H   CODE     ---       Ds18b20ReadTempCom
-      0100058AH   CODE     ---       main
-      010005BFH   CONST    ---       NsegCode
+      01000261H   CODE     ---       _datapros
+      0100045FH   CODE     ---       _delay
+      0100046AH   CODE     ---       _delay_us
+      010003EBH   CODE     ---       _Ds18b20WriteByte
+      0100032CH   CODE     ---       DigDisplay
+      01000439H   CODE     ---       Ds18b20ChangeTemp
+      0100040FH   CODE     ---       Ds18b20Init
+      01000383H   CODE     ---       Ds18b20ReadByte
+      010003C5H   CODE     ---       Ds18b20ReadTemp
+      01000446H   CODE     ---       Ds18b20ReadTempCom
+      0100042BH   CODE     ---       main
+      01000474H   CONST    ---       NsegCode
       00000008H   DATA     ---       SegDisplayData
 
 
@@ -173,41 +169,29 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\DS18B20 temperature sensor (DS18B20)
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       DS18B20
-      01000576H   PUBLIC    CODE     ---       Ds18b20ReadTemp
-      010005B7H   PUBLIC    CODE     ---       Ds18b20ReadTempCom
-      010005AFH   PUBLIC    CODE     ---       Ds18b20ChangeTemp
-      010004C2H   PUBLIC    CODE     ---       Ds18b20ReadByte
-      0100050CH   PUBLIC    CODE     ---       _Ds18b20WriteByte
-      01000530H   PUBLIC    CODE     ---       Ds18b20Init
-      01000558H   PUBLIC    CODE     ---       _Delay1ms
+      010003C5H   PUBLIC    CODE     ---       Ds18b20ReadTemp
+      01000446H   PUBLIC    CODE     ---       Ds18b20ReadTempCom
+      01000439H   PUBLIC    CODE     ---       Ds18b20ChangeTemp
+      01000383H   PUBLIC    CODE     ---       Ds18b20ReadByte
+      010003EBH   PUBLIC    CODE     ---       _Ds18b20WriteByte
+      0100040FH   PUBLIC    CODE     ---       Ds18b20Init
+      0100046AH   PUBLIC    CODE     ---       _delay_us
 
-      01000558H   BLOCK     CODE     ---       LVL=0
-      01000558H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000004H   SYMBOL    DATA     VOID      x
-      ---         BLOCKEND  ---      ---       LVL=1
+      0100046AH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000530H   BLOCK     CODE     ---       LVL=0
-      01000530H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000003H   SYMBOL    DATA     VOID      i
-      ---         BLOCKEND  ---      ---       LVL=1
+      0100040FH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000500H   BLOCK     CODE     ---       LVL=0
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      0100050CH   BLOCK     CODE     ---       LVL=0
-      0100050CH   BLOCK     CODE     NEAR LAB  LVL=1
+      010003EBH   BLOCK     CODE     ---       LVL=0
+      010003EBH   BLOCK     CODE     NEAR LAB  LVL=1
       00000006H   SYMBOL    DATA     VOID      i
       00000005H   SYMBOL    DATA     VOID      j
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/17/2021  19:36:22  PAGE 4
-
-
-      010004C2H   BLOCK     CODE     ---       LVL=0
-      010004C2H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000383H   BLOCK     CODE     ---       LVL=0
+      01000383H   BLOCK     CODE     NEAR LAB  LVL=1
       00000006H   SYMBOL    DATA     VOID      i
       00000004H   SYMBOL    DATA     VOID      j
       00000003H   SYMBOL    DATA     VOID      bi
@@ -215,83 +199,81 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\DS18B20 temperature sensor (DS18B20)
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005AFH   BLOCK     CODE     ---       LVL=0
+      01000439H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005B7H   BLOCK     CODE     ---       LVL=0
+      01000446H   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/18/2021  21:46:03  PAGE 4
+
+
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000576H   BLOCK     CODE     ---       LVL=0
-      01000576H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000006H   SYMBOL    DATA     VOID      temp
+      010003C5H   BLOCK     CODE     ---       LVL=0
+      010003C5H   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     VOID      tmh
-      00000010H   SYMBOL    DATA     VOID      tml
+      0000000EH   SYMBOL    DATA     VOID      tml
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       MAIN
       00000008H   PUBLIC    DATA     ---       SegDisplayData
-      010005BFH   PUBLIC    CONST    ---       NsegCode
-      0100058AH   PUBLIC    CODE     ---       main
-      0100046BH   PUBLIC    CODE     ---       DigDisplay
-      01000359H   PUBLIC    CODE     ---       _datapros
-      010005A4H   PUBLIC    CODE     ---       _delay
+      01000474H   PUBLIC    CONST    ---       NsegCode
+      0100042BH   PUBLIC    CODE     ---       main
+      0100032CH   PUBLIC    CODE     ---       DigDisplay
+      01000261H   PUBLIC    CODE     ---       _datapros
+      0100045FH   PUBLIC    CODE     ---       _delay
 
-      010005A4H   BLOCK     CODE     ---       LVL=0
+      0100045FH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000359H   BLOCK     CODE     ---       LVL=0
-      0100035DH   BLOCK     CODE     NEAR LAB  LVL=1
-      00000010H   SYMBOL    DATA     VOID      tp
+      01000261H   BLOCK     CODE     ---       LVL=0
+      01000261H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000002H   SYMBOL    DATA     VOID      tp
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100046BH   BLOCK     CODE     ---       LVL=0
-      0100046BH   BLOCK     CODE     NEAR LAB  LVL=1
+      0100032CH   BLOCK     CODE     ---       LVL=0
+      0100032CH   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100058AH   BLOCK     CODE     ---       LVL=0
+      0100042BH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      ---         MODULE    ---      ---       ?C?FPADD
-      0100000AH   PUBLIC    CODE     ---       ?C?FPADD
-      01000006H   PUBLIC    CODE     ---       ?C?FPSUB
-
       ---         MODULE    ---      ---       ?C?FPMUL
-      010000FBH   PUBLIC    CODE     ---       ?C?FPMUL
+      01000003H   PUBLIC    CODE     ---       ?C?FPMUL
 
       ---         MODULE    ---      ---       ?C?FCAST
-      0100020BH   PUBLIC    CODE     ---       ?C?FCASTC
-      01000206H   PUBLIC    CODE     ---       ?C?FCASTI
-      01000201H   PUBLIC    CODE     ---       ?C?FCASTL
+      01000113H   PUBLIC    CODE     ---       ?C?FCASTC
+      0100010EH   PUBLIC    CODE     ---       ?C?FCASTI
+      01000109H   PUBLIC    CODE     ---       ?C?FCASTL
 
       ---         MODULE    ---      ---       ?C?CASTF
-      0100023FH   PUBLIC    CODE     ---       ?C?CASTF
+      01000147H   PUBLIC    CODE     ---       ?C?CASTF
 
       ---         MODULE    ---      ---       ?C?FPGETOPN
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/17/2021  19:36:22  PAGE 5
-
-
-      01000276H   PUBLIC    CODE     ---       ?C?FPGETOPN2
-      010002ABH   PUBLIC    CODE     ---       ?C?FPNANRESULT
-      010002B5H   PUBLIC    CODE     ---       ?C?FPOVERFLOW
-      0100028DH   PUBLIC    CODE     ---       ?C?FPRESULT
-      010002A1H   PUBLIC    CODE     ---       ?C?FPRESULT2
-      010002B2H   PUBLIC    CODE     ---       ?C?FPUNDERFLOW
+      0100017EH   PUBLIC    CODE     ---       ?C?FPGETOPN2
+      010001B3H   PUBLIC    CODE     ---       ?C?FPNANRESULT
+      010001BDH   PUBLIC    CODE     ---       ?C?FPOVERFLOW
+      01000195H   PUBLIC    CODE     ---       ?C?FPRESULT
+      010001A9H   PUBLIC    CODE     ---       ?C?FPRESULT2
+      010001BAH   PUBLIC    CODE     ---       ?C?FPUNDERFLOW
 
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
       ---         MODULE    ---      ---       ?C?SIDIV
-      010002C0H   PUBLIC    CODE     ---       ?C?SIDIV
+      010001C8H   PUBLIC    CODE     ---       ?C?SIDIV
 
       ---         MODULE    ---      ---       ?C?LNEG
-      010002F6H   PUBLIC    CODE     ---       ?C?LNEG
+      010001FEH   PUBLIC    CODE     ---       ?C?LNEG
 
       ---         MODULE    ---      ---       ?C?UIDIV
-      01000304H   PUBLIC    CODE     ---       ?C?UIDIV
+      0100020CH   PUBLIC    CODE     ---       ?C?UIDIV
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/18/2021  21:46:03  PAGE 5
 
-Program Size: data=21.0 xdata=0 const=10 code=1471
+
+
+Program Size: data=16.0 xdata=0 const=10 code=1140
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
