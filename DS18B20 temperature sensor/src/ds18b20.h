@@ -1,16 +1,14 @@
-#ifndef _DS18B20_H
-#define _DS18B20_H
+#ifndef _DS18B20_H_  
+#define _DS18B20_H_  
 
-#include <reg52.h>
+typedef unsigned char uchar;
+typedef unsigned int uint;
 
-#ifndef uchar
-#define uchar unsigned char
-#endif
-
-#ifndef uint
-#define uint unsigned int
-#endif
-
-sbit DQ = P3^7;
-float Ds18b20ReadTemp();
-#endif
+void delay_us(uchar n);
+bit DS18B20_init();
+void write_byte(uchar dat);
+uchar read_byte();
+uint read_temper ();
+uint temper_change();
+  
+#endif  
