@@ -6,22 +6,7 @@
     ],
     "settings": {
         "files.associations": {
-            "*.txt": "c",
-            "*.prj": "c",
-            "*.prg": "c",
-            "*.sd": "c",
-            "*.sr": "c",
-            "*.hed": "c",
-            "*.tim": "c",
-            "*.dec": "c",
-            "*.pln": "c",
-            "*.pat": "c",
-            "*.bak": "c",
-            "*.log": "c",
-            "*.sum": "c",
-            ".eideignore": "ignore",
-            "ds18b20.h": "c",
-            "reg52.h": "c"
+            ".eideignore": "ignore"
         },
         "C_Cpp.default.intelliSenseMode": "gcc-arm",
         "files.autoGuessEncoding": true,
