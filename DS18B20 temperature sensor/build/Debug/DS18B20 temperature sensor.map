@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          03/22/2021  00:57:43  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          03/22/2021  21:41:22  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -35,7 +35,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\DS18B20 temperature sensor (MAIN
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   0005E9H   CODE
+C:000000H   C:000000H   C:00FFFFH   0005EDH   CODE
 I:000000H   I:000000H   I:00007FH   000016H   DATA
 C:000000H   C:000000H   C:00FFFFH   000010H   CONST
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
@@ -56,18 +56,18 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
 000003H   000322H   000320H   BYTE   UNIT     CODE           ?C?LIB_CODE
-000323H   00048EH   00016CH   BYTE   UNIT     CODE           ?PR?_DATAPROS?MAIN
-00048FH   000502H   000074H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
-000503H   00053DH   00003BH   BYTE   UNIT     CODE           ?PR?READTEMPERATURE?MAIN
-00053EH   00056EH   000031H   BYTE   UNIT     CODE           ?PR?READONECHAR?MAIN
-00056FH   000597H   000029H   BYTE   UNIT     CODE           ?PR?_WRITEONECHAR?MAIN
-000598H   0005AEH   000017H   BYTE   UNIT     CODE           ?PR?_DELAY_18B20?MAIN
-0005AFH   0005C3H   000015H   BYTE   UNIT     CODE           ?PR?INIT_DS18B20?MAIN
-0005C4H   0005D1H   00000EH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-0005D2H   0005DDH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-0005DEH   0005E8H   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-0005E9H   0005F8H   000010H   BYTE   UNIT     CONST          ?CO?MAIN
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/22/2021  00:57:43  PAGE 2
+000323H   000492H   000170H   BYTE   UNIT     CODE           ?PR?_DATAPROS?MAIN
+000493H   000506H   000074H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
+000507H   000541H   00003BH   BYTE   UNIT     CODE           ?PR?READTEMPERATURE?MAIN
+000542H   000572H   000031H   BYTE   UNIT     CODE           ?PR?READONECHAR?MAIN
+000573H   00059BH   000029H   BYTE   UNIT     CODE           ?PR?_WRITEONECHAR?MAIN
+00059CH   0005B2H   000017H   BYTE   UNIT     CODE           ?PR?_DELAY_18B20?MAIN
+0005B3H   0005C7H   000015H   BYTE   UNIT     CODE           ?PR?INIT_DS18B20?MAIN
+0005C8H   0005D5H   00000EH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+0005D6H   0005E1H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+0005E2H   0005ECH   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+0005EDH   0005FCH   000010H   BYTE   UNIT     CONST          ?CO?MAIN
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/22/2021  21:41:22  PAGE 2
 
 
 
@@ -135,21 +135,21 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\DS18B20 temperature sensor (MAIN)
       01000315H   CODE     ---       ?C?LNEG
       010002C0H   CODE     ---       ?C?UIDIV
       00000000H   NUMBER   ---       ?C?XDATASEG
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/22/2021  00:57:43  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/22/2021  21:41:22  PAGE 3
 
 
-      010005C4H   CODE     ---       ?C_START
+      010005C8H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
       01000323H   CODE     ---       _datapros
-      010005DEH   CODE     ---       _delay
-      0100059EH   CODE     ---       _delay_18B20
-      0100056FH   CODE     ---       _WriteOneChar
-      0100048FH   CODE     ---       DigDisplay
-      010005AFH   CODE     ---       Init_DS18B20
-      010005C4H   CODE     ---       main
-      010005E9H   CONST    ---       NsegCode
-      0100053EH   CODE     ---       ReadOneChar
-      01000503H   CODE     ---       ReadTemperature
+      010005E2H   CODE     ---       _delay
+      010005A2H   CODE     ---       _delay_18B20
+      01000573H   CODE     ---       _WriteOneChar
+      01000493H   CODE     ---       DigDisplay
+      010005B3H   CODE     ---       Init_DS18B20
+      010005C8H   CODE     ---       main
+      010005EDH   CONST    ---       NsegCode
+      01000542H   CODE     ---       ReadOneChar
+      01000507H   CODE     ---       ReadTemperature
       00000008H   DATA     ---       SegDisplayData
 
 
@@ -160,18 +160,18 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\DS18B20 temperature sensor (MAIN)
       ====================================================
       ---         MODULE    ---      ---       MAIN
       00000008H   PUBLIC    DATA     ---       SegDisplayData
-      010005E9H   PUBLIC    CONST    ---       NsegCode
-      010005C4H   PUBLIC    CODE     ---       main
-      01000503H   PUBLIC    CODE     ---       ReadTemperature
-      0100053EH   PUBLIC    CODE     ---       ReadOneChar
-      0100056FH   PUBLIC    CODE     ---       _WriteOneChar
-      010005AFH   PUBLIC    CODE     ---       Init_DS18B20
-      0100059EH   PUBLIC    CODE     ---       _delay_18B20
-      0100048FH   PUBLIC    CODE     ---       DigDisplay
+      010005EDH   PUBLIC    CONST    ---       NsegCode
+      010005C8H   PUBLIC    CODE     ---       main
+      01000507H   PUBLIC    CODE     ---       ReadTemperature
+      01000542H   PUBLIC    CODE     ---       ReadOneChar
+      01000573H   PUBLIC    CODE     ---       _WriteOneChar
+      010005B3H   PUBLIC    CODE     ---       Init_DS18B20
+      010005A2H   PUBLIC    CODE     ---       _delay_18B20
+      01000493H   PUBLIC    CODE     ---       DigDisplay
       01000323H   PUBLIC    CODE     ---       _datapros
-      010005DEH   PUBLIC    CODE     ---       _delay
+      010005E2H   PUBLIC    CODE     ---       _delay
 
-      010005DEH   BLOCK     CODE     ---       LVL=0
+      010005E2H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000323H   BLOCK     CODE     ---       LVL=0
@@ -181,49 +181,49 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\DS18B20 temperature sensor (MAIN)
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100048FH   BLOCK     CODE     ---       LVL=0
-      0100048FH   BLOCK     CODE     NEAR LAB  LVL=1
+      01000493H   BLOCK     CODE     ---       LVL=0
+      01000493H   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000598H   BLOCK     CODE     ---       LVL=0
+      0100059CH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100059EH   BLOCK     CODE     ---       LVL=0
+      010005A2H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005AFH   BLOCK     CODE     ---       LVL=0
-      010005AFH   BLOCK     CODE     NEAR LAB  LVL=1
+      010005B3H   BLOCK     CODE     ---       LVL=0
+      010005B3H   BLOCK     CODE     NEAR LAB  LVL=1
       00000010H   SYMBOL    DATA     VOID      x
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100056FH   BLOCK     CODE     ---       LVL=0
-      01000571H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000573H   BLOCK     CODE     ---       LVL=0
+      01000575H   BLOCK     CODE     NEAR LAB  LVL=1
       00000003H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
-LX51 LINKER/LOCATER V4.66.97.0                                                        03/22/2021  00:57:43  PAGE 4
+LX51 LINKER/LOCATER V4.66.97.0                                                        03/22/2021  21:41:22  PAGE 4
 
 
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100053EH   BLOCK     CODE     ---       LVL=0
-      0100053EH   BLOCK     CODE     NEAR LAB  LVL=1
+      01000542H   BLOCK     CODE     ---       LVL=0
+      01000542H   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      i
       00000004H   SYMBOL    DATA     VOID      dat
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000503H   BLOCK     CODE     ---       LVL=0
-      01000503H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000507H   BLOCK     CODE     ---       LVL=0
+      01000507H   BLOCK     CODE     NEAR LAB  LVL=1
       00000003H   SYMBOL    DATA     VOID      a
       00000007H   SYMBOL    DATA     VOID      b
       00000006H   SYMBOL    DATA     VOID      temp
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010005C4H   BLOCK     CODE     ---       LVL=0
+      010005C8H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C?FPADD
@@ -258,5 +258,5 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\DS18B20 temperature sensor (MAIN)
       ---         MODULE    ---      ---       ?C?LNEG
       01000315H   PUBLIC    CODE     ---       ?C?LNEG
 
-Program Size: data=23.0 xdata=0 const=16 code=1513
+Program Size: data=23.0 xdata=0 const=16 code=1517
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

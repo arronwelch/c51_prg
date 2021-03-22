@@ -1,6 +1,10 @@
 #include "reg51.h"
 #include "intrins.h"//声明void _nop_(void);
 
+//STC12C5A16S2
+//XTAL 12.0MHz
+//
+
 sbit DQ = P3^7;
 
 typedef unsigned char u8;
@@ -57,13 +61,20 @@ void datapros(u16 temp)
         tph = temp*0.0625;
         tpl = (tph-(temp*0.0625))*1000;
     }
-    SegDisplayData[1]=NsegCode[tph/100];
+    if((tph/100)==0)
+    {
+        SegDisplayData[1]=0X00;
+    }
+    else
+    {
+        SegDisplayData[1]=NsegCode[tph/100];
+    }    
     SegDisplayData[2]=NsegCode[tph%100/10];
     SegDisplayData[3]=NsegCode[tph%10]|0x80;
     SegDisplayData[4]=NsegCode[tpl%10000/1000];
-    SegDisplayData[5]=NsegCode[tpl%10000%1000/100];
+    SegDisplayData[5]=NsegCode[tpl%1000/100];
     SegDisplayData[6]=NsegCode[tpl%100/10];
-    SegDisplayData[7]=NsegCode[tpl%100%10];
+    SegDisplayData[7]=NsegCode[tpl%10];
 }
 
 void DigDisplay()
