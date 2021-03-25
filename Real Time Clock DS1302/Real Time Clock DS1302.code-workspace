@@ -1,0 +1,31 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "*.txt": "c",
+            "*.prj": "c",
+            "*.prg": "c",
+            "*.sd": "c",
+            "*.sr": "c",
+            "*.hed": "c",
+            "*.tim": "c",
+            "*.dec": "c",
+            "*.pln": "c",
+            "*.pat": "c",
+            "*.bak": "c",
+            "*.log": "c",
+            "*.sum": "c",
+            ".eideignore": "ignore",
+            "ds1302.h": "c"
+        },
+        "C_Cpp.default.intelliSenseMode": "gcc-arm",
+        "files.autoGuessEncoding": true,
+        "C_Cpp.default.cppStandard": "c++14",
+        "C_Cpp.default.cStandard": "c99",
+        "EIDE.ARM.Option.AutoGenerateRTE_Components": false
+    }
+}
