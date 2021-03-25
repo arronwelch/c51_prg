@@ -1,7 +1,6 @@
 #include "reg52.h"
 #include "ds1302.h"
 
-
 //dynamic 8-seg  LED display BIT select
 sbit LSA = P2 ^ 2;
 sbit LSB = P2 ^ 3;
