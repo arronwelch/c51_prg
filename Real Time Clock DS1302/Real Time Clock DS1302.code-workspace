@@ -26,6 +26,7 @@
         "files.autoGuessEncoding": true,
         "C_Cpp.default.cppStandard": "c++14",
         "C_Cpp.default.cStandard": "c99",
-        "EIDE.ARM.Option.AutoGenerateRTE_Components": false
+        "EIDE.ARM.Option.AutoGenerateRTE_Components": false,
+        "C_Cpp.errorSquiggles": "Disabled"
     }
 }
