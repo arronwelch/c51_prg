@@ -1,7 +1,25 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "win32",
+            "includePath": [
+                "${default}",
+                "C:\\Keil_v5\\C51\\INC"
+            ],
+            "defines": [
+                "${default}",
+                "__UVISION_VERSION=526",
+                "__C51__",
+                "__VSCODE_CPPTOOL"
+            ],
+            "intelliSenseMode": "${default}",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${default}"
+            }
+        },
+        {
+            "name": "C51",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
