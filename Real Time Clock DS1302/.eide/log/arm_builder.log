@@ -1,3 +1,39 @@
 [2021-04-03 23:21:30]	[done]
 	build successfully !
 
+[2021-04-04 01:22:14]	compilation failed at : "d:\study\C51\c51_prg\Real Time Clock DS1302\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-04 01:24:12]	compilation failed at : "d:\study\C51\c51_prg\Real Time Clock DS1302\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-04 01:28:19]	[done]
+	build successfully !
+
+[2021-04-04 01:30:11]	[done]
+	build successfully !
+
+[2021-04-04 01:32:22]	[done]
+	build successfully !
+
+[2021-04-04 01:34:30]	[done]
+	build successfully !
+
+[2021-04-04 01:38:40]	[done]
+	build successfully !
+
+[2021-04-04 01:38:46]	[done]
+	build successfully !
+
+[2021-04-04 01:43:03]	[done]
+	build successfully !
+
+[2021-04-04 01:44:15]	[done]
+	build successfully !
+
+[2021-04-04 01:52:45]	compilation failed at : "d:\study\C51\c51_prg\Real Time Clock DS1302\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-04 01:53:04]	[done]
+	build successfully !
+
