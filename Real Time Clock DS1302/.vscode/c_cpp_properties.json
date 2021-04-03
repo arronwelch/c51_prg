@@ -4,13 +4,13 @@
             "name": "win32",
             "includePath": [
                 "${default}",
-                "C:\\Keil_v5\\C51\\INC",
+                "C:\\Keil_v5\\C51\\INC\\include",
+                "C:\\Keil_v5\\C51\\INC\\non-free\\include",
                 ".\\src"
             ],
             "defines": [
                 "${default}",
-                "__UVISION_VERSION=526",
-                "__C51__",
+                "__SDCC",
                 "__VSCODE_CPPTOOL"
             ],
             "intelliSenseMode": "${default}",
@@ -19,7 +19,7 @@
                 "databaseFilename": "${default}"
             },
             "forcedInclude": [
-                "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-2.3.2\\bin\\include\\internal_headers\\c51_intr.h"
+                "c:\\Users\\Administrator\\.vscode\\extensions\\cl.eide-2.4.1\\bin\\include\\internal_headers\\c51_intr.h"
             ]
         }
     ],
