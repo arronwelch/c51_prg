@@ -4,13 +4,13 @@
             "name": "win32",
             "includePath": [
                 "${default}",
-                "C:\\Keil_v5\\C51\\INC\\include",
-                "C:\\Keil_v5\\C51\\INC\\non-free\\include",
+                "C:\\Keil_v5\\C51\\INC",
                 ".\\src"
             ],
             "defines": [
                 "${default}",
-                "__SDCC",
+                "__UVISION_VERSION=526",
+                "__C51__",
                 "__VSCODE_CPPTOOL"
             ],
             "intelliSenseMode": "${default}",
