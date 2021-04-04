@@ -11,7 +11,7 @@ sbit LS138C = P2^4;
 
 bit ReadRTC_Flag;
 
-unsigned char l_tmpdate[7]={0,0,12,15,5,3,8};
+unsigned char l_tmpdate[7]={50,18,20,4,4,7,21};
 unsigned char l_tmpdisplay[8];
 
 code unsigned char write_rtc_address[7]={0x80,0x82,0x84,0x86,0x88,0x8a,0x8c};
@@ -33,7 +33,7 @@ void InitTimer0(void);
 void main()
 {
     InitTimer0();
-    Set_RTC();
+    //Set_RTC();
     while (1)
     {
         if(ReadRTC_Flag)
@@ -101,24 +101,26 @@ unsigned char Read_Ds1302(unsigned char address)
     _nop_();
     _nop_();
     Write_Ds1302_Byte(address);
+
+    SCK = 0;//ds1302 to mcu
+    _nop_();
+    _nop_();
+    _nop_();
+    SCK = 1;
+
     for(i=0;i<8;i++)
     {
+        temp >>= 1;
         if (SDA)
         temp|=0X80;
         SCK = 0;
-        temp >>= 1;//only save bit0 to bit6,ignore bit7
         _nop_();
         _nop_();
         _nop_();
         SCK = 1;
     }
-    RST = 0;
-    _nop_();
-    _nop_();
-    RST = 0;
-    SCK = 0;
-    _nop_();
-    _nop_();
+
+    RST = 0;//???
     _nop_();
     _nop_();
     SCK = 1;
@@ -130,7 +132,8 @@ unsigned char Read_Ds1302(unsigned char address)
     SDA = 1;
     _nop_();
     _nop_();
-    return (temp);
+
+    return (temp&0x7F);//ignore bit7
 }
 
 void Read_RTC(void)
