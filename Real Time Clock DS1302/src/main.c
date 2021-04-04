@@ -104,7 +104,7 @@ unsigned char Read_Ds1302(unsigned char address)
     for(i=0;i<8;i++)
     {
         if (SDA)
-            temp|=0X80;
+        temp|=0X80;
         SCK = 0;
         temp >>= 1;//only save bit0 to bit6,ignore bit7
         _nop_();
@@ -130,7 +130,7 @@ unsigned char Read_Ds1302(unsigned char address)
     SDA = 1;
     _nop_();
     _nop_();
-    return temp;
+    return (temp);
 }
 
 void Read_RTC(void)
@@ -151,7 +151,7 @@ void Set_RTC(void)
     {
         tmp=l_tmpdate[i]/10;
         l_tmpdate[i]=l_tmpdate[i]%10;
-        l_tmpdate[i]=l_tmpdate[i]+16*tmp;
+        l_tmpdate[i]=l_tmpdate[i]+tmp*16;
     }
     Write_Ds1302(0x8e,0x00);//disable write Protection
 
@@ -174,14 +174,14 @@ void tim(void) interrupt 1 using 1
 
     switch (i)
     {
-    case 0:LS138A=0;LS138B=0;LS138C=0;break;
-    case 1:LS138A=0;LS138B=0;LS138C=1;break;
-    case 2:LS138A=0;LS138B=1;LS138C=0;break;
-    case 3:LS138A=0;LS138B=1;LS138C=1;break;
-    case 4:LS138A=1;LS138B=0;LS138C=0;break;
-    case 5:LS138A=1;LS138B=0;LS138C=1;break;
-    case 6:LS138A=1;LS138B=1;LS138C=0;break;
-    case 7:LS138A=1;LS138B=1;LS138C=1;break;
+    case 0:LS138C=0;LS138B=0;LS138A=0;break;
+    case 1:LS138C=0;LS138B=0;LS138A=1;break;
+    case 2:LS138C=0;LS138B=1;LS138A=0;break;
+    case 3:LS138C=0;LS138B=1;LS138A=1;break;
+    case 4:LS138C=1;LS138B=0;LS138A=0;break;
+    case 5:LS138C=1;LS138B=0;LS138A=1;break;
+    case 6:LS138C=1;LS138B=1;LS138A=0;break;
+    case 7:LS138C=1;LS138B=1;LS138A=1;break;
     }
 
     i++;

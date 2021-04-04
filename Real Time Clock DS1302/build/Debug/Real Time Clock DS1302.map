@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/04/2021  16:33:24  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/04/2021  19:55:15  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 
 OVERLAY MAP OF MODULE:   .\build\Debug\Real Time Clock DS1302 (MAIN)
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  16:33:24  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  19:55:15  PAGE 2
 
 
 
@@ -135,7 +135,7 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
 
 
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  16:33:24  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  19:55:15  PAGE 3
 
 
 SYMBOL TABLE OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
@@ -203,7 +203,7 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  16:33:24  PAGE 4
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  19:55:15  PAGE 4
 
 
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP

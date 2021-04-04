@@ -20,7 +20,9 @@
             "*.log": "c",
             "*.sum": "c",
             ".eideignore": "ignore",
-            "intrins.h": "c"
+            "intrins.h": "c",
+            "REG52.H": "cpp",
+            "INTRINS.H": "cpp"
         },
         "C_Cpp.default.intelliSenseMode": "gcc-arm",
         "files.autoGuessEncoding": true,
