@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/04/2021  01:53:04  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/04/2021  16:33:24  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -17,8 +17,6 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
-         COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
          COMMENT TYPE 1: A51 / ASM51 Assembler
 
@@ -27,9 +25,10 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   0002EEH   CODE
-I:000000H   I:000000H   I:00007FH   00002BH   DATA
-C:000000H   C:000000H   C:00FFFFH   000026H   CONST
+C:000000H   C:000000H   C:00FFFFH   00029CH   CODE
+I:000000H   I:000000H   I:00007FH   000021H   DATA
+C:000000H   C:000000H   C:00FFFFH   000019H   CONST
+I:000020H.0 I:000020H.0 I:00002FH.7 000000H.1 BIT
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
 
@@ -41,71 +40,69 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
-000008H   00001BH   000014H   BYTE   UNIT     DATA           _DATA_GROUP_
-00001CH   00002AH   00000FH   BYTE   UNIT     DATA           ?DT?MAIN
-00002BH   00002BH   000001H   BYTE   UNIT     IDATA          ?STACK
+000008H   00000FH   000008H   ---    AT..     DATA           "REG BANK 1"
+000010H.0 00001FH.7 000010H.0 ---    ---      **GAP**
+000020H.0 000020H.0 000000H.1 BIT    UNIT     BIT            ?BI?MAIN
+000020H.1 000020H   000000H.7 ---    ---      **GAP**
+000021H   000031H   000011H   BYTE   UNIT     DATA           ?DT?MAIN
+000032H   000032H   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   00008EH   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-00008FH   000106H   000078H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
-000107H   000174H   00006EH   BYTE   UNIT     CODE           ?C?LIB_CODE
-000175H   0001CBH   000057H   BYTE   UNIT     CODE           ?PR?SET_RTC?MAIN
-0001CCH   000212H   000047H   BYTE   UNIT     CODE           ?PR?_DEC2BCD?MAIN
-000213H   000247H   000035H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000248H   000271H   00002AH   BYTE   UNIT     CODE           ?PR?READ_RTC?MAIN
-000272H   000292H   000021H   BYTE   UNIT     CODE           ?PR?READ_DS1302_BYTE?MAIN
-000293H   0002B1H   00001FH   BYTE   UNIT     CODE           ?PR?_WRITE_DS1302_BYTE?MAIN
-0002B2H   0002C5H   000014H   BYTE   UNIT     CODE           ?PR?_WRITE_DS1302?MAIN
-0002C6H   0002D7H   000012H   BYTE   UNIT     CODE           ?PR?_READ_DS1302?MAIN
-0002D8H   0002E2H   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-0002E3H   0002EDH   00000BH   BYTE   UNIT     CODE           ?C_INITSEG
-0002EEH   000313H   000026H   BYTE   UNIT     CONST          ?CO?MAIN
+000003H   00000AH   000008H   ---    ---      **GAP**
+00000BH   00000DH   000003H   BYTE   OFFS..   CODE           ?MAIN?0000B
+00000EH   00009DH   000090H   BYTE   UNIT     CODE           ?PR?TIM?MAIN
+00009EH   000129H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00012AH   00018DH   000064H   BYTE   UNIT     CODE           ?PR?SET_RTC?MAIN
+00018EH   0001D9H   00004CH   BYTE   UNIT     CODE           ?PR?_READ_DS1302?MAIN
+0001DAH   000216H   00003DH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+000217H   000240H   00002AH   BYTE   UNIT     CODE           ?PR?READ_RTC?MAIN
+000241H   00025CH   00001CH   BYTE   UNIT     CODE           ?PR?_WRITE_DS1302_BYTE?MAIN
+00025DH   000275H   000019H   BYTE   UNIT     CODE           ?C?LIB_CODE
+000276H   000289H   000014H   BYTE   UNIT     CODE           ?PR?_WRITE_DS1302?MAIN
+00028AH   000299H   000010H   BYTE   UNIT     CODE           ?PR?INITTIMER0?MAIN
+00029AH   0002A3H   00000AH   BYTE   UNIT     CODE           ?C_INITSEG
+0002A4H   0002BCH   000019H   BYTE   UNIT     CONST          ?CO?MAIN
 
 
 
 OVERLAY MAP OF MODULE:   .\build\Debug\Real Time Clock DS1302 (MAIN)
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  16:33:24  PAGE 2
 
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  01:53:04  PAGE 2
 
 
 FUNCTION/MODULE               BIT_GROUP   DATA_GROUP 
 --> CALLED FUNCTION/MODULE   START  STOP  START  STOP
 =====================================================
+TIM/MAIN                     ----- -----  ----- -----
+
+*** NEW ROOT ***************
+
 ?C_C51STARTUP                ----- -----  ----- -----
   +--> MAIN/MAIN
   +--> ?C_INITSEG
 
-MAIN/MAIN                    ----- -----  0008H 000AH
+MAIN/MAIN                    ----- -----  ----- -----
+  +--> INITTIMER0/MAIN
   +--> SET_RTC/MAIN
   +--> READ_RTC/MAIN
-  +--> DIGDISPLAY/MAIN
 
-SET_RTC/MAIN                 ----- -----  000BH 0010H
-  +--> _DEC2BCD/MAIN
+INITTIMER0/MAIN              ----- -----  ----- -----
+
+SET_RTC/MAIN                 ----- -----  ----- -----
   +--> _WRITE_DS1302/MAIN
-
-_DEC2BCD/MAIN                ----- -----  0011H 001BH
 
 _WRITE_DS1302/MAIN           ----- -----  ----- -----
   +--> _WRITE_DS1302_BYTE/MAIN
 
 _WRITE_DS1302_BYTE/MAIN      ----- -----  ----- -----
 
-READ_RTC/MAIN                ----- -----  000BH 0011H
+READ_RTC/MAIN                ----- -----  ----- -----
   +--> _READ_DS1302/MAIN
 
 _READ_DS1302/MAIN            ----- -----  ----- -----
   +--> _WRITE_DS1302_BYTE/MAIN
-  +--> READ_DS1302_BYTE/MAIN
-
-READ_DS1302_BYTE/MAIN        ----- -----  ----- -----
-
-DIGDISPLAY/MAIN              ----- -----  ----- -----
-  +--> _DELAY/MAIN
-
-_DELAY/MAIN                  ----- -----  ----- -----
 
 ?C_INITSEG                   ----- -----  ----- -----
 
@@ -116,32 +113,29 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
-      01000107H   CODE     ---       ?C?CLDPTR
+      0100025DH   CODE     ---       ?C?CLDPTR
       00000000H   NUMBER   ---       ?C?CODESEG
-      01000120H   CODE     ---       ?C?UIDIV
       00000000H   NUMBER   ---       ?C?XDATASEG
-      0100004AH   CODE     ---       ?C_START
+      010000E5H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      010001CCH   CODE     ---       _DEC2BCD
-      010002D8H   CODE     ---       _delay
-      010002C6H   CODE     ---       _Read_Ds1302
-      010002B2H   CODE     ---       _Write_Ds1302
-      01000293H   CODE     ---       _Write_Ds1302_Byte
-      0100008FH   CODE     ---       DigDisplay
-      0000001CH   DATA     ---       l_tmpdate
-      01000213H   CODE     ---       main
-      01000303H   CONST    ---       NsegCode
-      01000272H   CODE     ---       Read_Ds1302_Byte
-      01000248H   CODE     ---       Read_RTC
-      010002FCH   CONST    ---       read_rtc_address
-      010002EEH   CONST    ---       rtc_time_set
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  01:53:04  PAGE 3
+      0100018EH   CODE     ---       _Read_Ds1302
+      01000276H   CODE     ---       _Write_Ds1302
+      01000241H   CODE     ---       _Write_Ds1302_Byte
+      0100028AH   CODE     ---       InitTimer0
+      0000002BH   DATA     ---       l_tmpdate
+      00000023H   DATA     ---       l_tmpdisplay
+      010001DAH   CODE     ---       main
+      01000217H   CODE     ---       Read_RTC
+      010002ABH   CONST    ---       read_rtc_address
+      00000020H.0 BIT      BIT       ReadRTC_Flag
+      0100012AH   CODE     ---       Set_RTC
+      010002B2H   CONST    ---       table
+      0100000EH   CODE     ---       tim
+      010002A4H   CONST    ---       write_rtc_address
 
 
-      00000023H   DATA     ---       SegDisplayData
-      01000175H   CODE     ---       Set_RTC
-      010002F5H   CONST    ---       write_rtc_address
 
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  16:33:24  PAGE 3
 
 
 SYMBOL TABLE OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
@@ -149,97 +143,76 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\Real Time Clock DS1302 (MAIN)
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       MAIN
-      00000023H   PUBLIC    DATA     ---       SegDisplayData
-      0000001CH   PUBLIC    DATA     ---       l_tmpdate
-      01000303H   PUBLIC    CONST    ---       NsegCode
-      010002FCH   PUBLIC    CONST    ---       read_rtc_address
-      010002F5H   PUBLIC    CONST    ---       write_rtc_address
-      010002EEH   PUBLIC    CONST    ---       rtc_time_set
-      01000213H   PUBLIC    CODE     ---       main
-      01000175H   PUBLIC    CODE     ---       Set_RTC
-      01000248H   PUBLIC    CODE     ---       Read_RTC
-      010002C6H   PUBLIC    CODE     ---       _Read_Ds1302
-      01000272H   PUBLIC    CODE     ---       Read_Ds1302_Byte
-      010002B2H   PUBLIC    CODE     ---       _Write_Ds1302
-      01000293H   PUBLIC    CODE     ---       _Write_Ds1302_Byte
-      010001CCH   PUBLIC    CODE     ---       _DEC2BCD
-      0100008FH   PUBLIC    CODE     ---       DigDisplay
-      010002D8H   PUBLIC    CODE     ---       _delay
+      00000020H.0 PUBLIC    BIT      BIT       ReadRTC_Flag
+      0000002BH   PUBLIC    DATA     ---       l_tmpdate
+      00000023H   PUBLIC    DATA     ---       l_tmpdisplay
+      010002B2H   PUBLIC    CONST    ---       table
+      010002ABH   PUBLIC    CONST    ---       read_rtc_address
+      010002A4H   PUBLIC    CONST    ---       write_rtc_address
+      0100000EH   PUBLIC    CODE     ---       tim
+      0100012AH   PUBLIC    CODE     ---       Set_RTC
+      01000217H   PUBLIC    CODE     ---       Read_RTC
+      0100018EH   PUBLIC    CODE     ---       _Read_Ds1302
+      01000276H   PUBLIC    CODE     ---       _Write_Ds1302
+      01000241H   PUBLIC    CODE     ---       _Write_Ds1302_Byte
+      0100028AH   PUBLIC    CODE     ---       InitTimer0
+      010001DAH   PUBLIC    CODE     ---       main
 
-      010002D8H   BLOCK     CODE     ---       LVL=0
+      010001DAH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100008FH   BLOCK     CODE     ---       LVL=0
-      0100008FH   BLOCK     CODE     NEAR LAB  LVL=1
-      00000005H   SYMBOL    DATA     VOID      i
-      ---         BLOCKEND  ---      ---       LVL=1
+      0100028AH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010001CCH   BLOCK     CODE     ---       LVL=0
-      010001D2H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000014H   SYMBOL    DATA     VOID      i
-      00000015H   SYMBOL    DATA     VOID      dat
-      ---         BLOCKEND  ---      ---       LVL=1
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      01000293H   BLOCK     CODE     ---       LVL=0
-      01000293H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000241H   BLOCK     CODE     ---       LVL=0
+      01000241H   BLOCK     CODE     NEAR LAB  LVL=1
       00000006H   SYMBOL    DATA     VOID      i
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002B2H   BLOCK     CODE     ---       LVL=0
+      01000276H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000272H   BLOCK     CODE     ---       LVL=0
-      01000272H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000006H   SYMBOL    DATA     VOID      i
-      00000007H   SYMBOL    DATA     VOID      byte
+      0100018EH   BLOCK     CODE     ---       LVL=0
+      0100018EH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000007H   SYMBOL    DATA     VOID      i
+      00000005H   SYMBOL    DATA     VOID      temp
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002C6H   BLOCK     CODE     ---       LVL=0
-      010002C6H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000007H   SYMBOL    DATA     VOID      dat
-      ---         BLOCKEND  ---      ---       LVL=1
-      ---         BLOCKEND  ---      ---       LVL=0
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  01:53:04  PAGE 4
-
-
-
-      01000248H   BLOCK     CODE     ---       LVL=0
-      01000248H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000005H   SYMBOL    DATA     VOID      i
-      00000001H   SYMBOL    DATA     VOID      addr
-      0000000BH   SYMBOL    DATA     VOID      dat
-      ---         BLOCKEND  ---      ---       LVL=1
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      01000175H   BLOCK     CODE     ---       LVL=0
-      01000175H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000217H   BLOCK     CODE     ---       LVL=0
+      01000217H   BLOCK     CODE     NEAR LAB  LVL=1
       00000004H   SYMBOL    DATA     VOID      i
-      0000000BH   SYMBOL    DATA     VOID      addr
-      0000000EH   SYMBOL    DATA     VOID      dat
+      00000001H   SYMBOL    DATA     VOID      p
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000213H   BLOCK     CODE     ---       LVL=0
-      01000213H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000008H   SYMBOL    DATA     VOID      dat
+      0100012AH   BLOCK     CODE     ---       LVL=0
+      0100012AH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000004H   SYMBOL    DATA     VOID      i
+      00000001H   SYMBOL    DATA     VOID      p
+      00000006H   SYMBOL    DATA     VOID      tmp
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100000EH   BLOCK     CODE     ---       LVL=0
+      01000019H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000021H   SYMBOL    DATA     VOID      i
+      00000022H   SYMBOL    DATA     VOID      num
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  16:33:24  PAGE 4
+
+
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
       ---         MODULE    ---      ---       ?C?CLDPTR
-      01000107H   PUBLIC    CODE     ---       ?C?CLDPTR
-
-      ---         MODULE    ---      ---       ?C?UIDIV
-      01000120H   PUBLIC    CODE     ---       ?C?UIDIV
+      0100025DH   PUBLIC    CODE     ---       ?C?CLDPTR
 
       ---         MODULE    ---      ---       ?C_INIT
-      0100004AH   PUBLIC    CODE     ---       ?C_START
+      010000E5H   PUBLIC    CODE     ---       ?C_START
 
-Program Size: data=44.0 xdata=0 const=38 code=750
+Program Size: data=34.1 xdata=0 const=25 code=668
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
