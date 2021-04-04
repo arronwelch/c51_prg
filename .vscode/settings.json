@@ -13,6 +13,8 @@
         "*.bak": "c",
         "*.log": "c",
         "*.sum": "c",
-        "ds18b20.h": "c"
+        "ds18b20.h": "c",
+        "IR.C": "cpp",
+        "main.C": "cpp"
     }
 }

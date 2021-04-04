@@ -1,0 +1,186 @@
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/04/2021  23:29:12  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\DEBUG\INFRARED.O, .\BUILD\DEBUG\MAIN.O TO .\build\Debug\NEC_infra-red remote control
+>>  PRINT (.\build\Debug\NEC_infra-red remote control.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\DEBUG\INFRARED.O (INFRARED)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  .\BUILD\DEBUG\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\NEC_infra-red remote control (INFRARED)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000281H   CODE
+I:000020H.0 I:000020H.0 I:00002FH.7 000000H.1 BIT
+I:000000H   I:000000H   I:00007FH   000014H   DATA
+C:000000H   C:000000H   C:00FFFFH   000010H   CONST
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\build\Debug\NEC_infra-red remote control (INFRARED)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   00000FH   000008H   BYTE   UNIT     DATA           ?DT?MAIN
+000010H   000013H   000004H   BYTE   UNIT     DATA           ?DT?INFRARED
+000014H.0 00001FH.7 00000CH.0 ---    ---      **GAP**
+000020H.0 000020H.0 000000H.1 BIT    UNIT     BIT            ?BI?INFRARED
+000020H.1 000020H   000000H.7 ---    ---      **GAP**
+000021H   000021H   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   000005H   000003H   BYTE   OFFS..   CODE           ?INFRARED?00003
+000006H   0000DDH   0000D8H   BYTE   UNIT     CODE           ?PR?EXINT0_ISR?INFRARED
+0000DEH   000169H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00016AH   0001DDH   000074H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
+0001DEH   000209H   00002CH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+00020AH   000230H   000027H   BYTE   UNIT     CODE           ?PR?GETHIGHTIME?INFRARED
+000231H   000257H   000027H   BYTE   UNIT     CODE           ?PR?GETLOWTIME?INFRARED
+000258H   000268H   000011H   BYTE   UNIT     CODE           ?PR?INITINFRARED?INFRARED
+000269H   000275H   00000DH   BYTE   UNIT     CODE           ?C_INITSEG
+000276H   000280H   00000BH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+000281H   000290H   000010H   BYTE   UNIT     CONST          ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\build\Debug\NEC_infra-red remote control (INFRARED)
+
+
+FUNCTION/MODULE              BIT_GROUP   DATA_GROUP 
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  23:29:12  PAGE 2
+
+
+--> CALLED FUNCTION/MODULE  START  STOP  START  STOP
+====================================================
+EXINT0_ISR/INFRARED         ----- -----  ----- -----
+  +--> GETLOWTIME/INFRARED
+  +--> GETHIGHTIME/INFRARED
+
+GETLOWTIME/INFRARED         ----- -----  ----- -----
+
+GETHIGHTIME/INFRARED        ----- -----  ----- -----
+
+*** NEW ROOT **************
+
+?C_C51STARTUP               ----- -----  ----- -----
+  +--> MAIN/MAIN
+  +--> ?C_INITSEG
+
+MAIN/MAIN                   ----- -----  ----- -----
+  +--> INITINFRARED/INFRARED
+  +--> DIGDISPLAY/MAIN
+
+INITINFRARED/INFRARED       ----- -----  ----- -----
+
+DIGDISPLAY/MAIN             ----- -----  ----- -----
+  +--> _DELAY/MAIN
+
+_DELAY/MAIN                 ----- -----  ----- -----
+
+?C_INITSEG                  ----- -----  ----- -----
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\build\Debug\NEC_infra-red remote control (INFRARED)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+      00000000H   NUMBER   ---       ?C?CODESEG
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      01000125H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+      01000276H   CODE     ---       _delay
+      0100016AH   CODE     ---       DigDisplay
+      01000006H   CODE     ---       EXINT0_ISR
+      0100020AH   CODE     ---       GetHighTime
+      01000231H   CODE     ---       GetLowTime
+      01000258H   CODE     ---       InitInfrared
+      00000010H   DATA     ---       ircode
+      00000020H.0 BIT      BIT       irflag
+      010001DEH   CODE     ---       main
+      01000281H   CONST    ---       NsegCode
+      00000008H   DATA     ---       SegDisplayData
+
+
+
+SYMBOL TABLE OF MODULE:  .\build\Debug\NEC_infra-red remote control (INFRARED)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       INFRARED
+      00000010H   PUBLIC    DATA     ---       ircode
+      00000020H.0 PUBLIC    BIT      BIT       irflag
+      01000006H   PUBLIC    CODE     ---       EXINT0_ISR
+      01000231H   PUBLIC    CODE     ---       GetLowTime
+      0100020AH   PUBLIC    CODE     ---       GetHighTime
+      01000258H   PUBLIC    CODE     ---       InitInfrared
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/04/2021  23:29:12  PAGE 3
+
+
+
+      01000258H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100020AH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000231H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000006H   BLOCK     CODE     ---       LVL=0
+      0100001DH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000003H   SYMBOL    DATA     VOID      i
+      00000002H   SYMBOL    DATA     VOID      j
+      00000001H   SYMBOL    DATA     VOID      byt
+      00000006H   SYMBOL    DATA     VOID      time
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       MAIN
+      00000008H   PUBLIC    DATA     ---       SegDisplayData
+      01000281H   PUBLIC    CONST    ---       NsegCode
+      010001DEH   PUBLIC    CODE     ---       main
+      0100016AH   PUBLIC    CODE     ---       DigDisplay
+      01000276H   PUBLIC    CODE     ---       _delay
+
+      01000276H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100016AH   BLOCK     CODE     ---       LVL=0
+      0100016AH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000005H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010001DEH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+      ---         MODULE    ---      ---       ?C_INIT
+      01000125H   PUBLIC    CODE     ---       ?C_START
+
+Program Size: data=21.1 xdata=0 const=16 code=641
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
