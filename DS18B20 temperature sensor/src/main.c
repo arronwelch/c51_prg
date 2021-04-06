@@ -53,13 +53,13 @@ void datapros(u16 temp)
         SegDisplayData[0]=0x40;
         temp = (~temp)+1;
         tph = temp*0.0625;
-        tpl = (tph-(temp*0.0625))*1000;
+        tpl = ((temp*0.0625)-tph)*10000;
     }
     else
     {
         SegDisplayData[0]=0x00;
         tph = temp*0.0625;
-        tpl = (tph-(temp*0.0625))*1000;
+        tpl = ((temp*0.0625)-tph)*10000;
     }
     if((tph/100)==0)
     {
