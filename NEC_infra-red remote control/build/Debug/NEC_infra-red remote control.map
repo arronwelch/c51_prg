@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/08/2021  00:54:02  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/08/2021  01:06:10  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -23,7 +23,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\build\Debug\NEC_infra-red remote control (MA
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000279H   CODE
+C:000000H   C:000000H   C:00FFFFH   000275H   CODE
 I:000000H   I:000000H   I:00007FH   000017H   DATA
 C:000000H   C:000000H   C:00FFFFH   000011H   CONST
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
@@ -44,14 +44,14 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
 000003H   000005H   000003H   BYTE   OFFS..   CODE           ?MAIN?00003
-000006H   00012BH   000126H   BYTE   UNIT     CODE           ?PR?READIR?MAIN
-00012CH   0001B7H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-0001B8H   00022BH   000074H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
-00022CH   000252H   000027H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-000253H   000261H   00000FH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
-000262H   00026FH   00000EH   BYTE   UNIT     CODE           ?C_INITSEG
-000270H   000278H   000009H   BYTE   UNIT     CODE           ?PR?IRINIT?MAIN
-000279H   000289H   000011H   BYTE   UNIT     CONST          ?CO?MAIN
+000006H   000127H   000122H   BYTE   UNIT     CODE           ?PR?READIR?MAIN
+000128H   0001B3H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+0001B4H   000227H   000074H   BYTE   UNIT     CODE           ?PR?DIGDISPLAY?MAIN
+000228H   00024EH   000027H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+00024FH   00025DH   00000FH   BYTE   UNIT     CODE           ?PR?_DELAY?MAIN
+00025EH   00026BH   00000EH   BYTE   UNIT     CODE           ?C_INITSEG
+00026CH   000274H   000009H   BYTE   UNIT     CODE           ?PR?IRINIT?MAIN
+000275H   000285H   000011H   BYTE   UNIT     CONST          ?CO?MAIN
 
 
 
@@ -67,7 +67,7 @@ READIR/MAIN                 ----- -----  0016H 0016H
 _DELAY/MAIN                 ----- -----  ----- -----
 
 *** NEW ROOT **************
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/08/2021  00:54:02  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/08/2021  01:06:10  PAGE 2
 
 
 
@@ -95,15 +95,15 @@ PUBLIC SYMBOLS OF MODULE:  .\build\Debug\NEC_infra-red remote control (MAIN)
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-      01000173H   CODE     ---       ?C_START
+      0100016FH   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      01000257H   CODE     ---       _delay
-      010001B8H   CODE     ---       DigDisplay
+      01000253H   CODE     ---       _delay
+      010001B4H   CODE     ---       DigDisplay
       00000009H   DATA     BYTE      FLAG
-      01000270H   CODE     ---       IrInit
+      0100026CH   CODE     ---       IrInit
       0000000AH   DATA     ---       IrValue
-      0100022CH   CODE     ---       main
-      01000279H   CONST    ---       NsegCode
+      01000228H   CODE     ---       main
+      01000275H   CONST    ---       NsegCode
       01000006H   CODE     ---       ReadIr
       0000000EH   DATA     ---       SegDisplayData
       00000008H   DATA     BYTE      Time
@@ -119,32 +119,32 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\NEC_infra-red remote control (MAIN)
       0000000AH   PUBLIC    DATA     ---       IrValue
       00000009H   PUBLIC    DATA     BYTE      FLAG
       00000008H   PUBLIC    DATA     BYTE      Time
-      01000279H   PUBLIC    CONST    ---       NsegCode
+      01000275H   PUBLIC    CONST    ---       NsegCode
       01000006H   PUBLIC    CODE     ---       ReadIr
-      0100022CH   PUBLIC    CODE     ---       main
-      01000270H   PUBLIC    CODE     ---       IrInit
-      010001B8H   PUBLIC    CODE     ---       DigDisplay
-      01000257H   PUBLIC    CODE     ---       _delay
+      01000228H   PUBLIC    CODE     ---       main
+      0100026CH   PUBLIC    CODE     ---       IrInit
+      010001B4H   PUBLIC    CODE     ---       DigDisplay
+      01000253H   PUBLIC    CODE     ---       _delay
+
+      0100024FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
 
       01000253H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000257H   BLOCK     CODE     ---       LVL=0
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      010001B8H   BLOCK     CODE     ---       LVL=0
-      010001B8H   BLOCK     CODE     NEAR LAB  LVL=1
+      010001B4H   BLOCK     CODE     ---       LVL=0
+      010001B4H   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      i
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/08/2021  00:54:02  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/08/2021  01:06:10  PAGE 3
 
 
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000270H   BLOCK     CODE     ---       LVL=0
+      0100026CH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100022CH   BLOCK     CODE     ---       LVL=0
+      01000228H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000006H   BLOCK     CODE     ---       LVL=0
@@ -159,7 +159,7 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\NEC_infra-red remote control (MAIN)
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
       ---         MODULE    ---      ---       ?C_INIT
-      01000173H   PUBLIC    CODE     ---       ?C_START
+      0100016FH   PUBLIC    CODE     ---       ?C_START
 
-Program Size: data=24.0 xdata=0 const=17 code=633
+Program Size: data=24.0 xdata=0 const=17 code=629
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

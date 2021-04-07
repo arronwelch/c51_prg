@@ -26,7 +26,7 @@ u8 Time;
 u8 IrValue[4];
 u8 FLAG=0;
 
-void delay(u16 i)//i=1 about 10us
+void delay(u16 i)
 {
     while (i--)
         ;
@@ -89,7 +89,8 @@ void ReadIr(void) interrupt 0
 
     FP = 0;
     //delay(1);//4.417us
-    delay(8);//16.42us
+    //delay(8);//13.75us
+    delay(10);//16.42us
     //delay(80);//109.7us
     FP = 1;
 
@@ -119,7 +120,7 @@ void ReadIr(void) interrupt 0
                     err = 50;
                     while ((0 == IR)&&(err>0))//510us
                     {
-                        delay(10);
+                        delay(10);//10us
                         err--;
                     }
                     FP = 0;
@@ -147,12 +148,16 @@ void ReadIr(void) interrupt 0
             }            
         }        
     }
-    if(IrValue[2]!=~IrValue[3])
+    if(IrValue[2]=~IrValue[3])
     {
-        FLAG=0;
+        FLAG=1;//success
+        FP = 1;
+        return;
+    }
+    else
+    {
+        FLAG=0;//fail
         FP = 1;
         return;//error
     }
-    FLAG=1;
-    FP = 1;
 }
