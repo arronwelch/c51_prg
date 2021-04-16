@@ -1,0 +1,3 @@
+
+.\build\Debug\XPT2046.o,.\build\Debug\main.o TO ".\build\Debug\XPT2046 AD Converter"
+PRINT(".\build\Debug\XPT2046 AD Converter.map") REMOVEUNUSED

@@ -1,12 +1,7 @@
 {
     "version": 2,
     "beforeBuildTasks": [],
-    "afterBuildTasks": [
-        {
-            "name": "clean",
-            "command": "cd \"${OutDir}\" && del *._* *.lst *.lnp"
-        }
-    ],
+    "afterBuildTasks": [],
     "global": {
         "ram-mode": "SMALL",
         "rom-mode": "LARGE"

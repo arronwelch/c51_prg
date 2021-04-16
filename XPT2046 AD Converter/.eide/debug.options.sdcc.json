@@ -1,12 +1,7 @@
 {
     "version": 3,
     "beforeBuildTasks": [],
-    "afterBuildTasks": [
-        {
-            "name": "clean",
-            "command": "cd \"${OutDir}\" && del *.sym *.cdb *.adb *._*"
-        }
-    ],
+    "afterBuildTasks": [],
     "global": {
         "device": "mcs51",
         "optimize-type": "speed",

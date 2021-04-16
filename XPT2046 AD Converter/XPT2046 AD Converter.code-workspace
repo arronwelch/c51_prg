@@ -1,0 +1,32 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "*.txt": "c",
+            "*.prj": "c",
+            "*.prg": "c",
+            "*.sd": "c",
+            "*.sr": "c",
+            "*.hed": "c",
+            "*.tim": "c",
+            "*.dec": "c",
+            "*.pln": "c",
+            "*.pat": "c",
+            "*.bak": "c",
+            "*.log": "c",
+            "*.sum": "c",
+            ".eideignore": "ignore",
+            "xpt2046.h": "c",
+            "XPT2046.H": "cpp"
+        },
+        "C_Cpp.default.intelliSenseMode": "gcc-arm",
+        "files.autoGuessEncoding": true,
+        "C_Cpp.default.cppStandard": "c++14",
+        "C_Cpp.default.cStandard": "c99",
+        "C_Cpp.errorSquiggles": "Disabled"
+    }
+}
