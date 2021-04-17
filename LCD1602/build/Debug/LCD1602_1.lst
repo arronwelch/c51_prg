@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 1   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD1602
@@ -62,7 +62,7 @@ line level    source
   79   1          LCD1602_E = 0;
   80   1      
   81   1          LCD1602_DATAPINS = dat << 4;//send cmd
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 2   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 2   
 
   82   1          Lcd1602_Delay1ms(1);//Waiting for the data to stabilize
   83   1      
@@ -83,7 +83,7 @@ line level    source
  107   1          LcdWriteCom(0x80);//setting data point start address
  108   1      }
  109          #endif
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 3   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -147,7 +147,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 004B 80F3              SJMP    ?C0007
                                            ; SOURCE LINE # 12
 004D         ?C0006:
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 4   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 4   
 
 004D 1D                DEC     R5
 004E 80E4              SJMP    ?C0004
@@ -211,7 +211,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 85
 0006 120000      R     LCALL   L?0015
                                            ; SOURCE LINE # 86
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 5   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 5   
 
 0009 C2A7              CLR     LCD1602_E
                                            ; SOURCE LINE # 87
@@ -241,7 +241,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 001B 020000      R     LJMP    _LcdWriteCom
              ; FUNCTION LcdInit (END)
 
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 6   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 6   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -304,7 +304,7 @@ TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
 ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
 TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
 TF2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
-C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:31:00 PAGE 7   
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:39:16 PAGE 7   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
