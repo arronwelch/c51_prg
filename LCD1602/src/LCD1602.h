@@ -2,7 +2,7 @@
 #ifndef __LCD1602_H__
 #define __LCD1602_H__
 
-//#define LCD1602_4PINSK
+#define LCD1602_4PINS
 
 #include "reg52.h"
 

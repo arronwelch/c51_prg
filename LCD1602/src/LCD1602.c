@@ -1,7 +1,6 @@
 
 #include "LCD1602.h"
 
-
 void Lcd1602_Delay1ms(uint c)
 {
     uchar a,b;
@@ -41,6 +40,13 @@ void LcdWriteCom(uchar com)
     LCD1602_E = 1;//write enable
     Lcd1602_Delay1ms(5);//keep time
     LCD1602_E = 0;
+
+    LCD1602_DATAPINS = com << 4;//send cmd
+    Lcd1602_Delay1ms(1);//Waiting for the data to stabilize
+
+    LCD1602_E = 1;//write enable
+    Lcd1602_Delay1ms(5);//keep time
+    LCD1602_E = 0;
 }
 #endif
 
@@ -66,6 +72,13 @@ void LcdWriteData(uchar dat)
     LCD1602_RW = 0;//select write mode
 
     LCD1602_DATAPINS = dat;//send cmd
+    Lcd1602_Delay1ms(1);//Waiting for the data to stabilize
+
+    LCD1602_E = 1;//write enable
+    Lcd1602_Delay1ms(5);//keep time
+    LCD1602_E = 0;
+
+    LCD1602_DATAPINS = dat << 4;//send cmd
     Lcd1602_Delay1ms(1);//Waiting for the data to stabilize
 
     LCD1602_E = 1;//write enable
@@ -80,12 +93,17 @@ void LcdInit()
     LcdWriteCom(0x38);//databus = 8bit,row_num = 2; 5*7 char mode
     LcdWriteCom(0x0c);//enable display,disable curser
     LcdWriteCom(0x06);//write new data,curser right shift
-    LcdWriteCom(0x01);//clear ddram(write 20H)
+    LcdWriteCom(0x01);//clear ddram(write Space 20H)
     LcdWriteCom(0x80);//setting data point start address
 }
 #else
 void LcdInit()
 {
-
+    LcdWriteCom(0x32);//databus = 4bit,row_num = 2; 5*7 char mode
+    LcdWriteCom(0x28);//4bit Bus Init
+    LcdWriteCom(0x0c);//enable display,disable curser
+    LcdWriteCom(0x06);//write new data,curser right shift
+    LcdWriteCom(0x01);//clear ddram(write Space 20H)
+    LcdWriteCom(0x80);//setting data point start address
 }
 #endif
