@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/18/2021  00:27:39  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/18/2021  00:31:00  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ FUNCTION/MODULE                 BIT_GROUP   DATA_GROUP
 MAIN/MAIN                      ----- -----  0018H 0018H
   +--> LCDINIT/LCD1602
   +--> _LCDWRITEDATA/LCD1602
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/18/2021  00:27:39  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/18/2021  00:31:00  PAGE 2
 
 
   +--> _LCDWRITECOM/LCD1602
@@ -135,7 +135,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD1602 (LCD1602)
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       MAIN
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/18/2021  00:27:39  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/18/2021  00:31:00  PAGE 3
 
 
       00000008H   PUBLIC    DATA     ---       Disp

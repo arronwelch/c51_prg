@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:27:39 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:31:00 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -40,7 +40,7 @@ line level    source
   29   2          }
   30   1          while (1);
   31   1      }
-C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:27:39 PAGE 2   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:31:00 PAGE 2   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -103,7 +103,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0040 80FE              SJMP    ?C0007
              ; FUNCTION main (END)
 
-C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:27:39 PAGE 3   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:31:00 PAGE 3   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -166,7 +166,7 @@ ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
 TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
 TF2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
 RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
-C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:27:39 PAGE 4   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/18/2021 00:31:00 PAGE 4   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
