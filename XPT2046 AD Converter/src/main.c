@@ -56,7 +56,7 @@ void datapros()
     if (i==50)
     {
         i=0;
-        temp = Read_AD_Data(0XE4);
+        temp = Read_AD_Data(0x94);
         //AINO0:0x94/0xb4 adj-resistance
         //AIN1:0XD4 NTC
         //AIN2:0XA4 GR

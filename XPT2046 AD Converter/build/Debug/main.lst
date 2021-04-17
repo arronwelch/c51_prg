@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -62,14 +62,14 @@ line level    source
   51          
   52          void datapros()
   53          {
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 2   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 2   
 
   54   1          u16 temp;
   55   1          static u8 i;
   56   1          if (i==50)
   57   1          {
   58   2              i=0;
-  59   2              temp = Read_AD_Data(0XE4);
+  59   2              temp = Read_AD_Data(0x94);
   60   2              //AINO0:0x94/0xb4 adj-resistance
   61   2              //AIN1:0XD4 NTC
   62   2              //AIN2:0XA4 GR
@@ -95,7 +95,7 @@ line level    source
   82   2              DigDisplay();
   83   2          }
   84   1      }
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 3   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -159,7 +159,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0033 8002              SJMP    ?C0026
                                            ; SOURCE LINE # 37
 0035         ?C0009:
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 4   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 4   
 
 0035 D2A2              SETB    LSA
 0037         ?C0026:
@@ -223,7 +223,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION DigDisplay (END)
 
              ; FUNCTION datapros (BEGIN)
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 5   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 5   
 
                                            ; SOURCE LINE # 52
                                            ; SOURCE LINE # 53
@@ -235,7 +235,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 58
 0006 F500        R     MOV     i,A
                                            ; SOURCE LINE # 59
-0008 7FE4              MOV     R7,#0E4H
+0008 7F94              MOV     R7,#094H
 000A 120000      E     LCALL   _Read_AD_Data
 000D 8E00        R     MOV     temp,R6
 000F 8F00        R     MOV     temp+01H,R7
@@ -287,7 +287,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0054 AF00        R     MOV     R7,temp+01H
 0056 7C00              MOV     R4,#00H
 0058 7D64              MOV     R5,#064H
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 6   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 6   
 
 005A 120000      E     LCALL   ?C?UIDIV
 005D 7E00              MOV     R6,#00H
@@ -341,7 +341,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0006 80F8              SJMP    ?C0020
              ; FUNCTION main (END)
 
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 7   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 7   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -404,7 +404,7 @@ RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
 TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
 EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
 IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 8   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 8   
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -469,7 +469,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
 
-C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:11:54 PAGE 9   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/17/2021 02:21:21 PAGE 9   
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
