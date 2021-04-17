@@ -1,0 +1,3 @@
+
+.\build\Debug\LCD1602_1.o,.\build\Debug\main.o TO .\build\Debug\LCD1602
+PRINT(.\build\Debug\LCD1602.map) REMOVEUNUSED

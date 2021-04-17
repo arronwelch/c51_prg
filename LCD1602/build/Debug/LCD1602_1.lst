@@ -1,0 +1,324 @@
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LCD1602
+OBJECT MODULE PLACED IN .\build\Debug\LCD1602_1.o
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.exe .\SRC\LCD1602.C PRINT(.\build\Debug\LCD1602_1.lst) OMF2 TABS(4) CODE NOC
+                    -OND SYMBOLS OPTIMIZE(8,SPEED) SMALL ROM(LARGE) INCDIR(C:\Keil_v5\C51\INC;.\src) DEFINE(__UVISION_VERSION=526) OBJECT(.\b
+                    -uild\Debug\LCD1602_1.o)
+
+line level    source
+
+   1          
+   2          #include "LCD1602.h"
+   3          
+   4          
+   5          void Lcd1602_Delay1ms(uint c)
+   6          {
+   7   1          uchar a,b;
+   8   1          for(;c>0;c--)
+   9   1          {
+  10   2              for(b=199;b>0;b--)
+  11   2              {
+  12   3                  for(a=1;a>0;a--);
+  13   3              }
+  14   2          }
+  15   1      }
+  16          
+  17          #ifndef LCD1602_4PINS
+  18          void LcdWriteCom(uchar com)
+  19          {
+  20   1          LCD1602_E = 0;
+  21   1          LCD1602_RS = 0;//select send cmd mode
+  22   1          LCD1602_RW = 0;//select write mode
+  23   1      
+  24   1          LCD1602_DATAPINS = com;//send cmd
+  25   1          Lcd1602_Delay1ms(1);//Waiting for the data to stabilize
+  26   1      
+  27   1          LCD1602_E = 1;//write enable
+  28   1          Lcd1602_Delay1ms(5);//keep time
+  29   1          LCD1602_E = 0;
+  30   1      }
+  31          #else
+  46          
+  47          #ifndef LCD1602_4PINS
+  48          void LcdWriteData(uchar dat)
+  49          {
+  50   1          LCD1602_E = 0;
+  51   1          LCD1602_RS = 1;//select send data mode
+  52   1          LCD1602_RW = 0;//select write mode
+  53   1      
+  54   1          LCD1602_DATAPINS = dat;//send cmd
+  55   1          Lcd1602_Delay1ms(1);//Waiting for the data to stabilize
+  56   1      
+  57   1          LCD1602_E = 1;//write enable
+  58   1          Lcd1602_Delay1ms(5);//keep time
+  59   1          LCD1602_E = 0;
+  60   1      }
+  61          #else
+  76          
+  77          #ifndef LCD1602_4PINS
+  78          void LcdInit()
+  79          {
+  80   1          LcdWriteCom(0x38);//databus = 8bit,row_num = 2; 5*7 char mode
+  81   1          LcdWriteCom(0x0c);//enable display,disable curser
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 2   
+
+  82   1          LcdWriteCom(0x06);//write new data,curser right shift
+  83   1          LcdWriteCom(0x01);//clear ddram(write 20H)
+  84   1          LcdWriteCom(0x80);//setting data point start address
+  85   1      }
+  86          #else
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION L?0015 (BEGIN)
+0000 C2A5              CLR     LCD1602_RW
+0002 8F80              MOV     P0,R7
+0004 7F01              MOV     R7,#01H
+0006 7E00              MOV     R6,#00H
+0008 120000      R     LCALL   _Lcd1602_Delay1ms
+000B D2A7              SETB    LCD1602_E
+000D 7F05              MOV     R7,#05H
+000F 7E00              MOV     R6,#00H
+             ; FUNCTION _Lcd1602_Delay1ms (BEGIN)
+                                           ; SOURCE LINE # 5
+;---- Variable 'c' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 6
+                                           ; SOURCE LINE # 8
+0011         ?C0001:
+0011 D3                SETB    C
+0012 EF                MOV     A,R7
+0013 9400              SUBB    A,#00H
+0015 EE                MOV     A,R6
+0016 9400              SUBB    A,#00H
+0018 4025              JC      ?C0010
+                                           ; SOURCE LINE # 9
+                                           ; SOURCE LINE # 10
+;---- Variable 'b' assigned to Register 'R5' ----
+001A 7DC7              MOV     R5,#0C7H
+001C         ?C0004:
+001C ED                MOV     A,R5
+001D D3                SETB    C
+001E 9400              SUBB    A,#00H
+0020 7480              MOV     A,#080H
+0022 9480              SUBB    A,#080H
+0024 4012              JC      ?C0003
+                                           ; SOURCE LINE # 11
+                                           ; SOURCE LINE # 12
+;---- Variable 'a' assigned to Register 'R4' ----
+0026 7C01              MOV     R4,#01H
+0028         ?C0007:
+0028 EC                MOV     A,R4
+0029 D3                SETB    C
+002A 9400              SUBB    A,#00H
+002C 7480              MOV     A,#080H
+002E 9480              SUBB    A,#080H
+0030 4003              JC      ?C0006
+0032 1C                DEC     R4
+0033 80F3              SJMP    ?C0007
+                                           ; SOURCE LINE # 13
+0035         ?C0006:
+0035 1D                DEC     R5
+0036 80E4              SJMP    ?C0004
+                                           ; SOURCE LINE # 14
+0038         ?C0003:
+0038 EF                MOV     A,R7
+0039 1F                DEC     R7
+003A 70D5              JNZ     ?C0001
+003C 1E                DEC     R6
+003D         ?C0014:
+003D 80D2              SJMP    ?C0001
+                                           ; SOURCE LINE # 15
+003F         ?C0010:
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 4   
+
+003F 22                RET     
+             ; FUNCTION _Lcd1602_Delay1ms (END)
+
+             ; FUNCTION _LcdWriteCom (BEGIN)
+                                           ; SOURCE LINE # 18
+;---- Variable 'com' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 19
+                                           ; SOURCE LINE # 20
+0000 C2A7              CLR     LCD1602_E
+                                           ; SOURCE LINE # 21
+0002 C2A6              CLR     LCD1602_RS
+                                           ; SOURCE LINE # 22
+                                           ; SOURCE LINE # 24
+                                           ; SOURCE LINE # 25
+                                           ; SOURCE LINE # 27
+                                           ; SOURCE LINE # 28
+0004 120000      R     LCALL   L?0015
+                                           ; SOURCE LINE # 29
+0007 C2A7              CLR     LCD1602_E
+                                           ; SOURCE LINE # 30
+0009 22                RET     
+             ; FUNCTION _LcdWriteCom (END)
+
+             ; FUNCTION _LcdWriteData (BEGIN)
+                                           ; SOURCE LINE # 48
+;---- Variable 'dat' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 49
+                                           ; SOURCE LINE # 50
+0000 C2A7              CLR     LCD1602_E
+                                           ; SOURCE LINE # 51
+0002 D2A6              SETB    LCD1602_RS
+                                           ; SOURCE LINE # 52
+                                           ; SOURCE LINE # 54
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 57
+                                           ; SOURCE LINE # 58
+0004 120000      R     LCALL   L?0015
+                                           ; SOURCE LINE # 59
+0007 C2A7              CLR     LCD1602_E
+                                           ; SOURCE LINE # 60
+0009 22                RET     
+             ; FUNCTION _LcdWriteData (END)
+
+             ; FUNCTION LcdInit (BEGIN)
+                                           ; SOURCE LINE # 78
+                                           ; SOURCE LINE # 79
+                                           ; SOURCE LINE # 80
+0000 7F38              MOV     R7,#038H
+0002 120000      R     LCALL   _LcdWriteCom
+                                           ; SOURCE LINE # 81
+0005 7F0C              MOV     R7,#0CH
+0007 120000      R     LCALL   _LcdWriteCom
+                                           ; SOURCE LINE # 82
+000A 7F06              MOV     R7,#06H
+000C 120000      R     LCALL   _LcdWriteCom
+                                           ; SOURCE LINE # 83
+000F 7F01              MOV     R7,#01H
+0011 120000      R     LCALL   _LcdWriteCom
+                                           ; SOURCE LINE # 84
+0014 7F80              MOV     R7,#080H
+0016 020000      R     LJMP    _LcdWriteCom
+             ; FUNCTION LcdInit (END)
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 5   
+
+
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 6   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
+P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+T0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+T1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+T2 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+IE . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A8H  1
+EXF2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
+RD . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+ES . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+IP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
+RI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+INT0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+INT1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+_LcdWriteData. . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  dat. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+RCAP2H . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
+PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
+LCD1602_RS . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A6H  1
+T2EX . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+RCAP2L . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
+LCD1602_RW . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
+C_T2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
+WR . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+LcdInit. . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+RCLK . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
+TCLK . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+SBUF . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
+PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
+SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
+TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
+TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
+LCD1602_E. . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
+_LcdWriteCom . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+  com. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
+_Lcd1602_Delay1ms. . . . . . . . . . .  PUBLIC   CODE   PROC     0011H  -----
+  c. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_INT    0006H  2
+  a. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
+  b. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
+CP_RL2 . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+TF2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
+C51 COMPILER V9.60.0.0   LCD1602                                                           04/18/2021 00:01:01 PAGE 7   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+TH1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008DH  1
+TB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+TH2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
+SM2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+TL2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+PT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+PT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+PT2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BDH  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+TR2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
+PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
+EXEN2. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
+RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    109    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

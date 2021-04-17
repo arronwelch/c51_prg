@@ -1,0 +1,156 @@
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/18/2021  00:01:01  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\LX51.EXE .\BUILD\DEBUG\LCD1602_1.O, .\BUILD\DEBUG\MAIN.O TO .\BUILD\DEBUG\LCD1602 PRINT (.\build\Debu
+>> g\LCD1602.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\DEBUG\LCD1602_1.O (LCD1602)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  .\BUILD\DEBUG\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.60.0.0
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\LCD1602 (LCD1602)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000130H   CODE
+I:000000H   I:000000H   I:00007FH   000019H   DATA
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\BUILD\DEBUG\LCD1602 (LCD1602)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   000017H   000010H   BYTE   UNIT     DATA           ?DT?MAIN
+000018H   000018H   000001H   BYTE   UNIT     DATA           _DATA_GROUP_
+000019H   000019H   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   00008EH   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00008FH   0000CEH   000040H   BYTE   UNIT     CODE           ?PR?_LCD1602_DELAY1MS?LCD1602
+0000CFH   0000EFH   000021H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+0000F0H   000108H   000019H   BYTE   UNIT     CODE           ?PR?LCDINIT?LCD1602
+000109H   00011BH   000013H   BYTE   UNIT     CODE           ?C_INITSEG
+00011CH   000125H   00000AH   BYTE   UNIT     CODE           ?PR?_LCDWRITECOM?LCD1602
+000126H   00012FH   00000AH   BYTE   UNIT     CODE           ?PR?_LCDWRITEDATA?LCD1602
+
+
+
+OVERLAY MAP OF MODULE:   .\BUILD\DEBUG\LCD1602 (LCD1602)
+
+
+FUNCTION/MODULE                 BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE     START  STOP  START  STOP
+=======================================================
+?C_C51STARTUP                  ----- -----  ----- -----
+  +--> MAIN/MAIN
+  +--> ?C_INITSEG
+
+MAIN/MAIN                      ----- -----  0018H 0018H
+  +--> LCDINIT/LCD1602
+  +--> _LCDWRITEDATA/LCD1602
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/18/2021  00:01:01  PAGE 2
+
+
+
+LCDINIT/LCD1602                ----- -----  ----- -----
+  +--> _LCDWRITECOM/LCD1602
+
+_LCDWRITECOM/LCD1602           ----- -----  ----- -----
+  +--> _LCD1602_DELAY1MS/LCD1602
+
+_LCD1602_DELAY1MS/LCD1602      ----- -----  ----- -----
+
+_LCDWRITEDATA/LCD1602          ----- -----  ----- -----
+  +--> _LCD1602_DELAY1MS/LCD1602
+
+?C_INITSEG                     ----- -----  ----- -----
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\LCD1602 (LCD1602)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+      00000000H   NUMBER   ---       ?C?CODESEG
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      0100004AH   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+      010000A0H   CODE     ---       _Lcd1602_Delay1ms
+      0100011CH   CODE     ---       _LcdWriteCom
+      01000126H   CODE     ---       _LcdWriteData
+      00000008H   DATA     ---       Disp
+      010000F0H   CODE     ---       LcdInit
+      010000CFH   CODE     ---       main
+
+
+
+SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD1602 (LCD1602)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       LCD1602
+      010000F0H   PUBLIC    CODE     ---       LcdInit
+      01000126H   PUBLIC    CODE     ---       _LcdWriteData
+      0100011CH   PUBLIC    CODE     ---       _LcdWriteCom
+      010000A0H   PUBLIC    CODE     ---       _Lcd1602_Delay1ms
+
+      0100008FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010000A0H   BLOCK     CODE     ---       LVL=0
+      010000A0H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000004H   SYMBOL    DATA     VOID      a
+      00000005H   SYMBOL    DATA     VOID      b
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100011CH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000126H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010000F0H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       MAIN
+      00000008H   PUBLIC    DATA     ---       Disp
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/18/2021  00:01:01  PAGE 3
+
+
+      010000CFH   PUBLIC    CODE     ---       main
+
+      010000CFH   BLOCK     CODE     ---       LVL=0
+      010000CFH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000018H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+      ---         MODULE    ---      ---       ?C_INIT
+      0100004AH   PUBLIC    CODE     ---       ?C_START
+
+Program Size: data=26.0 xdata=0 const=0 code=304
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
