@@ -1,0 +1,51 @@
+[2021-04-18 22:00:20]	[done]
+	build successfully !
+
+[2021-04-19 02:15:16]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:16:07]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:16:47]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:17:43]	[done]
+	build successfully !
+
+[2021-04-19 02:18:29]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:19:09]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:20:12]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:21:43]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:22:03]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz\src\st7565.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-19 02:23:39]	[done]
+	build successfully !
+
+[2021-04-19 02:25:04]	[done]
+	build successfully !
+
+[2021-04-19 02:25:46]	[done]
+	build successfully !
+
+[2021-04-19 02:30:07]	[done]
+	build successfully !
+
+[2021-04-19 02:36:21]	[done]
+	build successfully !
+
+[2021-04-19 02:37:10]	[done]
+	build successfully !
+
+[2021-04-19 02:37:32]	[done]
+	build successfully !
+
