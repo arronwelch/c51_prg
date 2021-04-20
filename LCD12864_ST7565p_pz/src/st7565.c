@@ -151,10 +151,10 @@ uchar Lcd12864_Write16CnCHAR(uchar x, uchar y, uchar *cn)
 		for (wordNum=0; wordNum<8; wordNum++)
 		{
 		    //--查询要写的字在字库中的位置--//
-			if ((   CN16CHAR[wordNum].Index[0] == *cn    )
-			     &&(CN16CHAR[wordNum].Index[1] == *(cn+1))
-                 &&(CN16CHAR[wordNum].Index[2] == *(cn+2))
-                 )
+			if (   (CN16CHAR[wordNum].Index[0] == *(0+cn) )
+			     &&(CN16CHAR[wordNum].Index[1] == *(1+cn) )
+                 &&(CN16CHAR[wordNum].Index[2] == *(2+cn) )
+               )
 			{
 				for (j=0; j<32; j++) //写一个字
 				{		

@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/21/2021  00:04:32  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/21/2021  00:17:32  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ FUNCTION/MODULE                      BIT_GROUP   DATA_GROUP
 --> CALLED FUNCTION/MODULE          START  STOP  START  STOP
 ============================================================
 ?C_C51STARTUP                       ----- -----  ----- -----
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  00:04:32  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  00:17:32  PAGE 2
 
 
   +--> MAIN/MAIN
@@ -135,7 +135,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
       ---         MODULE    ---      ---       ST7565
       01000262H   PUBLIC    CONST    ---       CN16CHAR
       01000003H   PUBLIC    CODE     ---       _Lcd12864_Write16CnCHAR
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  00:04:32  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  00:17:32  PAGE 3
 
 
       010001ABH   PUBLIC    CODE     ---       Lcd12864_ClearScreen
