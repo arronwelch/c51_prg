@@ -52,8 +52,22 @@ void Lcd12864_Init(void)
     LcdSt7565_WriteCmd(0xE2);//reset st7565
     delay_ms(1);
 
+//-----------------------128*64-----------------------//
+// COM63
+// COM62
+// ...
+// COM02
+// COM01
+// COM00
+//      SEG000 SEG001 SEG002 ... SEG126 SEG127 ... SEG131
+//-----------------------128*64-----------------------//
+//从左到右从上到下
+//C语言
+//每行16个
+//纵向8点下高位
+
     //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
-    LcdSt7565_WriteCmd(0xA1);//ADC Select (Segment Driver Direction Select)
+    LcdSt7565_WriteCmd(0xA0);//ADC Select (Segment Driver Direction Select)
 
     //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
     LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
@@ -104,7 +118,7 @@ void Lcd12864_ClearScreen(void)
         //Column address set upper bit[7:4]
         LcdSt7565_WriteCmd(0x10+0x00);
         //Column address set lower bit[3:0]
-        LcdSt7565_WriteCmd(0x00+0x04);
+        LcdSt7565_WriteCmd(0x00+0x00);
 
         for(x=0;x<128;x++)
         {
@@ -135,7 +149,7 @@ uchar Lcd12864_Write16CnCHAR(uchar x, uchar y, uchar *cn)
 	}
 	y += 0xB0;	   //求取Y坐标的值
 	//--设置Y坐标--//
-	LcdSt7565_WriteCmd(y);
+	//LcdSt7565_WriteCmd(y);
 	while ( *cn != '\0')	 //在C语言中字符串结束以‘\0’结尾
 	{
 		//--设置Y坐标--//
@@ -145,14 +159,14 @@ uchar Lcd12864_Write16CnCHAR(uchar x, uchar y, uchar *cn)
 		x2 = x & 0x0F;          //去低四位
 		//--设置X坐标--//
 		LcdSt7565_WriteCmd(0x10 + x1);   //高4位
-		LcdSt7565_WriteCmd(0x04 + x2);	//低4位
+		LcdSt7565_WriteCmd(0x00 + x2);	//低4位
 
-		for (wordNum=0; wordNum<8; wordNum++)
+		for (wordNum=0; wordNum<16; wordNum++)
 		{
 		    //--查询要写的字在字库中的位置--//
-			if (   (CN16CHAR[wordNum].Index[0] == *(0+cn) )
-			     &&(CN16CHAR[wordNum].Index[1] == *(1+cn) )
-                 &&(CN16CHAR[wordNum].Index[2] == *(2+cn) )
+			if (   (GB_16[wordNum].Index[0] == *(0+cn) )
+			     &&(GB_16[wordNum].Index[1] == *(1+cn) )
+                 &&(GB_16[wordNum].Index[2] == *(2+cn) )
                )
 			{
 				for (j=0; j<32; j++) //写一个字
@@ -164,12 +178,13 @@ uchar Lcd12864_Write16CnCHAR(uchar x, uchar y, uchar *cn)
 			
 						//--设置X坐标--//
 						LcdSt7565_WriteCmd(0x10 + x1);//高4位
-						LcdSt7565_WriteCmd(0x04 + x2);//低4位
+						LcdSt7565_WriteCmd(0x00 + x2);//低4位
 					}
-					LcdSt7565_WriteData(CN16CHAR[wordNum].Msk[j]);
+					LcdSt7565_WriteData(GB_16[wordNum].Msk[j]);
 				}
 				x += 16;
-			}//if查到字结束		
+                break;//重复字符不会覆盖写
+			}//if查到字结束	
 		} //for查字结束	
 		cn += 3;
 	}	//while结束
