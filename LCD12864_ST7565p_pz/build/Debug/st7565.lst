@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 1   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ST7565
@@ -62,7 +62,7 @@ line level    source
   51   1      
   52   1          LcdSt7565_WriteCmd(0xE2);//reset st7565
   53   1          delay_ms(1);
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 2   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 2   
 
   54   1      
   55   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
@@ -126,7 +126,7 @@ line level    source
  113   2          }
  114   1      }
  115          
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 3   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 3   
 
  116          
  117          #ifdef  CHAR_CODE
@@ -163,34 +163,40 @@ line level    source
  148   2              LcdSt7565_WriteCmd(0x10 + x1);   //高4位
  149   2              LcdSt7565_WriteCmd(0x04 + x2);  //低4位
  150   2      
- 151   2              wordNum=8;
- 152   2              for (j=0; j<32; j++) //写一个字
- 153   2              {       
- 154   3                  if (j == 16)     //由于16X16用到两个Y坐标，当大于等于16时，切换坐标
- 155   3                  {
- 156   4                      //--设置Y坐标--//
- 157   4                      LcdSt7565_WriteCmd(y + 1);
- 158   4          
- 159   4                      //--设置X坐标--//
- 160   4                      LcdSt7565_WriteCmd(0x10 + x1);  //高4位
- 161   4                      LcdSt7565_WriteCmd(0x04 + x2);  //低4位
- 162   4                  }
- 163   3                  LcdSt7565_WriteData(CN16CHAR[wordNum].Msk[j]);
- 164   3              }
- 165   2              x += 16;
- 166   2              wordNum--;
- 167   2              if(wordNum==0)
- 168   2              {
- 169   3                  wordNum=8;
- 170   3              }
- 171   2          }   //while结束
- 172   1          return 1;
- 173   1      }
- 174          
- 175          #endif
- 176          
- 177          
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 4   
+ 151   2              for (wordNum=0; wordNum<8; wordNum++)
+ 152   2              {
+ 153   3                  //--查询要写的字在字库中的位置--//
+ 154   3                  if ((   CN16CHAR[wordNum].Index[0] == *cn    )
+ 155   3                       &&(CN16CHAR[wordNum].Index[1] == *(cn+1))
+ 156   3                       &&(CN16CHAR[wordNum].Index[2] == *(cn+2))
+ 157   3                       )
+ 158   3                  {
+ 159   4                      for (j=0; j<32; j++) //写一个字
+ 160   4                      {       
+ 161   5                          if (j == 16)     //由于16X16用到两个Y坐标，当大于等于16时，切换坐标
+ 162   5                          {
+ 163   6                              //--设置Y坐标--//
+ 164   6                              LcdSt7565_WriteCmd(y + 1);
+ 165   6                  
+ 166   6                              //--设置X坐标--//
+ 167   6                              LcdSt7565_WriteCmd(0x10 + x1);//高4位
+ 168   6                              LcdSt7565_WriteCmd(0x04 + x2);//低4位
+ 169   6                          }
+ 170   5                          LcdSt7565_WriteData(CN16CHAR[wordNum].Msk[j]);
+ 171   5                      }
+ 172   4                      x += 16;
+ 173   4                  }//if查到字结束        
+ 174   3              } //for查字结束 
+ 175   2              cn += 3;
+ 176   2          }   //while结束
+ 177   1          return 1;
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 4   
+
+ 178   1      }
+ 179          
+ 180          #endif
+ 181          
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 5   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -219,16 +225,16 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000A 9E                SUBB    A,R6
 000B 5007              JNC     ?C0003
 000D 0B                INC     R3
-000E BB0001            CJNE    R3,#00H,?C0028
+000E BB0001            CJNE    R3,#00H,?C0031
 0011 0A                INC     R2
-0012         ?C0028:
+0012         ?C0031:
 0012 80F2              SJMP    ?C0004
                                            ; SOURCE LINE # 10
 0014         ?C0003:
 0014 0D                INC     R5
-0015 BD0001            CJNE    R5,#00H,?C0029
+0015 BD0001            CJNE    R5,#00H,?C0032
 0018 0C                INC     R4
-0019         ?C0029:
+0019         ?C0032:
 0019 ED                MOV     A,R5
 001A 6463              XRL     A,#063H
 001C 4C                ORL     A,R4
@@ -238,42 +244,42 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 001F 22                RET     
              ; FUNCTION _delay_ms (END)
 
-             ; FUNCTION L?0030 (BEGIN)
-0000 ED                MOV     A,R5
-0001 2410              ADD     A,#010H
-0003 FF                MOV     R7,A
-0004 120000      R     LCALL   _LcdSt7565_WriteCmd
-0007 EC                MOV     A,R4
-0008 2404              ADD     A,#04H
-000A FF                MOV     R7,A
+             ; FUNCTION L?0033 (BEGIN)
+0000 E500        R     MOV     A,x1
+0002 2410              ADD     A,#010H
+0004 FF                MOV     R7,A
+0005 120000      R     LCALL   _LcdSt7565_WriteCmd
+0008 E500        R     MOV     A,x2
+000A 2404              ADD     A,#04H
+000C FF                MOV     R7,A
              ; FUNCTION _LcdSt7565_WriteCmd (BEGIN)
                                            ; SOURCE LINE # 13
 ;---- Variable 'cmd' assigned to Register 'R7' ----
                                            ; SOURCE LINE # 14
                                            ; SOURCE LINE # 15
-000B C2B2              CLR     LCD12864_CS
+000D C2B2              CLR     LCD12864_CS
                                            ; SOURCE LINE # 16
-000D C2A6              CLR     LCD12864_RS
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 5   
+000F C2A6              CLR     LCD12864_RS
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 6   
 
                                            ; SOURCE LINE # 17
-000F D2A5              SETB    LCD12864_RD
+0011 D2A5              SETB    LCD12864_RD
                                            ; SOURCE LINE # 18
-0011 C2A7              CLR     LCD12864_WR
+0013 C2A7              CLR     LCD12864_WR
                                            ; SOURCE LINE # 19
-0013 00                NOP     
+0015 00                NOP     
                                            ; SOURCE LINE # 20
-0014 00                NOP     
+0016 00                NOP     
                                            ; SOURCE LINE # 22
-0015 8F80              MOV     P0,R7
+0017 8F80              MOV     P0,R7
                                            ; SOURCE LINE # 23
-0017 00                NOP     
+0019 00                NOP     
                                            ; SOURCE LINE # 24
-0018 00                NOP     
+001A 00                NOP     
                                            ; SOURCE LINE # 26
-0019 D2A7              SETB    LCD12864_WR
+001B D2A7              SETB    LCD12864_WR
                                            ; SOURCE LINE # 27
-001B 22                RET     
+001D 22                RET     
              ; FUNCTION _LcdSt7565_WriteCmd (END)
 
              ; FUNCTION _LcdSt7565_WriteData (BEGIN)
@@ -318,7 +324,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 50
 000B D2B3              SETB    LCD12864_RSET
                                            ; SOURCE LINE # 52
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 6   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 7   
 
 000D 7FE2              MOV     R7,#0E2H
 000F 120000      R     LCALL   _LcdSt7565_WriteCmd
@@ -382,7 +388,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0002         ?C0011:
 0002 EE                MOV     A,R6
 0003 C3                CLR     C
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 7   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 8   
 
 0004 9408              SUBB    A,#08H
 0006 7480              MOV     A,#080H
@@ -431,155 +437,208 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION _Lcd12864_Write16CnCHAR (BEGIN)
                                            ; SOURCE LINE # 121
 0000 8F00        R     MOV     x,R7
-0002 8B00        R     MOV     cn,R3
-0004 8A00        R     MOV     cn+01H,R2
-0006 8900        R     MOV     cn+02H,R1
-;---- Variable 'y' assigned to Register 'R6' ----
-0008 AE05              MOV     R6,AR5
+0002 8D00        R     MOV     y,R5
+;---- Variable 'cn' assigned to Register 'R1/R2/R3' ----
                                            ; SOURCE LINE # 122
                                            ; SOURCE LINE # 126
-000A EE                MOV     A,R6
-000B D3                SETB    C
-000C 9407              SUBB    A,#07H
-000E 7480              MOV     A,#080H
-0010 9480              SUBB    A,#080H
-0012 4003              JC      ?C0018
+0004 D3                SETB    C
+0005 E500        R     MOV     A,y
+0007 9407              SUBB    A,#07H
+0009 7480              MOV     A,#080H
+000B 9480              SUBB    A,#080H
+000D 4003              JC      ?C0018
                                            ; SOURCE LINE # 127
                                            ; SOURCE LINE # 128
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 8   
-
-0014 7F00              MOV     R7,#00H
-0016 22                RET     
+000F 7F00              MOV     R7,#00H
+0011 22                RET     
                                            ; SOURCE LINE # 129
-0017         ?C0018:
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 9   
+
+0012         ?C0018:
                                            ; SOURCE LINE # 132
-0017 E500        R     MOV     A,x
-0019 D3                SETB    C
-001A 9480              SUBB    A,#080H
-001C 7480              MOV     A,#080H
-001E 9480              SUBB    A,#080H
-0020 4003              JC      ?C0020
+0012 D3                SETB    C
+0013 E500        R     MOV     A,x
+0015 9480              SUBB    A,#080H
+0017 7480              MOV     A,#080H
+0019 9480              SUBB    A,#080H
+001B 4003              JC      ?C0020
                                            ; SOURCE LINE # 133
                                            ; SOURCE LINE # 134
-0022 7F00              MOV     R7,#00H
-0024 22                RET     
+001D 7F00              MOV     R7,#00H
+001F 22                RET     
                                            ; SOURCE LINE # 135
-0025         ?C0020:
+0020         ?C0020:
                                            ; SOURCE LINE # 136
-0025 74B0              MOV     A,#0B0H
-0027 2E                ADD     A,R6
-0028 FE                MOV     R6,A
+0020 74B0              MOV     A,#0B0H
+0022 2500        R     ADD     A,y
+0024 F500        R     MOV     y,A
                                            ; SOURCE LINE # 138
-0029 FF                MOV     R7,A
-002A 120000      R     LCALL   _LcdSt7565_WriteCmd
-002D         ?C0021:
+0026 FF                MOV     R7,A
+0027 120000      R     LCALL   _LcdSt7565_WriteCmd
+002A         ?C0021:
                                            ; SOURCE LINE # 139
-002D AB00        R     MOV     R3,cn
-002F AA00        R     MOV     R2,cn+01H
-0031 A900        R     MOV     R1,cn+02H
-0033 120000      E     LCALL   ?C?CLDPTR
-0036 6069              JZ      ?C0022
+002A 120000      E     LCALL   ?C?CLDPTR
+002D 7003              JNZ     $ + 5H
+002F 020000      R     LJMP    ?C0022
                                            ; SOURCE LINE # 140
                                            ; SOURCE LINE # 143
-0038 AF06              MOV     R7,AR6
-003A 120000      R     LCALL   _LcdSt7565_WriteCmd
+0032 AF00        R     MOV     R7,y
+0034 120000      R     LCALL   _LcdSt7565_WriteCmd
                                            ; SOURCE LINE # 145
-003D E500        R     MOV     A,x
-003F C4                SWAP    A
-0040 540F              ANL     A,#0FH
-;---- Variable 'x1' assigned to Register 'R5' ----
-0042 FD                MOV     R5,A
+0037 E500        R     MOV     A,x
+0039 C4                SWAP    A
+003A 540F              ANL     A,#0FH
+003C F500        R     MOV     x1,A
                                            ; SOURCE LINE # 146
-0043 E500        R     MOV     A,x
-0045 540F              ANL     A,#0FH
-;---- Variable 'x2' assigned to Register 'R4' ----
-0047 FC                MOV     R4,A
+003E E500        R     MOV     A,x
+0040 540F              ANL     A,#0FH
+0042 F500        R     MOV     x2,A
                                            ; SOURCE LINE # 148
                                            ; SOURCE LINE # 149
-0048 120000      R     LCALL   L?0030
+0044 120000      R     LCALL   L?0033
                                            ; SOURCE LINE # 151
-004B 750008      R     MOV     wordNum,#08H
+;---- Variable 'wordNum' assigned to Register 'R6' ----
+0047 E4                CLR     A
+0048 FE                MOV     R6,A
+0049         ?C0023:
+0049 EE                MOV     A,R6
+004A C3                CLR     C
+004B 9408              SUBB    A,#08H
+004D 7480              MOV     A,#080H
+004F 9480              SUBB    A,#080H
+0051 4003              JC      $ + 5H
+0053 020000      R     LJMP    ?C0024
                                            ; SOURCE LINE # 152
-;---- Variable 'j' assigned to Register 'R3' ----
-004E E4                CLR     A
-004F FB                MOV     R3,A
-0050         ?C0023:
-0050 EB                MOV     A,R3
-0051 F582              MOV     DPL,A
-0053 758300            MOV     DPH,#00H
-0056 C3                CLR     C
-0057 9420              SUBB    A,#020H
-0059 7480              MOV     A,#080H
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 9   
-
-005B 9480              SUBB    A,#080H
-005D 5031              JNC     ?C0024
-                                           ; SOURCE LINE # 153
                                            ; SOURCE LINE # 154
-005F E582              MOV     A,DPL
-0061 6410              XRL     A,#010H
-0063 7009              JNZ     ?C0026
-                                           ; SOURCE LINE # 155
-                                           ; SOURCE LINE # 157
-0065 EE                MOV     A,R6
-0066 04                INC     A
-0067 FF                MOV     R7,A
-0068 120000      R     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 160
-                                           ; SOURCE LINE # 161
-006B 120000      R     LCALL   L?0030
-                                           ; SOURCE LINE # 162
-006E         ?C0026:
-                                           ; SOURCE LINE # 163
-006E E500        R     MOV     A,wordNum
-0070 C4                SWAP    A
-0071 33                RLC     A
-0072 54E0              ANL     A,#0E0H
-0074 2400        R     ADD     A,#LOW CN16CHAR
-0076 F582              MOV     DPL,A
-0078 E4                CLR     A
-0079 3400        R     ADDC    A,#HIGH CN16CHAR
-007B F583              MOV     DPH,A
-007D E582              MOV     A,DPL
-007F 2B                ADD     A,R3
-0080 F582              MOV     DPL,A
-0082 E4                CLR     A
-0083 3583              ADDC    A,DPH
+0056 120000      E     LCALL   ?C?CLDPTR
+0059 FF                MOV     R7,A
+005A 75F023            MOV     B,#023H
+005D EE                MOV     A,R6
+005E A4                MUL     AB
+005F 2400        R     ADD     A,#LOW CN16CHAR
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 10  
+
+0061 F582              MOV     DPL,A
+0063 E5F0              MOV     A,B
+0065 3400        R     ADDC    A,#HIGH CN16CHAR
+0067 F583              MOV     DPH,A
+0069 E4                CLR     A
+006A 93                MOVC    A,@A+DPTR
+006B 6F                XRL     A,R7
+006C 6003              JZ      $ + 5H
+006E 020000      R     LJMP    ?C0025
+0071 900001            MOV     DPTR,#01H
+0074 120000      E     LCALL   ?C?CLDOPTR
+0077 FF                MOV     R7,A
+0078 75F023            MOV     B,#023H
+007B EE                MOV     A,R6
+007C A4                MUL     AB
+007D 2400        R     ADD     A,#LOW CN16CHAR+01H
+007F F582              MOV     DPL,A
+0081 E5F0              MOV     A,B
+0083 3400        R     ADDC    A,#HIGH CN16CHAR+01H
 0085 F583              MOV     DPH,A
 0087 E4                CLR     A
 0088 93                MOVC    A,@A+DPTR
-0089 FF                MOV     R7,A
-008A 120000      R     LCALL   _LcdSt7565_WriteData
+0089 6F                XRL     A,R7
+008A 7063              JNZ     ?C0025
+008C 900002            MOV     DPTR,#02H
+008F 120000      E     LCALL   ?C?CLDOPTR
+0092 FF                MOV     R7,A
+0093 75F023            MOV     B,#023H
+0096 EE                MOV     A,R6
+0097 A4                MUL     AB
+0098 2400        R     ADD     A,#LOW CN16CHAR+02H
+009A F582              MOV     DPL,A
+009C E5F0              MOV     A,B
+009E 3400        R     ADDC    A,#HIGH CN16CHAR+02H
+00A0 F583              MOV     DPH,A
+00A2 E4                CLR     A
+00A3 93                MOVC    A,@A+DPTR
+00A4 6F                XRL     A,R7
+00A5 7048              JNZ     ?C0025
+                                           ; SOURCE LINE # 158
+                                           ; SOURCE LINE # 159
+;---- Variable 'j' assigned to Register 'R5' ----
+00A7 FD                MOV     R5,A
+00A8         ?C0027:
+00A8 ED                MOV     A,R5
+00A9 F582              MOV     DPL,A
+00AB 758300            MOV     DPH,#00H
+00AE C3                CLR     C
+00AF 9420              SUBB    A,#020H
+00B1 7480              MOV     A,#080H
+00B3 9480              SUBB    A,#080H
+00B5 5032              JNC     ?C0028
+                                           ; SOURCE LINE # 160
+                                           ; SOURCE LINE # 161
+00B7 E582              MOV     A,DPL
+00B9 6410              XRL     A,#010H
+00BB 700A              JNZ     ?C0030
+                                           ; SOURCE LINE # 162
                                            ; SOURCE LINE # 164
-008D 0B                INC     R3
-008E 80C0              SJMP    ?C0023
-0090         ?C0024:
-                                           ; SOURCE LINE # 165
-0090 7410              MOV     A,#010H
-0092 2500        R     ADD     A,x
-0094 F500        R     MOV     x,A
-                                           ; SOURCE LINE # 166
-0096 1500        R     DEC     wordNum
-                                           ; SOURCE LINE # 167
-0098 E500        R     MOV     A,wordNum
-009A 7091              JNZ     ?C0021
-                                           ; SOURCE LINE # 168
-                                           ; SOURCE LINE # 169
-009C 750008      R     MOV     wordNum,#08H
-                                           ; SOURCE LINE # 170
-                                           ; SOURCE LINE # 171
-009F 808C              SJMP    ?C0021
-00A1         ?C0022:
-                                           ; SOURCE LINE # 172
-00A1 7F01              MOV     R7,#01H
-                                           ; SOURCE LINE # 173
-00A3         ?C0019:
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 10  
+00BD E500        R     MOV     A,y
+00BF 04                INC     A
+00C0 FF                MOV     R7,A
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 11  
 
-00A3 22                RET     
+00C1 120000      R     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 167
+                                           ; SOURCE LINE # 168
+00C4 120000      R     LCALL   L?0033
+                                           ; SOURCE LINE # 169
+00C7         ?C0030:
+                                           ; SOURCE LINE # 170
+00C7 75F023            MOV     B,#023H
+00CA EE                MOV     A,R6
+00CB A4                MUL     AB
+00CC 2400        R     ADD     A,#LOW CN16CHAR+03H
+00CE F582              MOV     DPL,A
+00D0 E5F0              MOV     A,B
+00D2 3400        R     ADDC    A,#HIGH CN16CHAR+03H
+00D4 F583              MOV     DPH,A
+00D6 E582              MOV     A,DPL
+00D8 2D                ADD     A,R5
+00D9 F582              MOV     DPL,A
+00DB E4                CLR     A
+00DC 3583              ADDC    A,DPH
+00DE F583              MOV     DPH,A
+00E0 E4                CLR     A
+00E1 93                MOVC    A,@A+DPTR
+00E2 FF                MOV     R7,A
+00E3 120000      R     LCALL   _LcdSt7565_WriteData
+                                           ; SOURCE LINE # 171
+00E6 0D                INC     R5
+00E7 80BF              SJMP    ?C0027
+00E9         ?C0028:
+                                           ; SOURCE LINE # 172
+00E9 7410              MOV     A,#010H
+00EB 2500        R     ADD     A,x
+00ED F500        R     MOV     x,A
+                                           ; SOURCE LINE # 173
+                                           ; SOURCE LINE # 174
+00EF         ?C0025:
+00EF 0E                INC     R6
+00F0 020000      R     LJMP    ?C0023
+00F3         ?C0024:
+                                           ; SOURCE LINE # 175
+00F3 7403              MOV     A,#03H
+00F5 29                ADD     A,R1
+00F6 F9                MOV     R1,A
+00F7 E4                CLR     A
+00F8 3A                ADDC    A,R2
+00F9 FA                MOV     R2,A
+                                           ; SOURCE LINE # 176
+00FA 020000      R     LJMP    ?C0021
+00FD         ?C0022:
+                                           ; SOURCE LINE # 177
+00FD 7F01              MOV     R7,#01H
+                                           ; SOURCE LINE # 178
+00FF         ?C0019:
+00FF 22                RET     
              ; FUNCTION _Lcd12864_Write16CnCHAR (END)
 
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 11  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 12  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -599,7 +658,7 @@ Lcd12864_Init. . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
 EXF2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
 RD . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
 ES . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
-CN16CHAR . . . . . . . . . . . . . . .  PUBLIC   CODE   ARRAY    0000H  256
+CN16CHAR . . . . . . . . . . . . . . .  PUBLIC   CODE   ARRAY    0000H  280
 IP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
 RI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
 INT0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
@@ -623,26 +682,26 @@ PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
 SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
 TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
 TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
-_LcdSt7565_WriteCmd. . . . . . . . . .  PUBLIC   CODE   PROC     000BH  -----
+_LcdSt7565_WriteCmd. . . . . . . . . .  PUBLIC   CODE   PROC     000DH  -----
   cmd. . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0007H  1
 IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
 IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
 B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
 _Lcd12864_Write16CnCHAR. . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
   x. . . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0000H  1
-  y. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
-  cn . . . . . . . . . . . . . . . . .  AUTO     DATA   PTR      0001H  3
-  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0003H  1
-  x1 . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
-  x2 . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0004H  1
-  wordNum. . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0004H  1
+  y. . . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0001H  1
+  cn . . . . . . . . . . . . . . . . .  * REG *  DATA   PTR      0001H  3
+  j. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
+  x1 . . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0002H  1
+  x2 . . . . . . . . . . . . . . . . .  AUTO     DATA   U_CHAR   0003H  1
+  wordNum. . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
 CP_RL2 . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
 ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
 ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
 Lcd12864_ClearScreen . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
   page . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0006H  1
   x. . . . . . . . . . . . . . . . . .  * REG *  DATA   U_CHAR   0005H  1
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 12  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 13  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -663,8 +722,9 @@ EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
 IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
 TH2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
 P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
-Cn16CharTypeDef. . . . . . . . . . . .  * TAG *  -----  STRUCT   -----  32
-  Msk. . . . . . . . . . . . . . . . .  MEMBER   -----  ARRAY    0000H  32
+Cn16CharTypeDef. . . . . . . . . . . .  * TAG *  -----  STRUCT   -----  35
+  Index. . . . . . . . . . . . . . . .  MEMBER   -----  ARRAY    0000H  3
+  Msk. . . . . . . . . . . . . . . . .  MEMBER   -----  ARRAY    0003H  32
 SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
 TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
 LCD12864_RD. . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
@@ -702,13 +762,13 @@ PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    392    ----
-   CONSTANT SIZE    =    256    ----
+   CODE SIZE        =    486    ----
+   CONSTANT SIZE    =    280    ----
    XDATA SIZE       =   ----    ----
-   PDATA SIZE       =   ----    ----
-C51 COMPILER V9.60.0.0   ST7565                                                            04/20/2021 22:13:26 PAGE 13  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 00:04:32 PAGE 14  
 
-   DATA SIZE        =   ----       5
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----

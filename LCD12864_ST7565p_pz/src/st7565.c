@@ -148,29 +148,34 @@ uchar Lcd12864_Write16CnCHAR(uchar x, uchar y, uchar *cn)
 		LcdSt7565_WriteCmd(0x10 + x1);   //高4位
 		LcdSt7565_WriteCmd(0x04 + x2);	//低4位
 
-        wordNum=8;
-        for (j=0; j<32; j++) //写一个字
-        {		
-            if (j == 16)	 //由于16X16用到两个Y坐标，当大于等于16时，切换坐标
-            {
-                //--设置Y坐标--//
-                LcdSt7565_WriteCmd(y + 1);
-                //--设置X坐标--//
-                LcdSt7565_WriteCmd(0x10 + x1);  //高4位
-                LcdSt7565_WriteCmd(0x04 + x2);	//低4位
-            }
-            LcdSt7565_WriteData(CN16CHAR[wordNum].Msk[j]);
-        }
-        x += 16;
-        wordNum--;
-        if(wordNum==0)
-        {
-            wordNum=8;
-        }
+		for (wordNum=0; wordNum<8; wordNum++)
+		{
+		    //--查询要写的字在字库中的位置--//
+			if ((   CN16CHAR[wordNum].Index[0] == *cn    )
+			     &&(CN16CHAR[wordNum].Index[1] == *(cn+1))
+                 &&(CN16CHAR[wordNum].Index[2] == *(cn+2))
+                 )
+			{
+				for (j=0; j<32; j++) //写一个字
+				{		
+					if (j == 16)	 //由于16X16用到两个Y坐标，当大于等于16时，切换坐标
+					{
+						//--设置Y坐标--//
+			   			LcdSt7565_WriteCmd(y + 1);
+			
+						//--设置X坐标--//
+						LcdSt7565_WriteCmd(0x10 + x1);//高4位
+						LcdSt7565_WriteCmd(0x04 + x2);//低4位
+					}
+					LcdSt7565_WriteData(CN16CHAR[wordNum].Msk[j]);
+				}
+				x += 16;
+			}//if查到字结束		
+		} //for查字结束	
+		cn += 3;
 	}	//while结束
 	return 1;
 }
 
 #endif
-
 
