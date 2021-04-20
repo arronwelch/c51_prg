@@ -44,7 +44,6 @@ void LcdSt7565_WriteData(uchar dat)
 
 void Lcd12864_Init(void)
 {
-    uchar i;
     LCD12864_RSET = 0;
     delay_ms(1);//delay
     LCD12864_CS = 0;
@@ -156,7 +155,6 @@ uchar Lcd12864_Write16CnCHAR(uchar x, uchar y, uchar *cn)
             {
                 //--设置Y坐标--//
                 LcdSt7565_WriteCmd(y + 1);
-    
                 //--设置X坐标--//
                 LcdSt7565_WriteCmd(0x10 + x1);  //高4位
                 LcdSt7565_WriteCmd(0x04 + x2);	//低4位

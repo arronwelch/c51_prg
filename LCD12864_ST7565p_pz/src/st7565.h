@@ -21,9 +21,9 @@
 sbit LCD12864_RSET  = P3^3;//reset
 sbit LCD12864_CS    = P3^2;//chip select
 #define DATA_PORT P0       //D7 - D0
-sbit LCD12864_WR    = P3^2;// /write        LCDE //P2.7
-sbit LCD12864_RD    = P3^2;// /read         WR   //P2.5
-sbit LCD12864_RS    = P3^2;// (A0) data/cmd  RD   //P2.6
+sbit LCD12864_WR    = P2^7;// /write         LCDE //P2.7
+sbit LCD12864_RD    = P2^5;// /read          WR   //P2.5
+sbit LCD12864_RS    = P2^6;// (A0) data/cmd  RD   //P2.6
 
 void delay_ms(uint t);
 void LcdSt7565_WriteCmd(uchar cmd);
