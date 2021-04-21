@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -13,128 +13,158 @@ line level    source
    2          #include "reg52.h"
    3          #include "st7565.h"
    4          #include "picture.h"
-   5          
-   6          void Delay10ms(unsigned int c)   //误差 0us
-   7          {
-   8   1          unsigned char a,b;
-   9   1          for(;c>0;c--)
-  10   1              for(b=38;b>0;b--)
-  11   1                  for(a=130;a>0;a--);
-  12   1      }
-  13          
-  14          void main(void)
-  15          {
-  16   1          uchar i,j;
-  17   1          uint n;
-  18   1          Lcd12864_Init();
-  19   1          Lcd12864_ClearScreen();
-  20   1      
-  21   1      //-----------------------128*64-----------------------//
-  22   1      // COM63
-  23   1      // COM62
-  24   1      // ...
-  25   1      // COM02
-  26   1      // COM01
-  27   1      // COM00
-  28   1      //      SEG000 SEG001 SEG002 ... SEG126 SEG127 ... SEG131
-  29   1      //-----------------------128*64-----------------------//
-  30   1      
-  31   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
-  32   1          LcdSt7565_WriteCmd(0xA0);//ADC Select (Segment Driver Direction Select)
-  33   1      
-  34   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
-  35   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
-  36   1      
-  37   1          //--从左到右,从上到下,慢慢刷黑屏幕--//
-  38   1          for (i=0; i<8; i++)
-  39   1          {
-  40   2              LcdSt7565_WriteCmd(0xB0+i); //设置Y坐标，具体可以看清屏函数里面的说明
-  41   2      
-  42   2              LcdSt7565_WriteCmd(0x10);   //设置X坐标，具体可以看清屏函数里面的说明
-  43   2              LcdSt7565_WriteCmd(0x00);//0 ... 127
-  44   2              for (j=0; j<128; j++)
-  45   2              {
-  46   3                  LcdSt7565_WriteData(0xFF);  //如果设置背景为白色时，清屏选择0XFF
-  47   3                  Delay10ms(2);               //延时一下
-  48   3              }
-  49   2          }
-  50   1      
-  51   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
-  52   1          LcdSt7565_WriteCmd(0xA1);//ADC Select (Segment Driver Direction Select)
-  53   1      
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 2   
+   5          #include "QC.h"
+   6          
+   7          void Delay10ms(unsigned int c)   //误差 0us
+   8          {
+   9   1          unsigned char a,b;
+  10   1          for(;c>0;c--)
+  11   1              for(b=38;b>0;b--)
+  12   1                  for(a=130;a>0;a--);
+  13   1      }
+  14          
+  15          void main(void)
+  16          {
+  17   1          uchar i,j;
+  18   1          uint n;
+  19   1          Lcd12864_Init();
+  20   1          Lcd12864_ClearScreen();
+  21   1      
+  22   1      //-----------------------128*64-----------------------//
+  23   1      // COM63
+  24   1      // COM62
+  25   1      // ...
+  26   1      // COM02
+  27   1      // COM01
+  28   1      // COM00
+  29   1      //      SEG000 SEG001 SEG002 ... SEG126 SEG127 ... SEG131
+  30   1      //-----------------------128*64-----------------------//
+  31   1      
+  32   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
+  33   1          LcdSt7565_WriteCmd(0xA0);//ADC Select (Segment Driver Direction Select)
+  34   1      
+  35   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
+  36   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
+  37   1      
+  38   1          //--从左到右,从上到下,慢慢刷黑屏幕--//
+  39   1          for (i=0; i<8; i++)
+  40   1          {
+  41   2              LcdSt7565_WriteCmd(0xB0+i); //设置Y坐标，具体可以看清屏函数里面的说明
+  42   2      
+  43   2              LcdSt7565_WriteCmd(0x10);   //设置X坐标，具体可以看清屏函数里面的说明
+  44   2              LcdSt7565_WriteCmd(0x00);//0 ... 127
+  45   2              for (j=0; j<128; j++)
+  46   2              {
+  47   3                  LcdSt7565_WriteData(0xFF);  //如果设置背景为白色时，清屏选择0XFF
+  48   3                  Delay10ms(2);               //延时一下
+  49   3              }
+  50   2          }
+  51   1      
+  52   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
+  53   1          LcdSt7565_WriteCmd(0xA1);//ADC Select (Segment Driver Direction Select)
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 2   
 
-  54   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
-  55   1          LcdSt7565_WriteCmd(0xC0);//Common Output Mode Select
-  56   1      
-  57   1          //--从右到左,从下到上,慢慢刷白屏幕--//
-  58   1          for (i=0; i<8; i++)
-  59   1          {
-  60   2              LcdSt7565_WriteCmd(0xB0+i); //设置Y坐标，具体可以看清屏函数里面的说明
-  61   2      
-  62   2              LcdSt7565_WriteCmd(0x10);   //设置X坐标，具体可以看清屏函数里面的说明
-  63   2              LcdSt7565_WriteCmd(0x04);//0 ... 127(0x04) 128(0x03) 129(0x02) 130(0x01) 131(0x00)
-  64   2              for (j=0; j<128; j++)
-  65   2              {
-  66   3                  LcdSt7565_WriteData(0x00);  //如果设置背景为白色时，清屏选择0XFF
-  67   3                  Delay10ms(2);               //延时一下
-  68   3              }
-  69   2          }   
-  70   1      
-  71   1          // for (i=0; i<8; i += 2)
-  72   1          // {
-  73   1          //     Lcd12864_Write16CnCHAR(0, i,"中文测试字符输出");
-  74   1          // }
-  75   1      
-  76   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
-  77   1          LcdSt7565_WriteCmd(0xA0);//ADC Select (Segment Driver Direction Select)
-  78   1      
-  79   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
-  80   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
-  81   1      
-  82   1          Lcd12864_Write16CnCHAR(0, 0,"中文测试字符输出");
-  83   1          Lcd12864_Write16CnCHAR(0, 2,"常用汉字显示测试");
-  84   1          Delay10ms(1000);
-  85   1      
-  86   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
-  87   1          LcdSt7565_WriteCmd(0xA1);//ADC Select (Segment Driver Direction Select)
-  88   1      
-  89   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
-  90   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
-  91   1      
-  92   1          for (i=0;i<8;i++)
-  93   1          {  
-  94   2              //--设置初始显示开始位置--//
-  95   2              LcdSt7565_WriteCmd(0x40);
-  96   2      
-  97   2              //--设置Y坐标--//
-  98   2              LcdSt7565_WriteCmd(0xB0+i);
-  99   2              
- 100   2              //--设置X坐标--// 
- 101   2              LcdSt7565_WriteCmd(0x10); 
- 102   2              LcdSt7565_WriteCmd(0x04); 
- 103   2              for(j=0; j<128; j++)
- 104   2              {
- 105   3                  LcdSt7565_WriteData(~pic[n]);
- 106   3                  n=n+1;
- 107   3              }
- 108   2          }
- 109   1      
- 110   1          while(1)
- 111   1          {
- 112   2      
- 113   2          }
- 114   1      }
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 3   
+  54   1      
+  55   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
+  56   1          LcdSt7565_WriteCmd(0xC0);//Common Output Mode Select
+  57   1      
+  58   1          //--从右到左,从下到上,慢慢刷白屏幕--//
+  59   1          for (i=0; i<8; i++)
+  60   1          {
+  61   2              LcdSt7565_WriteCmd(0xB0+i); //设置Y坐标，具体可以看清屏函数里面的说明
+  62   2      
+  63   2              LcdSt7565_WriteCmd(0x10);   //设置X坐标，具体可以看清屏函数里面的说明
+  64   2              LcdSt7565_WriteCmd(0x04);//0 ... 127(0x04) 128(0x03) 129(0x02) 130(0x01) 131(0x00)
+  65   2              for (j=0; j<128; j++)
+  66   2              {
+  67   3                  LcdSt7565_WriteData(0x00);  //如果设置背景为白色时，清屏选择0XFF
+  68   3                  Delay10ms(2);               //延时一下
+  69   3              }
+  70   2          }   
+  71   1      
+  72   1          // for (i=0; i<8; i += 2)
+  73   1          // {
+  74   1          //     Lcd12864_Write16CnCHAR(0, i,"中文测试字符输出");
+  75   1          // }
+  76   1      
+  77   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
+  78   1          LcdSt7565_WriteCmd(0xA0);//ADC Select (Segment Driver Direction Select)
+  79   1      
+  80   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
+  81   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
+  82   1      
+  83   1          Lcd12864_Write16CnCHAR(0, 0,"中文测试字符输出");
+  84   1          Lcd12864_Write16CnCHAR(0, 2,"常用汉字显示测试");
+  85   1          Delay10ms(500);
+  86   1      
+  87   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
+  88   1          LcdSt7565_WriteCmd(0xA1);//ADC Select (Segment Driver Direction Select)
+  89   1      
+  90   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
+  91   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
+  92   1      
+  93   1          for (i=0;i<8;i++)
+  94   1          {  
+  95   2              //--设置初始显示开始位置--//
+  96   2              LcdSt7565_WriteCmd(0x40);
+  97   2      
+  98   2              //--设置Y坐标--//
+  99   2              LcdSt7565_WriteCmd(0xB0+i);
+ 100   2              
+ 101   2              //--设置X坐标--// 
+ 102   2              LcdSt7565_WriteCmd(0x10); 
+ 103   2              LcdSt7565_WriteCmd(0x04); 
+ 104   2              for(j=0; j<128; j++)
+ 105   2              {
+ 106   3                  LcdSt7565_WriteData(~pic[n]);
+ 107   3                  n=n+1;
+ 108   3              }
+ 109   2          }
+ 110   1          Delay10ms(500);
+ 111   1      
+ 112   1          //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
+ 113   1          LcdSt7565_WriteCmd(0xA0);//ADC Select (Segment Driver Direction Select)
+ 114   1      
+ 115   1          //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 3   
+
+ 116   1          LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
+ 117   1      
+ 118   1          n = 0;
+ 119   1          for (i=0;i<8;i++)
+ 120   1          {  
+ 121   2              //--设置初始显示开始位置--//
+ 122   2              LcdSt7565_WriteCmd(0x40);
+ 123   2      
+ 124   2              //--设置Y坐标--//
+ 125   2              LcdSt7565_WriteCmd(0xB0+i);
+ 126   2              
+ 127   2              //--设置X坐标--// 
+ 128   2              LcdSt7565_WriteCmd(0x10); 
+ 129   2              LcdSt7565_WriteCmd(0x00); 
+ 130   2              for(j=0; j<128; j++)
+ 131   2              {
+ 132   3                  LcdSt7565_WriteData(nBitmapDot[n]);
+ 133   3                  n=n+1;
+ 134   3              }
+ 135   2          }
+ 136   1      
+ 137   1      
+ 138   1          while(1)
+ 139   1          {
+ 140   2      
+ 141   2          }
+ 142   1      }
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 4   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
 
              ; FUNCTION _Delay10ms (BEGIN)
-                                           ; SOURCE LINE # 6
-;---- Variable 'c' assigned to Register 'R6/R7' ----
                                            ; SOURCE LINE # 7
-                                           ; SOURCE LINE # 9
+;---- Variable 'c' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 8
+                                           ; SOURCE LINE # 10
 0000         ?C0001:
 0000 D3                SETB    C
 0001 EF                MOV     A,R7
@@ -142,7 +172,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0004 EE                MOV     A,R6
 0005 9400              SUBB    A,#00H
 0007 4025              JC      ?C0010
-                                           ; SOURCE LINE # 10
+                                           ; SOURCE LINE # 11
 ;---- Variable 'b' assigned to Register 'R5' ----
 0009 7D26              MOV     R5,#026H
 000B         ?C0004:
@@ -152,7 +182,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000F 7480              MOV     A,#080H
 0011 9480              SUBB    A,#080H
 0013 4012              JC      ?C0003
-                                           ; SOURCE LINE # 11
+                                           ; SOURCE LINE # 12
 ;---- Variable 'a' assigned to Register 'R4' ----
 0015 7C82              MOV     R4,#082H
 0017         ?C0007:
@@ -172,29 +202,29 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0028 1F                DEC     R7
 0029 70D5              JNZ     ?C0001
 002B 1E                DEC     R6
-002C         ?C0032:
+002C         ?C0038:
 002C 80D2              SJMP    ?C0001
-                                           ; SOURCE LINE # 12
+                                           ; SOURCE LINE # 13
 002E         ?C0010:
 002E 22                RET     
              ; FUNCTION _Delay10ms (END)
 
              ; FUNCTION main (BEGIN)
-                                           ; SOURCE LINE # 14
                                            ; SOURCE LINE # 15
-                                           ; SOURCE LINE # 18
-0000 120000      E     LCALL   Lcd12864_Init
+                                           ; SOURCE LINE # 16
                                            ; SOURCE LINE # 19
+0000 120000      E     LCALL   Lcd12864_Init
+                                           ; SOURCE LINE # 20
 0003 120000      E     LCALL   Lcd12864_ClearScreen
-                                           ; SOURCE LINE # 32
+                                           ; SOURCE LINE # 33
 0006 7FA0              MOV     R7,#0A0H
 0008 120000      E     LCALL   _LcdSt7565_WriteCmd
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 4   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 5   
 
-                                           ; SOURCE LINE # 35
+                                           ; SOURCE LINE # 36
 000B 7FC8              MOV     R7,#0C8H
 000D 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 38
+                                           ; SOURCE LINE # 39
 0010 E4                CLR     A
 0011 F500        R     MOV     i,A
 0013         ?C0011:
@@ -204,20 +234,20 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0018 7480              MOV     A,#080H
 001A 9480              SUBB    A,#080H
 001C 5034              JNC     ?C0012
-                                           ; SOURCE LINE # 39
                                            ; SOURCE LINE # 40
+                                           ; SOURCE LINE # 41
 001E E500        R     MOV     A,i
 0020 24B0              ADD     A,#0B0H
 0022 FF                MOV     R7,A
 0023 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 42
+                                           ; SOURCE LINE # 43
 0026 7F10              MOV     R7,#010H
 0028 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 44
 002B E4                CLR     A
 002C FF                MOV     R7,A
 002D 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 44
+                                           ; SOURCE LINE # 45
 0030 E4                CLR     A
 0031 F500        R     MOV     j,A
 0033         ?C0014:
@@ -227,33 +257,33 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0038 7480              MOV     A,#080H
 003A 9480              SUBB    A,#080H
 003C 5010              JNC     ?C0013
-                                           ; SOURCE LINE # 45
                                            ; SOURCE LINE # 46
+                                           ; SOURCE LINE # 47
 003E 7FFF              MOV     R7,#0FFH
 0040 120000      E     LCALL   _LcdSt7565_WriteData
-                                           ; SOURCE LINE # 47
+                                           ; SOURCE LINE # 48
 0043 7F02              MOV     R7,#02H
 0045 7E00              MOV     R6,#00H
 0047 120000      R     LCALL   _Delay10ms
-                                           ; SOURCE LINE # 48
+                                           ; SOURCE LINE # 49
 004A 0500        R     INC     j
 004C 80E5              SJMP    ?C0014
-                                           ; SOURCE LINE # 49
+                                           ; SOURCE LINE # 50
 004E         ?C0013:
 004E 0500        R     INC     i
 0050 80C1              SJMP    ?C0011
 0052         ?C0012:
-                                           ; SOURCE LINE # 52
+                                           ; SOURCE LINE # 53
 0052 7FA1              MOV     R7,#0A1H
 0054 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 56
 0057 7FC0              MOV     R7,#0C0H
 0059 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 58
+                                           ; SOURCE LINE # 59
 005C E4                CLR     A
 005D F500        R     MOV     i,A
 005F         ?C0017:
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 5   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 6   
 
 005F C3                CLR     C
 0060 E500        R     MOV     A,i
@@ -261,19 +291,19 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0064 7480              MOV     A,#080H
 0066 9480              SUBB    A,#080H
 0068 5034              JNC     ?C0018
-                                           ; SOURCE LINE # 59
                                            ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 61
 006A E500        R     MOV     A,i
 006C 24B0              ADD     A,#0B0H
 006E FF                MOV     R7,A
 006F 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 62
+                                           ; SOURCE LINE # 63
 0072 7F10              MOV     R7,#010H
 0074 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 63
+                                           ; SOURCE LINE # 64
 0077 7F04              MOV     R7,#04H
 0079 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 64
+                                           ; SOURCE LINE # 65
 007C E4                CLR     A
 007D F500        R     MOV     j,A
 007F         ?C0020:
@@ -283,30 +313,30 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0084 7480              MOV     A,#080H
 0086 9480              SUBB    A,#080H
 0088 5010              JNC     ?C0019
-                                           ; SOURCE LINE # 65
                                            ; SOURCE LINE # 66
+                                           ; SOURCE LINE # 67
 008A E4                CLR     A
 008B FF                MOV     R7,A
 008C 120000      E     LCALL   _LcdSt7565_WriteData
-                                           ; SOURCE LINE # 67
+                                           ; SOURCE LINE # 68
 008F 7F02              MOV     R7,#02H
 0091 7E00              MOV     R6,#00H
 0093 120000      R     LCALL   _Delay10ms
-                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 69
 0096 0500        R     INC     j
 0098 80E5              SJMP    ?C0020
-                                           ; SOURCE LINE # 69
+                                           ; SOURCE LINE # 70
 009A         ?C0019:
 009A 0500        R     INC     i
 009C 80C1              SJMP    ?C0017
 009E         ?C0018:
-                                           ; SOURCE LINE # 77
+                                           ; SOURCE LINE # 78
 009E 7FA0              MOV     R7,#0A0H
 00A0 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 80
+                                           ; SOURCE LINE # 81
 00A3 7FC8              MOV     R7,#0C8H
 00A5 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 82
+                                           ; SOURCE LINE # 83
 00A8 7BFF              MOV     R3,#0FFH
 00AA 7A00        R     MOV     R2,#HIGH ?SC_0
 00AC 7900        R     MOV     R1,#LOW ?SC_0
@@ -314,27 +344,27 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00AF FD                MOV     R5,A
 00B0 FF                MOV     R7,A
 00B1 120000      E     LCALL   _Lcd12864_Write16CnCHAR
-                                           ; SOURCE LINE # 83
+                                           ; SOURCE LINE # 84
 00B4 7BFF              MOV     R3,#0FFH
 00B6 7A00        R     MOV     R2,#HIGH ?SC_25
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 6   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 7   
 
 00B8 7900        R     MOV     R1,#LOW ?SC_25
 00BA 7D02              MOV     R5,#02H
 00BC E4                CLR     A
 00BD FF                MOV     R7,A
 00BE 120000      E     LCALL   _Lcd12864_Write16CnCHAR
-                                           ; SOURCE LINE # 84
-00C1 7FE8              MOV     R7,#0E8H
-00C3 7E03              MOV     R6,#03H
+                                           ; SOURCE LINE # 85
+00C1 7FF4              MOV     R7,#0F4H
+00C3 7E01              MOV     R6,#01H
 00C5 120000      R     LCALL   _Delay10ms
-                                           ; SOURCE LINE # 87
+                                           ; SOURCE LINE # 88
 00C8 7FA1              MOV     R7,#0A1H
 00CA 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 90
+                                           ; SOURCE LINE # 91
 00CD 7FC8              MOV     R7,#0C8H
 00CF 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 92
+                                           ; SOURCE LINE # 93
 00D2 E4                CLR     A
 00D3 F500        R     MOV     i,A
 00D5         ?C0023:
@@ -343,23 +373,23 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00D8 9408              SUBB    A,#08H
 00DA 7480              MOV     A,#080H
 00DC 9480              SUBB    A,#080H
-00DE 5048              JNC     ?C0029
-                                           ; SOURCE LINE # 93
-                                           ; SOURCE LINE # 95
+00DE 5048              JNC     ?C0024
+                                           ; SOURCE LINE # 94
+                                           ; SOURCE LINE # 96
 00E0 7F40              MOV     R7,#040H
 00E2 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 98
+                                           ; SOURCE LINE # 99
 00E5 E500        R     MOV     A,i
 00E7 24B0              ADD     A,#0B0H
 00E9 FF                MOV     R7,A
 00EA 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 101
+                                           ; SOURCE LINE # 102
 00ED 7F10              MOV     R7,#010H
 00EF 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 102
+                                           ; SOURCE LINE # 103
 00F2 7F04              MOV     R7,#04H
 00F4 120000      E     LCALL   _LcdSt7565_WriteCmd
-                                           ; SOURCE LINE # 103
+                                           ; SOURCE LINE # 104
 00F7 E4                CLR     A
 00F8 F500        R     MOV     j,A
 00FA         ?C0026:
@@ -369,8 +399,8 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00FF 7480              MOV     A,#080H
 0101 9480              SUBB    A,#080H
 0103 501F              JNC     ?C0025
-                                           ; SOURCE LINE # 104
                                            ; SOURCE LINE # 105
+                                           ; SOURCE LINE # 106
 0105 7400        R     MOV     A,#LOW pic
 0107 2500        R     ADD     A,n+01H
 0109 F582              MOV     DPL,A
@@ -381,30 +411,107 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0112 93                MOVC    A,@A+DPTR
 0113 F4                CPL     A
 0114 FF                MOV     R7,A
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 7   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 8   
 
 0115 120000      E     LCALL   _LcdSt7565_WriteData
-                                           ; SOURCE LINE # 106
+                                           ; SOURCE LINE # 107
 0118 0500        R     INC     n+01H
 011A E500        R     MOV     A,n+01H
-011C 7002              JNZ     ?C0033
+011C 7002              JNZ     ?C0039
 011E 0500        R     INC     n
-0120         ?C0033:
-                                           ; SOURCE LINE # 107
+0120         ?C0039:
+                                           ; SOURCE LINE # 108
 0120 0500        R     INC     j
 0122 80D6              SJMP    ?C0026
-                                           ; SOURCE LINE # 108
+                                           ; SOURCE LINE # 109
 0124         ?C0025:
 0124 0500        R     INC     i
 0126 80AD              SJMP    ?C0023
-0128         ?C0029:
+0128         ?C0024:
                                            ; SOURCE LINE # 110
-                                           ; SOURCE LINE # 111
+0128 7FF4              MOV     R7,#0F4H
+012A 7E01              MOV     R6,#01H
+012C 120000      R     LCALL   _Delay10ms
                                            ; SOURCE LINE # 113
-0128 80FE              SJMP    ?C0029
+012F 7FA0              MOV     R7,#0A0H
+0131 120000      E     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 116
+0134 7FC8              MOV     R7,#0C8H
+0136 120000      E     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 118
+0139 E4                CLR     A
+013A F500        R     MOV     n,A
+013C F500        R     MOV     n+01H,A
+                                           ; SOURCE LINE # 119
+013E F500        R     MOV     i,A
+0140         ?C0029:
+0140 C3                CLR     C
+0141 E500        R     MOV     A,i
+0143 9408              SUBB    A,#08H
+0145 7480              MOV     A,#080H
+0147 9480              SUBB    A,#080H
+0149 5047              JNC     ?C0035
+                                           ; SOURCE LINE # 120
+                                           ; SOURCE LINE # 122
+014B 7F40              MOV     R7,#040H
+014D 120000      E     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 125
+0150 E500        R     MOV     A,i
+0152 24B0              ADD     A,#0B0H
+0154 FF                MOV     R7,A
+0155 120000      E     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 128
+0158 7F10              MOV     R7,#010H
+015A 120000      E     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 129
+015D E4                CLR     A
+015E FF                MOV     R7,A
+015F 120000      E     LCALL   _LcdSt7565_WriteCmd
+                                           ; SOURCE LINE # 130
+0162 E4                CLR     A
+0163 F500        R     MOV     j,A
+0165         ?C0032:
+0165 C3                CLR     C
+0166 E500        R     MOV     A,j
+0168 9480              SUBB    A,#080H
+016A 7480              MOV     A,#080H
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 9   
+
+016C 9480              SUBB    A,#080H
+016E 501E              JNC     ?C0031
+                                           ; SOURCE LINE # 131
+                                           ; SOURCE LINE # 132
+0170 7400        R     MOV     A,#LOW nBitmapDot
+0172 2500        R     ADD     A,n+01H
+0174 F582              MOV     DPL,A
+0176 7400        R     MOV     A,#HIGH nBitmapDot
+0178 3500        R     ADDC    A,n
+017A F583              MOV     DPH,A
+017C E4                CLR     A
+017D 93                MOVC    A,@A+DPTR
+017E FF                MOV     R7,A
+017F 120000      E     LCALL   _LcdSt7565_WriteData
+                                           ; SOURCE LINE # 133
+0182 0500        R     INC     n+01H
+0184 E500        R     MOV     A,n+01H
+0186 7002              JNZ     ?C0040
+0188 0500        R     INC     n
+018A         ?C0040:
+                                           ; SOURCE LINE # 134
+018A 0500        R     INC     j
+018C 80D7              SJMP    ?C0032
+                                           ; SOURCE LINE # 135
+018E         ?C0031:
+018E 0500        R     INC     i
+0190 80AE              SJMP    ?C0029
+0192         ?C0035:
+                                           ; SOURCE LINE # 138
+                                           ; SOURCE LINE # 139
+                                           ; SOURCE LINE # 141
+0192 80FE              SJMP    ?C0035
              ; FUNCTION main (END)
 
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 8   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 10  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -467,7 +574,7 @@ Lcd12864_ClearScreen . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
 TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
 ET2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
-C51 COMPILER V9.60.0.0   MAIN                                                              04/21/2021 21:32:20 PAGE 9   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 11  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -513,13 +620,14 @@ T2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
 RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
 TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
 F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+nBitmapDot . . . . . . . . . . . . . .  PUBLIC   CODE   ARRAY    0432H  1024
 LCD12864_RSET. . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
 PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    345    ----
-   CONSTANT SIZE    =   1074    ----
+   CODE SIZE        =    451    ----
+   CONSTANT SIZE    =   2098    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----       4
@@ -530,6 +638,8 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.0.0   MAIN                                                              04/22/2021 00:30:25 PAGE 12  
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 1   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ST7565
@@ -62,7 +62,7 @@ line level    source
   51   1      
   52   1          LcdSt7565_WriteCmd(0xE2);//reset st7565
   53   1          delay_ms(1);
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 2   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 2   
 
   54   1      
   55   1      //-----------------------128*64-----------------------//
@@ -126,7 +126,7 @@ line level    source
  113   2              //Page address set
  114   2              LcdSt7565_WriteCmd(0xB0+page);//Sets the display RAM page address
  115   2              
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 3   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 3   
 
  116   2              //0-131 0x00,0x83 132bit ST7565 default
  117   2              //4-131 0x04,0x83 128bit LCD12864 use address!
@@ -190,7 +190,7 @@ line level    source
  175   5                          {
  176   6                              //--设置Y坐标--//
  177   6                              LcdSt7565_WriteCmd(y + 1);
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 4   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 4   
 
  178   6                  
  179   6                              //--设置X坐标--//
@@ -210,7 +210,7 @@ line level    source
  193          
  194          #endif
  195          
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 5   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 5   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -274,7 +274,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 000C C2A6              CLR     LCD12864_RS
                                            ; SOURCE LINE # 17
 000E D2A5              SETB    LCD12864_RD
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 6   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 6   
 
                                            ; SOURCE LINE # 18
 0010 C2A7              CLR     LCD12864_WR
@@ -338,7 +338,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 52
 000D 7FE2              MOV     R7,#0E2H
 000F 120000      R     LCALL   _LcdSt7565_WriteCmd
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 7   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 7   
 
                                            ; SOURCE LINE # 53
 0012 7F01              MOV     R7,#01H
@@ -402,7 +402,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0003 C3                CLR     C
 0004 9408              SUBB    A,#08H
 0006 7480              MOV     A,#080H
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 8   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 8   
 
 0008 9480              SUBB    A,#080H
 000A 5027              JNC     ?C0017
@@ -466,7 +466,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 143
 0012         ?C0018:
                                            ; SOURCE LINE # 146
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 9   
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 9   
 
 0012 D3                SETB    C
 0013 E500        R     MOV     A,x
@@ -530,7 +530,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 0061 3400        R     ADDC    A,#HIGH GB_16
 0063 F583              MOV     DPH,A
 0065 E4                CLR     A
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 10  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 10  
 
 0066 93                MOVC    A,@A+DPTR
 0067 6F                XRL     A,R7
@@ -594,7 +594,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 181
 00C0 120000      R     LCALL   L?0033
                                            ; SOURCE LINE # 182
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 11  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 11  
 
 00C3         ?C0030:
                                            ; SOURCE LINE # 183
@@ -649,7 +649,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 00FD 22                RET     
              ; FUNCTION _Lcd12864_Write16CnCHAR (END)
 
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 12  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 12  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -712,7 +712,7 @@ CP_RL2 . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
 ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
 ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
 Lcd12864_ClearScreen . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 13  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 13  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -776,7 +776,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    480    ----
    CONSTANT SIZE    =    560    ----
    XDATA SIZE       =   ----    ----
-C51 COMPILER V9.60.0.0   ST7565                                                            04/21/2021 21:32:20 PAGE 14  
+C51 COMPILER V9.60.0.0   ST7565                                                            04/22/2021 00:30:25 PAGE 14  
 
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----       4
