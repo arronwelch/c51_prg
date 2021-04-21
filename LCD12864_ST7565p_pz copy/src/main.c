@@ -1,6 +1,7 @@
 
 #include "reg52.h"
 #include "st7565.h"
+#include "picture.h"
 
 void Delay10ms(unsigned int c)   //误差 0us
 {
@@ -13,6 +14,7 @@ void Delay10ms(unsigned int c)   //误差 0us
 void main(void)
 {
     uchar i,j;
+    uint n;
     Lcd12864_Init();
     Lcd12864_ClearScreen();
 
@@ -79,6 +81,31 @@ void main(void)
 
     Lcd12864_Write16CnCHAR(0, 0,"中文测试字符输出");
     Lcd12864_Write16CnCHAR(0, 2,"常用汉字显示测试");
+    Delay10ms(1000);
+
+    //0xA0,Narmal(SEG0-SEG131) 0xA1,Reverse(SEG131-SEG0);
+    LcdSt7565_WriteCmd(0xA1);//ADC Select (Segment Driver Direction Select)
+
+    //0xC0,Narmal(COM0→COM63) 0xC8,Reverse(COM63→COM0);
+    LcdSt7565_WriteCmd(0xC8);//Common Output Mode Select
+
+	for (i=0;i<8;i++)
+	{  
+	    //--设置初始显示开始位置--//
+		LcdSt7565_WriteCmd(0x40);
+
+		//--设置Y坐标--//
+		LcdSt7565_WriteCmd(0xB0+i);
+		
+		//--设置X坐标--// 
+		LcdSt7565_WriteCmd(0x10); 
+		LcdSt7565_WriteCmd(0x04); 
+		for(j=0; j<128; j++)
+		{
+			LcdSt7565_WriteData(~pic[n]);
+			n=n+1;
+		}
+	}
 
     while(1)
     {

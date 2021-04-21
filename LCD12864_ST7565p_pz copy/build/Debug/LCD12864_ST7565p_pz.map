@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/21/2021  20:39:48  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/21/2021  21:32:20  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -27,9 +27,9 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   000327H   CODE
-I:000000H   I:000000H   I:00007FH   00000EH   DATA
-C:000000H   C:000000H   C:00FFFFH   000262H   CONST
+C:000000H   C:000000H   C:00FFFFH   00038EH   CODE
+I:000000H   I:000000H   I:00007FH   000010H   DATA
+C:000000H   C:000000H   C:00FFFFH   000662H   CONST
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
 
@@ -41,23 +41,23 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
-000008H   00000DH   000006H   BYTE   UNIT     DATA           _DATA_GROUP_
-00000EH   00000EH   000001H   BYTE   UNIT     IDATA          ?STACK
+000008H   00000FH   000008H   BYTE   UNIT     DATA           _DATA_GROUP_
+000010H   000010H   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
-000003H   000100H   0000FEH   BYTE   UNIT     CODE           ?PR?_LCD12864_WRITE16CNCHAR?ST7565
-000101H   0001C3H   0000C3H   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
-0001C4H   000225H   000062H   BYTE   UNIT     CODE           ?PR?LCD12864_INIT?ST7565
-000226H   00026BH   000046H   BYTE   UNIT     CODE           ?C?LIB_CODE
-00026CH   00029FH   000034H   BYTE   UNIT     CODE           ?PR?LCD12864_CLEARSCREEN?ST7565
-0002A0H   0002CEH   00002FH   BYTE   UNIT     CODE           ?PR?_DELAY10MS?MAIN
-0002CFH   0002EEH   000020H   BYTE   UNIT     CODE           ?PR?_DELAY_MS?ST7565
-0002EFH   000309H   00001BH   BYTE   UNIT     CODE           ?PR?_LCDST7565_WRITECMD?ST7565
-00030AH   00031AH   000011H   BYTE   UNIT     CODE           ?PR?_LCDST7565_WRITEDATA?ST7565
-00031BH   000326H   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-000327H   000556H   000230H   BYTE   UNIT     CONST          ?CO?ST7565
-000557H   000588H   000032H   BYTE   UNIT     CONST          ?CO?MAIN
+000003H   00012CH   00012AH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+00012DH   00022AH   0000FEH   BYTE   UNIT     CODE           ?PR?_LCD12864_WRITE16CNCHAR?ST7565
+00022BH   00028CH   000062H   BYTE   UNIT     CODE           ?PR?LCD12864_INIT?ST7565
+00028DH   0002D2H   000046H   BYTE   UNIT     CODE           ?C?LIB_CODE
+0002D3H   000306H   000034H   BYTE   UNIT     CODE           ?PR?LCD12864_CLEARSCREEN?ST7565
+000307H   000335H   00002FH   BYTE   UNIT     CODE           ?PR?_DELAY10MS?MAIN
+000336H   000355H   000020H   BYTE   UNIT     CODE           ?PR?_DELAY_MS?ST7565
+000356H   000370H   00001BH   BYTE   UNIT     CODE           ?PR?_LCDST7565_WRITECMD?ST7565
+000371H   000381H   000011H   BYTE   UNIT     CODE           ?PR?_LCDST7565_WRITEDATA?ST7565
+000382H   00038DH   00000CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00038EH   0007BFH   000432H   BYTE   UNIT     CONST          ?CO?MAIN
+0007C0H   0009EFH   000230H   BYTE   UNIT     CONST          ?CO?ST7565
 
 
 
@@ -67,13 +67,13 @@ OVERLAY MAP OF MODULE:   .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
 FUNCTION/MODULE                      BIT_GROUP   DATA_GROUP 
 --> CALLED FUNCTION/MODULE          START  STOP  START  STOP
 ============================================================
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  20:39:48  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  21:32:20  PAGE 2
 
 
 ?C_C51STARTUP                       ----- -----  ----- -----
   +--> MAIN/MAIN
 
-MAIN/MAIN                           ----- -----  0008H 0009H
+MAIN/MAIN                           ----- -----  0008H 000BH
   +--> LCD12864_INIT/ST7565
   +--> LCD12864_CLEARSCREEN/ST7565
   +--> _LCDST7565_WRITECMD/ST7565
@@ -97,7 +97,7 @@ _LCDST7565_WRITEDATA/ST7565         ----- -----  ----- -----
 
 _DELAY10MS/MAIN                     ----- -----  ----- -----
 
-_LCD12864_WRITE16CNCHAR/ST7565      ----- -----  000AH 000DH
+_LCD12864_WRITE16CNCHAR/ST7565      ----- -----  000CH 000FH
   +--> _LCDST7565_WRITECMD/ST7565
   +--> _LCDST7565_WRITEDATA/ST7565
 
@@ -108,21 +108,22 @@ PUBLIC SYMBOLS OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
-      0100023FH   CODE     ---       ?C?CLDOPTR
-      01000226H   CODE     ---       ?C?CLDPTR
+      010002A6H   CODE     ---       ?C?CLDOPTR
+      0100028DH   CODE     ---       ?C?CLDPTR
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-      01000101H   CODE     ---       ?C_START
+      01000003H   CODE     ---       ?C_START
       01000000H   CODE     ---       ?C_STARTUP
-      010002A0H   CODE     ---       _Delay10ms
-      010002CFH   CODE     ---       _delay_ms
-      01000003H   CODE     ---       _Lcd12864_Write16CnCHAR
-      010002F9H   CODE     ---       _LcdSt7565_WriteCmd
-      0100030AH   CODE     ---       _LcdSt7565_WriteData
-      01000327H   CONST    ---       GB_16
-      0100026CH   CODE     ---       Lcd12864_ClearScreen
-      010001C4H   CODE     ---       Lcd12864_Init
-      01000101H   CODE     ---       main
+      01000307H   CODE     ---       _Delay10ms
+      01000336H   CODE     ---       _delay_ms
+      0100012DH   CODE     ---       _Lcd12864_Write16CnCHAR
+      01000360H   CODE     ---       _LcdSt7565_WriteCmd
+      01000371H   CODE     ---       _LcdSt7565_WriteData
+      010007C0H   CONST    ---       GB_16
+      010002D3H   CODE     ---       Lcd12864_ClearScreen
+      0100022BH   CODE     ---       Lcd12864_Init
+      01000003H   CODE     ---       main
+      010003C0H   CONST    ---       pic
 
 
 
@@ -131,66 +132,68 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       MAIN
-      01000101H   PUBLIC    CODE     ---       main
-      010002A0H   PUBLIC    CODE     ---       _Delay10ms
+      010003C0H   PUBLIC    CONST    ---       pic
+      01000003H   PUBLIC    CODE     ---       main
+      01000307H   PUBLIC    CODE     ---       _Delay10ms
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  21:32:20  PAGE 3
 
-      010002A0H   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  20:39:48  PAGE 3
 
 
-      010002A0H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000307H   BLOCK     CODE     ---       LVL=0
+      01000307H   BLOCK     CODE     NEAR LAB  LVL=1
       00000004H   SYMBOL    DATA     VOID      a
       00000005H   SYMBOL    DATA     VOID      b
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000101H   BLOCK     CODE     ---       LVL=0
-      01000101H   BLOCK     CODE     NEAR LAB  LVL=1
+      01000003H   BLOCK     CODE     ---       LVL=0
+      01000003H   BLOCK     CODE     NEAR LAB  LVL=1
       00000008H   SYMBOL    DATA     VOID      i
       00000009H   SYMBOL    DATA     VOID      j
+      0000000AH   SYMBOL    DATA     VOID      n
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ST7565
-      01000327H   PUBLIC    CONST    ---       GB_16
-      01000003H   PUBLIC    CODE     ---       _Lcd12864_Write16CnCHAR
-      0100026CH   PUBLIC    CODE     ---       Lcd12864_ClearScreen
-      010001C4H   PUBLIC    CODE     ---       Lcd12864_Init
-      0100030AH   PUBLIC    CODE     ---       _LcdSt7565_WriteData
-      010002F9H   PUBLIC    CODE     ---       _LcdSt7565_WriteCmd
-      010002CFH   PUBLIC    CODE     ---       _delay_ms
+      010007C0H   PUBLIC    CONST    ---       GB_16
+      0100012DH   PUBLIC    CODE     ---       _Lcd12864_Write16CnCHAR
+      010002D3H   PUBLIC    CODE     ---       Lcd12864_ClearScreen
+      0100022BH   PUBLIC    CODE     ---       Lcd12864_Init
+      01000371H   PUBLIC    CODE     ---       _LcdSt7565_WriteData
+      01000360H   PUBLIC    CODE     ---       _LcdSt7565_WriteCmd
+      01000336H   PUBLIC    CODE     ---       _delay_ms
 
-      010002CFH   BLOCK     CODE     ---       LVL=0
-      010002CFH   BLOCK     CODE     NEAR LAB  LVL=1
+      01000336H   BLOCK     CODE     ---       LVL=0
+      01000336H   BLOCK     CODE     NEAR LAB  LVL=1
       00000004H   SYMBOL    DATA     VOID      i
       00000002H   SYMBOL    DATA     VOID      j
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002EFH   BLOCK     CODE     ---       LVL=0
+      01000356H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002F9H   BLOCK     CODE     ---       LVL=0
+      01000360H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100030AH   BLOCK     CODE     ---       LVL=0
+      01000371H   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010001C4H   BLOCK     CODE     ---       LVL=0
+      0100022BH   BLOCK     CODE     ---       LVL=0
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100026CH   BLOCK     CODE     ---       LVL=0
-      0100026CH   BLOCK     CODE     NEAR LAB  LVL=1
+      010002D3H   BLOCK     CODE     ---       LVL=0
+      010002D3H   BLOCK     CODE     NEAR LAB  LVL=1
       00000006H   SYMBOL    DATA     VOID      page
       00000005H   SYMBOL    DATA     VOID      x
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000003H   BLOCK     CODE     ---       LVL=0
-      01000007H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100012DH   BLOCK     CODE     ---       LVL=0
+      01000131H   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      j
-      0000000CH   SYMBOL    DATA     VOID      x1
-      0000000DH   SYMBOL    DATA     VOID      x2
+      0000000EH   SYMBOL    DATA     VOID      x1
+      0000000FH   SYMBOL    DATA     VOID      x2
       00000006H   SYMBOL    DATA     VOID      wordNum
       ---         BLOCKEND  ---      ---       LVL=1
       ---         BLOCKEND  ---      ---       LVL=0
@@ -199,13 +202,13 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
       ---         MODULE    ---      ---       ?C?CLDPTR
-      01000226H   PUBLIC    CODE     ---       ?C?CLDPTR
+      0100028DH   PUBLIC    CODE     ---       ?C?CLDPTR
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  21:32:20  PAGE 4
+
+
 
       ---         MODULE    ---      ---       ?C?CLDOPTR
-      0100023FH   PUBLIC    CODE     ---       ?C?CLDOPTR
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/21/2021  20:39:48  PAGE 4
+      010002A6H   PUBLIC    CODE     ---       ?C?CLDOPTR
 
-
-
-Program Size: data=15.0 xdata=0 const=610 code=807
+Program Size: data=17.0 xdata=0 const=1634 code=910
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

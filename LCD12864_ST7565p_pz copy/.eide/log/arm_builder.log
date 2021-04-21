@@ -55,3 +55,21 @@
 [2021-04-21 20:39:48]	[done]
 	build successfully !
 
+[2021-04-21 21:02:03]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz copy\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-21 21:06:13]	compilation failed at : "d:\study\C51\c51_prg\LCD12864_ST7565p_pz copy\src\main.c", exit code: 2
+   在 unify_builder.Program.Main(String[] args)
+
+[2021-04-21 21:06:59]	[done]
+	build successfully !
+
+[2021-04-21 21:30:23]	[done]
+	build successfully !
+
+[2021-04-21 21:31:15]	[done]
+	build successfully !
+
+[2021-04-21 21:32:20]	[done]
+	build successfully !
+
