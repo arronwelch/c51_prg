@@ -2,7 +2,7 @@
 #include "reg52.h"
 #include "st7565.h"
 #include "picture.h"
-#include "QC.h"
+#include "qrcode.h"
 
 void Delay10ms(unsigned int c)   //误差 0us
 {

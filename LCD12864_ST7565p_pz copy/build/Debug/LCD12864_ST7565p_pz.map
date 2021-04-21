@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/22/2021  00:30:25  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          04/22/2021  00:40:03  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ OVERLAY MAP OF MODULE:   .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
 FUNCTION/MODULE                      BIT_GROUP   DATA_GROUP 
 --> CALLED FUNCTION/MODULE          START  STOP  START  STOP
 ============================================================
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/22/2021  00:30:25  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/22/2021  00:40:03  PAGE 2
 
 
 ?C_C51STARTUP                       ----- -----  ----- -----
@@ -135,7 +135,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
       ---         MODULE    ---      ---       MAIN
       0100082AH   PUBLIC    CONST    ---       nBitmapDot
       0100042AH   PUBLIC    CONST    ---       pic
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/22/2021  00:30:25  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/22/2021  00:40:03  PAGE 3
 
 
       01000003H   PUBLIC    CODE     ---       main
@@ -203,7 +203,7 @@ SYMBOL TABLE OF MODULE:  .\BUILD\DEBUG\LCD12864_ST7565P_PZ (MAIN)
       ---         MODULE    ---      ---       ?C_STARTUP
       01000000H   PUBLIC    CODE     ---       ?C_STARTUP
 
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/22/2021  00:30:25  PAGE 4
+LX51 LINKER/LOCATER V4.66.97.0                                                        04/22/2021  00:40:03  PAGE 4
 
 
       ---         MODULE    ---      ---       ?C?CLDPTR
