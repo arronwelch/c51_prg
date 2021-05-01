@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.97.0                                                          04/08/2021  01:06:10  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          05/01/2021  19:04:05  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
@@ -67,7 +67,7 @@ READIR/MAIN                 ----- -----  0016H 0016H
 _DELAY/MAIN                 ----- -----  ----- -----
 
 *** NEW ROOT **************
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/08/2021  01:06:10  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/01/2021  19:04:05  PAGE 2
 
 
 
@@ -135,7 +135,7 @@ SYMBOL TABLE OF MODULE:  .\build\Debug\NEC_infra-red remote control (MAIN)
       010001B4H   BLOCK     CODE     ---       LVL=0
       010001B4H   BLOCK     CODE     NEAR LAB  LVL=1
       00000005H   SYMBOL    DATA     VOID      i
-LX51 LINKER/LOCATER V4.66.97.0                                                        04/08/2021  01:06:10  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        05/01/2021  19:04:05  PAGE 3
 
 
       ---         BLOCKEND  ---      ---       LVL=1
