@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  TEXT1                                                                05/24/2021 22:55:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN Text1.OBJ
+ASSEMBLER INVOKED BY: e:\Keil_v5\C51\BIN\A51.EXE Text1.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;主程序:
+                       2     ;Board:HC6800-EM3 V3.0
+                       3     ;IC:STC12C5A16S2
+                       4     ;Attention:STC-ISP NEED power-down and power-on !!!
+                       5     
+0000 D280              6     LOOP: SETB P0.0   ;(1)熄灭灯
+0002 12000C            7     LCALL DELAY       ;(2)延时一段时间
+0005 C280              8     CLR P0.0          ;(3)点亮灯
+0007 12000C            9     LCALL DELAY       ;(4)延时一段时间
+000A 0100             10     AJMP LOOP         ;(5)跳转到第一句LOOP处
+                      11     
+                      12     ;以下子程序
+000C 7FFA             13     DELAY: MOV R7,#250;(6)
+000E 7EFA             14     D1: MOV R6,#250   ;(7)
+0010 7D0A             15     D2: MOV R5,#10   ;(7)
+0012 DDFE             16     D3: DJNZ R5,D3    ;(8)
+0014 DEFA             17         DJNZ R6,D2
+0016 DFF6             18         DJNZ R7,D1    ;(9)
+0018 22               19         RET           ;(10)
+                      20     END               ;(11)
+A51 MACRO ASSEMBLER  TEXT1                                                                05/24/2021 22:55:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D1 . . . . . . . .  C ADDR   000EH   A   
+D2 . . . . . . . .  C ADDR   0010H   A   
+D3 . . . . . . . .  C ADDR   0012H   A   
+DELAY. . . . . . .  C ADDR   000CH   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
