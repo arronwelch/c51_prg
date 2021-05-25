@@ -10,9 +10,9 @@ LCALL DELAY       ;(4)延时一段时间
 AJMP LOOP         ;(5)跳转到第一句LOOP处
 
 ;以下子程序
-DELAY: MOV R7,#250;(6)
-D1: MOV R6,#250   ;(7)
-D2: MOV R5,#10   ;(7)
+DELAY: MOV R7,#0;(6)
+D1: MOV R6,#0   ;(7)
+D2: MOV R5,#0   ;(7)
 D3: DJNZ R5,D3    ;(8)
     DJNZ R6,D2
     DJNZ R7,D1    ;(9)
