@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  TEXT1                                                                05/25/2021 22:37:41 PAGE     1
+A51 MACRO ASSEMBLER  TEXT1                                                                05/25/2021 22:46:34 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02
@@ -19,15 +19,15 @@ LOC  OBJ            LINE     SOURCE
 000A 0100             10     AJMP LOOP         ;(5)跳转到第一句LOOP处
                       11     
                       12     ;以下子程序
-000C 7F00             13     DELAY: MOV R7,#0;(6)
-000E 7E00             14     D1: MOV R6,#0   ;(7)
-0010 7D00             15     D2: MOV R5,#0   ;(7)
+000C 7FFA             13     DELAY: MOV R7,#250;(6)
+000E 7EFA             14     D1: MOV R6,#250   ;(7)
+0010 7D0A             15     D2: MOV R5,#10   ;(7)
 0012 DDFE             16     D3: DJNZ R5,D3    ;(8)
 0014 DEFA             17         DJNZ R6,D2
 0016 DFF6             18         DJNZ R7,D1    ;(9)
 0018 22               19         RET           ;(10)
                       20     END               ;(11)
-A51 MACRO ASSEMBLER  TEXT1                                                                05/25/2021 22:37:41 PAGE     2
+A51 MACRO ASSEMBLER  TEXT1                                                                05/25/2021 22:46:34 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
