@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        05/25/2021  01:32:54  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/28/2021  22:36:30  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -25,9 +25,9 @@ LINK MAP OF MODULE:  blink_inC (MAIN)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     0013H     UNIT         ?PR?DELAY?MAIN
-            CODE    0016H     000CH     UNIT         ?PR?MAIN?MAIN
-            CODE    0022H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0003H     000EH     UNIT         ?PR?DELAY?MAIN
+            CODE    0011H     000CH     UNIT         ?PR?MAIN?MAIN
+            CODE    001DH     000CH     UNIT         ?C_C51STARTUP
 
 
 
@@ -55,39 +55,32 @@ SYMBOL TABLE OF MODULE:  blink_inC (MAIN)
   D:0080H         PUBLIC        P0
   B:0080H.0       PUBLIC        P0_0
   C:0003H         PUBLIC        delay
-  C:0016H         PUBLIC        main
+  C:0011H         PUBLIC        main
   -------         PROC          DELAY
   -------         DO            
-  D:0007H         SYMBOL        x
-BL51 BANKED LINKER/LOCATER V6.22                                                      05/25/2021  01:32:54  PAGE 2
+  D:0006H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/28/2021  22:36:30  PAGE 2
 
 
-  D:0006H         SYMBOL        y
-  D:0005H         SYMBOL        z
   -------         ENDDO         
-  C:0003H         LINE#         5
-  C:0003H         LINE#         6
-  C:0003H         LINE#         8
-  C:0005H         LINE#         9
-  C:0005H         LINE#         10
-  C:0007H         LINE#         11
-  C:0007H         LINE#         12
-  C:000DH         LINE#         13
-  C:0011H         LINE#         14
-  C:0015H         LINE#         15
+  C:0003H         LINE#         17
+  C:0003H         LINE#         18
+  C:0003H         LINE#         19
+  C:0007H         LINE#         20
+  C:0010H         LINE#         22
   -------         ENDPROC       DELAY
   -------         PROC          MAIN
-  C:0016H         LINE#         18
-  C:0016H         LINE#         19
-  C:0016H         LINE#         20
-  C:0016H         LINE#         21
-  C:0016H         LINE#         22
-  C:0018H         LINE#         23
-  C:001BH         LINE#         24
-  C:001DH         LINE#         25
-  C:0020H         LINE#         26
+  C:0011H         LINE#         25
+  C:0011H         LINE#         26
+  C:0011H         LINE#         27
+  C:0011H         LINE#         28
+  C:0011H         LINE#         29
+  C:0013H         LINE#         30
+  C:0016H         LINE#         31
+  C:0018H         LINE#         32
+  C:001BH         LINE#         33
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
-Program Size: data=9.0 xdata=0 code=46
+Program Size: data=9.0 xdata=0 code=41
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

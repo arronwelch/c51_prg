@@ -2,16 +2,23 @@
 
 sbit P0_0 = P0^0;
 
-void delay(void)
+//void delay(void)
+//{
+//	unsigned char x,y,z;
+//	for(x=0;x<250;x++)
+//	{
+//		for(y=0;y<250;y++)
+//		{
+//			for(z=0;z<10;z++);
+//		}
+//	}
+//}
+
+void delay()
 {
-	unsigned char x,y,z;
-	for(x=0;x<250;x++)
-	{
-		for(y=0;y<250;y++)
-		{
-			for(z=0;z<10;z++);
-		}
-	}
+ unsigned int i=10000;
+ while(--i)
+;
 }
 
 
