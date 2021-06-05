@@ -1,0 +1,14 @@
+Added Component: Designator=D?(SMB)
+Added Component: Designator=U?(SOT402-1_L)
+Added Pin To Net: NetName=GND Pin=D?-2
+Added Pin To Net: NetName=GND Pin=P3-13
+Added Pin To Net: NetName=GND Pin=U?-12
+Added Pin To Net: NetName=NetD?_1 Pin=D?-1
+Added Pin To Net: NetName=NetD?_1 Pin=U?-11
+Added Net: Name=NetD?_1
+Added Pin To Net: NetName=VCC Pin=P3-1
+Added Pin To Net: NetName=VCC Pin=U?-8
+Added Pin To Net: NetName=VCC Pin=U?-13
+Added Net: Name=VCC
+Added Member To Class: ClassName=diff_demo Member=Component D? D Schottky
+Added Member To Class: ClassName=diff_demo Member=Component U? DAC-8

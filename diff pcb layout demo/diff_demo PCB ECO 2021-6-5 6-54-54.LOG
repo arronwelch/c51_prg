@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=VCC Pin=P3-1
+Removed Pin From Net: NetName=VCC Pin=U?-8
+Change Component Designator: OldDesignator=D? NewDesignator=D1
+Change Component Designator: OldDesignator=U? NewDesignator=U1
+Added Component: Designator=Q1(SOT89L)
+Added Pin To Net: NetName=VCC Pin=P3-2
+Added Pin To Net: NetName=VCC Pin=Q1-2
+Added Pin To Net: NetName=VCC Pin=Q1-2
+Added Pin To Net: NetName=GND Pin=Q1-3
+Change Net Name : Old Net Name=NetD?_1 New Net Name=NetD1_1
+Added Pin To Net: NetName=NetP3_1 Pin=P3-1
+Added Pin To Net: NetName=NetP3_1 Pin=Q1-1
+Added Net: Name=NetP3_1
+Added Member To Class: ClassName=diff_demo Member=Component Q1 Diac-PNP
